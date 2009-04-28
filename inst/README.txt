@@ -30,19 +30,19 @@ OBTAINING R/xoi
 INSTALLATION OF R AND R/xoi (Windows)
 
   1. The Windows version of R is distributed as a single file, with a
-     name something like R-2.5.0-win32.exe.  Install R by executing
+     name something like R-2.9.0-win32.exe.  Install R by executing
      this file.  We recommend installing R in "c:\R" rather than
      "c:\Program Files\R".  Why didn't Microsoft use "Programs" rather
      than "Program files"?
 
-  2. To install R/xoi, download the file "xoi_0.52-6.zip" (or
+  2. To install R/xoi, download the file "xoi_0.53-4.zip" (or
      the equivalent) and then do one of the following:
 
      a. Start R.  Select (on the menu bar) "Packages" and then
         "Install package from local zip file...".  Find the file
-        "xoi_0.52-6.zip" on your hard drive, and click "Open".
+        "xoi_0.53-4.zip" on your hard drive, and click "Open".
 
-     b. Unzip the "xoi_0.52-6.zip" file into the directory
+     b. Unzip the "xoi_0.53-4.zip" file into the directory
         $RHOME\library (where $RHOME is something like c:\R\rw1081).
         Note that this should create a directory
         $RHOME\library\xoi containing the R source code and the
@@ -54,8 +54,8 @@ INSTALLATION OF R AND R/xoi (Windows)
 
 INSTALLATION OF R AND R/xoi (MacOS version 10.2.x and above)
 
-  1. Download the file R-2.5.0.dmg and double-click it to mount a
-     "drive" with a name something like "R-2.5.0".  Follow the
+  1. Download the file R-2.9.0.dmg and double-click it to mount a
+     "drive" with a name something like "R-2.9.0".  Follow the
      instructions in the file "ReadMe.txt".
 
   2. To install R/xoi:
