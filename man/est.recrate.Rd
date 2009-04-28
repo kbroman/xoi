@@ -33,8 +33,8 @@ est.recrate(genmap, phymap, pos, window=5)
 
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu}}
 
-\examples{
-}
+%\examples{
+%}
 
 \seealso{ \code{\link[xoi]{est.coi}} }
 
