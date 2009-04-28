@@ -1,0 +1,20 @@
+bssbsb                  BSS/BSB backcross data
+chiasma                 Estimate chiasma distribution from crossover
+                        counts
+convertxoloc            Convert format of crossover locations data
+countxo                 Estimate number of crossovers
+distance.given.two      Distance between crossovers given there are two
+est.coi                 Estimate the coincidence function.
+est.recrate             Estimate recombination rate.
+find.breaks             Estimate crossover locations
+first.given.two         Location of first crossover given there are two
+firstden                Distance to a crossover
+fitGamma                Fit Gamma model
+gammacoi                Coincidence function for the gamma model
+ioden                   Distance between crossovers
+joint.given.two         Crossover locations given there are two
+location.given.one      Location of crossover given there is one
+simStahl                Simulate crossover locations under the Stahl
+                        model
+stahlcoi                Coincidence function for the Stahl model
+xoprob                  Distribution of number of crossovers

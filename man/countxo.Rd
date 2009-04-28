@@ -1,0 +1,47 @@
+\name{countxo}
+\alias{countxo}
+
+\title{Estimate number of crossovers}
+
+\description{
+  Estimate the number of crossovers in each meiosis in a backcross.
+}
+
+\usage{
+countxo(cross, chr)
+}
+\arguments{
+ \item{cross}{An object of class \code{cross}. (This must be a backcross.) See
+   \code{\link[qtl]{read.cross}} for details.  }
+ \item{chr}{Optional set of chromosomes across which to count
+   crossovers.  If missing, the total number of crossovers, genome-wide,
+ is counted.}
+}
+
+\value{
+  A vector with the estimated number of crossovers for
+  each individual.  
+}
+
+\details{
+  This works only a backcross.  We use the internal function (within
+  R/qtl) \code{locate.xo}.
+
+}
+
+\author{Karl W Broman, \email{kbroman@biostat.wisc.edu}}
+
+\examples{
+data(bssbsb)
+
+# estimated number of crossovers on chr 1
+nxo <- countxo(bssbsb, chr=1)
+
+# estimated number of crossovers genome-wide
+nxo <- countxo(bssbsb)
+}
+
+\seealso{ \code{\link[xoi]{find.breaks}} }
+
+
+\keyword{utilities}

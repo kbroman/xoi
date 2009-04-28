@@ -1,0 +1,81 @@
+\name{xoprob}
+\alias{xoprob}
+
+\title{Distribution of number of crossovers}
+
+\description{
+  Calculates the probability of 0, 1, 2, or >2 crossovers for a
+  chromosome of a given length, for the gamma model.
+}
+
+\usage{
+xoprob(nu, L=103, max.conv=25,
+       integr.tol=1e-8, max.subd=1000, min.subd=10)
+}
+\arguments{
+ \item{nu}{The interference parameter in the gamma model.}
+\item{L}{Length of the chromosome (in cM).}
+\item{max.conv}{Maximum limit for summation in the convolutions to get
+  inter-crossover distance distribution from the inter-chiasma distance
+  distributions.  This should be greater than the maximum number of
+  chiasmata on the 4-strand bundle.}
+\item{integr.tol}{Tolerance for convergence of numerical integration.}
+\item{max.subd}{Maximum number of subdivisions in numerical
+  integration.}
+\item{min.subd}{Minimum number of subdivisions in numerical
+  integration.}
+}
+
+\value{
+  A vector of length 4, giving the probabilities of 0, 1, 2, or >2
+  crossovers, respectively, on a chromosome of length \code{L} cM.
+}
+
+\details{
+  Let \eqn{f(x;\nu)}{f(x;nu)} denote the density of a gamma random
+  variable with parameters shape=\eqn{\nu}{nu} and rate=\eqn{2\nu}{2
+    nu}, and let \eqn{f_k(x;\nu)}{f_k(x;\nu)} denote the density of a gamma random
+  variable with parameters shape=\eqn{k \nu}{k nu} and rate=\eqn{2\nu}{2
+    nu}.  
+
+  The distribution of the distance from one crossover to the next is
+  \eqn{f^*(x;\nu) = \sum_{k=1}^{\infty} f_k(x;\nu)/2^k}{f*(x;nu) = sum_(k=1 to infty)
+    f_k(x;\nu)/2^k}.
+
+  The distribution of the distance from the start of the chromosome to
+  the first crossover is \eqn{g^*(x;\nu) = 1 - F^*(x;\nu)}{g*(x;nu) = 1
+    - F*(x;nu)} where \eqn{F^*}{F*} is the cdf of \eqn{f^*}{f*}.
+
+  We calculate the desired probabilities by numerical integration.
+}
+
+\references{
+  Broman,  K. W. and Weber, J. L. (2000) Characterization of human
+  crossover interference. \emph{Am. J. Hum. Genet.} \bold{66},
+  1911--1926. 
+
+  Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002)
+  Crossover interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+
+  McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
+  recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+}
+
+\author{Karl W Broman, \email{kbroman@biostat.wisc.edu}}
+
+\examples{
+xoprob(1, L=103)
+xoprob(2.6, L=103)
+xoprob(4.3, L=103)
+xoprob(7.6, L=103)
+}
+
+\seealso{ \code{\link[xoi]{location.given.one}},
+    \code{\link[xoi]{first.given.two}},
+      \code{\link[xoi]{distance.given.two}},
+\code{\link[xoi]{joint.given.two}},	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
+      \code{\link[xoi]{gammacoi}} }
+
+	
+
+\keyword{distribution}

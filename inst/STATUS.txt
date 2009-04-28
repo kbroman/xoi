@@ -1,0 +1,58 @@
+
+Revision history for the R/xoi package
+----------------------------------------------------------------------
+copyright (c) 1999-2008, Karl W Broman
+Licensed under the GNU General Public License version 2 (June, 1991)
+http://www.biostat.wisc.edu/~kbroman/software/xoi
+----------------------------------------------------------------------
+
+Version 0.53-2, 10/16/2008:
+
+   Fixed a bug in fitGamma.
+
+Version 0.53-1, 8/25/2008:
+
+   Added a function est.recrate for obtaining a smoothed estimate of
+   the recombination rate along a chromosome, using the cM and Mbp
+   position of markers.
+
+Version 0.52-8, 8/21/2008:
+
+   Fixed a slight error in the help file for fitGamma.
+
+Version 0.52-7, 10/9/2007:
+
+   Fixed some slight problems in the help files.
+
+Version 0.52-6, 9/20/2007:
+
+    Changed my email address, etc., due to my move to UW-Madison
+
+Version 0.52-5, 4/26/2007:
+
+    Added a function joint.given.two for calculating the joint density
+    of the crossover locations, given that there are two.
+
+    Added a function est.coi, for estimating the three-point
+    coincidence along a chromosome.
+
+
+Version 0.51-3, 12/20/2006:
+
+    Added function est.intensity and est.kfunc to estimate the
+    intensity and K_inhom functions for an inhomogeneous point
+    process.
+
+    Revised most of the functions for calculating densities and
+    such so that you may specify (via the argument "x") the
+    exact values at which these functions are to be calculated.
+    If x is unspecified, we calculate things at n equally spaced
+    points between 0 and L.
+
+
+Version 0.50-18, 12/18/2006:
+
+    A newly created package.
+
+----------------------------------------------------------------------
+end of STATUS.txt

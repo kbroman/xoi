@@ -1,0 +1,100 @@
+\name{joint.given.two}
+\alias{joint.given.two}
+
+\title{Crossover locations given there are two}
+
+\description{
+  Calculates the joint density of the crossover locations on a random
+  meiotic product, given that there are precisely two crossovers, for the
+  gamma model.
+}
+
+\usage{
+joint.given.two(nu, L=103, x, y, n=20, max.conv=25,
+         integr.tol=1e-8, max.subd=1000, min.subd=10)
+
+}
+\arguments{
+ \item{nu}{The interference parameter in the gamma model.}
+\item{L}{The length of the chromsome in cM.}
+\item{x}{If specified, locations of the first crossover.}
+\item{y}{If specified, locations of the second crossover.}
+\item{n}{Number of points at which to calculate the density.  The points
+  will be evenly distributed between 0 and \code{L}. Ignored if \code{x}
+  and \code{y} are specified.}
+\item{max.conv}{Maximum limit for summation in the convolutions to get
+  inter-crossover distance distribution from the inter-chiasma distance
+  distributions.  This should be greater than the maximum number of
+  chiasmata on the 4-strand bundle.}
+\item{integr.tol}{Tolerance for convergence of numerical integration.}
+\item{max.subd}{Maximum number of subdivisions in numerical
+  integration.}
+\item{min.subd}{Minimum number of subdivisions in numerical
+  integration.}
+}
+
+\value{
+  A data frame with three columns: \code{x} and \code{y} are the
+  locations (between 0 and \code{L}, in cM) at which the density was
+  calculated and \code{f} is the density. 
+}
+
+\details{
+  Let \eqn{f(x;\nu)}{f(x;nu)} denote the density of a gamma random
+  variable with parameters shape=\eqn{\nu}{nu} and rate=\eqn{2\nu}{2
+    nu}, and let \eqn{f_k(x;\nu)}{f_k(x;\nu)} denote the density of a gamma random
+  variable with parameters shape=\eqn{k \nu}{k nu} and rate=\eqn{2\nu}{2
+    nu}.  
+
+  The distribution of the distance from one crossover to the next is
+  \eqn{f^*(x;\nu) = \sum_{k=1}^{\infty} f_k(x;\nu)/2^k}{f*(x;nu) = sum_(k=1 to infty)
+    f_k(x;\nu)/2^k}.
+
+  The distribution of the distance from the start of the chromosome to
+  the first crossover is \eqn{g^*(x;\nu) = 1 - F^*(x;\nu)}{g*(x;nu) = 1
+    - F*(x;nu)} where \eqn{F^*}{F*} is the cdf of \eqn{f^*}{f*}.
+}
+
+\section{Warning}{
+  \bold{We sometimes have difficulty with the numerical integrals.  You may
+  need to use large \code{min.subd} (e.g. 25) to get accurate results.}
+}
+
+\references{
+  Broman,  K. W. and Weber, J. L. (2000) Characterization of human
+  crossover interference. \emph{Am. J. Hum. Genet.} \bold{66},
+  1911--1926. 
+
+  Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002)
+  Crossover interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+
+  McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
+  recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+}
+
+\author{Karl W Broman, \email{kbroman@biostat.wisc.edu}}
+
+\examples{
+# Calculate the distribution of the average of the crossover locations,
+# given that there are two and that they are separated by 20 cM
+# (for a chromosome of length 200 cM)
+L <- 200
+d <- 20
+x <- seq(0, L-d, by=0.5)
+y <- x+d
+
+f <- joint.given.two(4.3, L=L, x, y)
+f$f <- f$f / distance.given.two(4.3, L, d)$f
+plot((f$x+f$y)/2, f$f, type="l", xlim=c(0, L), ylim=c(0,max(f$f)),
+     lwd=2, xlab="Average location", ylab="Density")
+abline(v=c(d/2,L-d/2), h=1/(L-d), lty=2, lwd=2)
+}
+
+\seealso{ \code{\link[xoi]{location.given.one}},
+      \code{\link[xoi]{distance.given.two}},
+      \code{\link[xoi]{first.given.two}},
+	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
+	\code{\link[xoi]{xoprob}},
+      \code{\link[xoi]{gammacoi}}  } 
+
+\keyword{distribution}
