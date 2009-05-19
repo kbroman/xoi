@@ -19,7 +19,7 @@
 #     at http://www.r-project.org/Licenses/GPL-3
 #
 # Part of the R/xoi package
-# Contains: est.recrate
+# Contains: est.recrate, recrate2scanone
 #
 ######################################################################
 
@@ -86,6 +86,42 @@ function(genmap, phymap, pos, window=5)
              PACKAGE="xoi")$rate
             
   data.frame(pos=pos, rate=rate)
+}
+
+######################################################################
+# convert results of recrate (for multiple chromosomes) to scanone
+# format (for R/qtl)
+recrate2scanone <-
+function(recrate, phymap)
+{
+  if(is.data.frame(recrate) && names(recrate)[1]=="pos" && names(recrate)[2]=="rate") 
+    recrate <- list(recrate)
+  else {
+    if(is.null(names(recrate)))
+      names(recrate) <- 1:length(recrate)
+  }
+
+  npos <- sapply(recrate, nrow)
+  chr <- factor(rep(names(recrate), npos), levels=names(recrate))
+  pos <- unlist(lapply(recrate, function(a) a$pos))
+  rate <- unlist(lapply(recrate, function(a) a$rate))
+  
+  locnam <- vector("list", length(recrate))
+  for(i in seq(along=recrate))
+    locnam[[i]] <- paste("c", names(recrate)[i], ".loc", seq(along=recrate[[i]]$pos), sep="")
+  
+  if(!missing(phymap)) {
+    for(i in seq(along=recrate)) {
+      m <- match(phymap[[i]], recrate[[i]]$pos)
+      locnam[[i]][m] <- names(phymap[[i]])
+    }
+  }
+
+  result <- data.frame(chr=chr, pos=pos, "cM/Mbp"=rate)
+  rownames(result) <- unlist(locnam)
+  class(result) <- c("scanone", "data.frame")
+
+  result
 }
 
 # end of recrate.R

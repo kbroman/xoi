@@ -23,6 +23,10 @@ Version 0.54-1, 5/18/2009:
    not specified) so that calculations will be done at the marker
    positions and at a grid with 4 positions per Mbp. 
 
+   Added a function recrate2scanone for converting est.recrate results
+   for multiple chromosomes to the form of the output of scanone (from
+   R/qtl), but I'll leave it undocumented for now.
+
 
 Version 0.53-4, 4/28/2009:
 
