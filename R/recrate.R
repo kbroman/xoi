@@ -1,9 +1,9 @@
 ######################################################################
 # recrate.R
 #
-# copyright (c) 2008, Karl W Broman
+# copyright (c) 2008-9, Karl W Broman
 #
-# last modified Aug, 2008
+# last modified May, 2009
 # first written Aug, 2008
 #
 #     This program is free software; you can redistribute it and/or
@@ -55,7 +55,7 @@ function(genmap, phymap, pos, window=5)
     stop("window should be > 0")
 
   if(missing(pos)) {
-    pos <- sort(c(phymap, phymap-window/2, phymap+window/2))
+    pos <- sort(c(phymap, seq(min(phymap), max(phymap), by=0.25)))
     pos <- unique(pos[pos >= min(phymap) & pos <= max(phymap)])
   }
 

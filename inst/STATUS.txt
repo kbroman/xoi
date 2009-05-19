@@ -16,6 +16,14 @@ copyright (c) 1999-2009, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.54-1, 5/18/2009:
+
+   In est.recrate, modified the default positions at which the
+   recombination rate is calculated (that is, if the "pos" argument is
+   not specified) so that calculations will be done at the marker
+   positions and at a grid with 4 positions per Mbp. 
+
+
 Version 0.53-4, 4/28/2009:
 
    Changed the license to GPL-3.
