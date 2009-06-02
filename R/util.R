@@ -1,9 +1,9 @@
 ######################################################################
 # util.R
 #
-# copyright (c) 1999-2008, Karl W Broman
+# copyright (c) 1999-2009, Karl W Broman
 #
-# last modified Aug, 2008
+# last modified Jun, 2009
 # first written ~Jun, 1999
 #
 #     This program is free software; you can redistribute it and/or
@@ -94,6 +94,8 @@ function(breaks)
     v <- lapply(breaks, f, attr(breaks, "L"))
     v <- matrix(unlist(v), ncol=2, byrow=TRUE)
   }
+  v <- as.data.frame(v)
+  names(v) <- c("distance", "censor")
   v
 }  
 

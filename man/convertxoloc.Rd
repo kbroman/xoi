@@ -17,8 +17,9 @@ convertxoloc(breaks)
 }
 
 \value{
-  A matrix with two columns: the inter-crossover and crossover-to
-  chromosome end differences and indicators of censoring type, with 0 =
+  A data frame with two columns: the inter-crossover and crossover-to
+  chromosome end differences (\code{"distance"}) and indicators of
+  censoring type (\code{"censor"}), with 0 =
   distance between crossovers, 1=start of chromosome to first crossover,
   2 = crossover to end of chromosome, and 3 = whole chromosome.
 }
