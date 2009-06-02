@@ -41,7 +41,7 @@ struct integr_data {
 
 struct gamma_data {
   int max_conv, n_length, *type;
-  double *length, drop, maxloglik, nu, lenmx;
+  double *length, drop, maxloglik, nu, lenmx, p;
   struct integr_data integr_info;
 };
 

@@ -10,6 +10,7 @@ find.breaks             Estimate crossover locations
 first.given.two         Location of first crossover given there are two
 firstden                Distance to a crossover
 fitGamma                Fit Gamma model
+fitStahl                Fit Stahl model
 gammacoi                Coincidence function for the gamma model
 ioden                   Distance between crossovers
 joint.given.two         Crossover locations given there are two
@@ -17,4 +18,5 @@ location.given.one      Location of crossover given there is one
 simStahl                Simulate crossover locations under the Stahl
                         model
 stahlcoi                Coincidence function for the Stahl model
+stahlLoglik             Calculate log likelihood for Stahl model
 xoprob                  Distribution of number of crossovers

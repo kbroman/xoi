@@ -16,6 +16,14 @@ copyright (c) 1999-2009, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.55-1, 6/2/2009:
+
+   Added a function for calculating the log likelihood under the Stahl
+   model. 
+
+   Revised convertxoloc() so that the output is a data frame.
+
+
 Version 0.54-1, 5/18/2009:
 
    In est.recrate, modified the default positions at which the
