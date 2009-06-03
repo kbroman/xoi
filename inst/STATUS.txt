@@ -16,10 +16,11 @@ copyright (c) 1999-2009, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.55-1, 6/2/2009:
+Version 0.55-2, 6/2/2009:
 
-   Added a function for calculating the log likelihood under the Stahl
-   model. 
+   Added functions stahlLoglik and fitStahl, for calculating the log
+   likelihood under the Stahl model and for obtaining MLEs and the log
+   LR for testing p=0.
 
    Revised convertxoloc() so that the output is a data frame.
 

@@ -35,14 +35,14 @@ INSTALLATION OF R AND R/xoi (Windows)
      "c:\Program Files\R".  Why didn't Microsoft use "Programs" rather
      than "Program files"?
 
-  2. To install R/xoi, download the file "xoi_0.53-4.zip" (or
+  2. To install R/xoi, download the file "xoi_0.55-2.zip" (or
      the equivalent) and then do one of the following:
 
      a. Start R.  Select (on the menu bar) "Packages" and then
         "Install package from local zip file...".  Find the file
-        "xoi_0.53-4.zip" on your hard drive, and click "Open".
+        "xoi_0.55-2.zip" on your hard drive, and click "Open".
 
-     b. Unzip the "xoi_0.53-4.zip" file into the directory
+     b. Unzip the "xoi_0.55-2.zip" file into the directory
         $RHOME\library (where $RHOME is something like c:\R\rw1081).
         Note that this should create a directory
         $RHOME\library\xoi containing the R source code and the
