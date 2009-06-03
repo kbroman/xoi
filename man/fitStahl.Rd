@@ -39,11 +39,13 @@ fitStahl(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25,
 }
 
 \value{
-  A vector with the estimates of \eqn{\nu}{nu} (interference parameter) and \eqn{p}
-  (proportion of crossovers coming from the no interference pathway) the 
-  maximized log likelihood, the log likelihood ratio for comparing the
-  model with p allowed to vary freely versus contrained to be 0.  (Note
-  that it's the natural log of the likelihood ratio, and not twice that.)
+  A vector with the estimates of \eqn{\nu}{nu} (interference parameter)
+  and \eqn{p} (proportion of crossovers coming from the no interference
+  pathway), the maximized log likelihood, the estimate of nu with p
+  constrained to be 0, the maximized log likelihood in this case, and
+  the log likelihood ratio for comparing the model with p allowed to
+  vary freely versus contrained to be 0.  (Note that it's the natural
+  log of the likelihood ratio, and not twice that.)
 }
 
 \details{

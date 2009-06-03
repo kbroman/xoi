@@ -157,15 +157,15 @@ function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
   if(verbose)
     cat("\n  nuhat =", out$par[1], "\n   phat =", out$par[2], "\nlog lik =", -out$value, "\n")
 
-  if(out0$objective < out$value) {
-    out <- c(out0$minimum, 0, -out0$objective, 0)
+  if(out0$objective <= out$value) {
+    out <- c(out0$minimum, 0, -out0$objective, out0$minimum, -out0$objective, 0)
     if(verbose) cat("Inferred that p=0\n")
   }
   else {
-    out <- c(out$par, -out$value, out0$objective - out$value)
+    out <- c(out$par, -out$value, out0$minimum, -out0$objective, out0$objective - out$value)
     if(verbose) cat("Inferred that p>0\n")
   }
-  names(out) <- c("nu", "p", "loglik", "ln LR testing p=0")
+  names(out) <- c("nu", "p", "loglik", "nu0", "loglik0", "ln LR testing p=0")
   out
 }
 
