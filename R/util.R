@@ -41,7 +41,7 @@ function(cross, chr)
   L <- chrlen(cross)
   thechr <- names(cross$geno)
   for(i in seq(along=thechr)) {
-    v[[i]] <- locate.xo(subset(cross, chr=thechr[i]))
+    v[[i]] <- locateXO(subset(cross, chr=thechr[i]))
     attr(v[[i]], "L") <- L[i]
   }
 
