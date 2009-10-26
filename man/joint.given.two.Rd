@@ -90,11 +90,11 @@ plot((f$x+f$y)/2, f$f, type="l", xlim=c(0, L), ylim=c(0,max(f$f)),
 abline(v=c(d/2,L-d/2), h=1/(L-d), lty=2, lwd=2)
 }
 
-\seealso{ \code{\link[xoi]{location.given.one}},
-      \code{\link[xoi]{distance.given.two}},
-      \code{\link[xoi]{first.given.two}},
-	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
-	\code{\link[xoi]{xoprob}},
-      \code{\link[xoi]{gammacoi}}  } 
+\seealso{ \code{\link{location.given.one}},
+      \code{\link{distance.given.two}},
+      \code{\link{first.given.two}},
+	\code{\link{ioden}}, \code{\link{firstden}},
+	\code{\link{xoprob}},
+      \code{\link{gammacoi}}  } 
 
 \keyword{distribution}

@@ -23,7 +23,7 @@ find.breaks(cross, chr)
   \code{numeric(0)} if there were no crossovers or a vector giving the
   crossover locations.  The length of the chromosome (in cM) is saved as
   an attribute.  (Note that the format is the same as the output of
-  \code{\link[xoi]{simStahl}}.)   
+  \code{\link{simStahl}}.)   
 
   If multiple chromosomes were considered, this is a list with one
   element for each chromosome, each of which is a list with one element
@@ -48,8 +48,8 @@ xoloc1 <- find.breaks(bssbsb, chr=1)
 xoloc <- find.breaks(bssbsb)
 }
 
-\seealso{ \code{\link[xoi]{convertxoloc}}, \code{\link[xoi]{fitGamma}},
-      \code{\link[xoi]{simStahl}} }
+\seealso{ \code{\link{convertxoloc}}, \code{\link{fitGamma}},
+      \code{\link{simStahl}} }
 
 
 \keyword{utilities}

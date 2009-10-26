@@ -5,7 +5,7 @@
 
 \description{
   Convert the format of data on crossover locations to that needed for
-  the function \code{\link[xoi]{fitGamma}.}
+  the function \code{\link{fitGamma}.}
 }
 
 \usage{
@@ -13,7 +13,7 @@ convertxoloc(breaks)
 }
 \arguments{
  \item{breaks}{A list of crossover locations, as output by
-   \code{\link[xoi]{find.breaks}} or \code{\link[xoi]{simStahl}}.}
+   \code{\link{find.breaks}} or \code{\link{simStahl}}.}
 }
 
 \value{
@@ -37,8 +37,8 @@ xoloc1 <- convertxoloc(find.breaks(bssbsb, chr=1))
 xoloc <- convertxoloc(find.breaks(bssbsb))
 }
 
-\seealso{ \code{\link[xoi]{find.breaks}}, \code{\link[xoi]{fitGamma}},
-      \code{\link[xoi]{simStahl}} }
+\seealso{ \code{\link{find.breaks}}, \code{\link{fitGamma}},
+      \code{\link{simStahl}} }
 
 
 \keyword{utilities}

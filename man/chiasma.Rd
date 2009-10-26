@@ -70,8 +70,8 @@ nxo <- countxo(bssbsb, chr=1)
 chiasma(nxo)
 }
 
-\seealso{ \code{\link[xoi]{fitGamma}}, \code{\link[qtl]{fitstahl}},
-          \code{\link[xoi]{countxo}} }
+\seealso{ \code{\link{fitGamma}}, \code{\link[qtl]{fitstahl}},
+          \code{\link{countxo}} }
 
 
 \keyword{models}

@@ -79,6 +79,6 @@ L <- attr(xoloc, "L")
 mle <- fitStahl(xoloc, L, nu=c(9, 12))
 }
 
-\seealso{ \code{\link[xoi]{fitGamma}}, \code{\link[xoi]{stahlLoglik}}, \code{\link[xoi]{simStahl}}  } 
+\seealso{ \code{\link{fitGamma}}, \code{\link{stahlLoglik}}, \code{\link{simStahl}}  } 
 
 \keyword{models}

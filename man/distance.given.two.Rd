@@ -94,11 +94,11 @@ f4 <- distance.given.two(7.6, L=200, n=201)
 lines(f4, col="green", lwd=2)
 }
 
-\seealso{ \code{\link[xoi]{location.given.one}},
-    \code{\link[xoi]{first.given.two}},\code{\link[xoi]{joint.given.two}},
-	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
-	\code{\link[xoi]{xoprob}},
-      \code{\link[xoi]{gammacoi}}  } 
+\seealso{ \code{\link{location.given.one}},
+    \code{\link{first.given.two}},\code{\link{joint.given.two}},
+	\code{\link{ioden}}, \code{\link{firstden}},
+	\code{\link{xoprob}},
+      \code{\link{gammacoi}}  } 
 
 
 \keyword{distribution}

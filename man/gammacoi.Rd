@@ -70,11 +70,11 @@ f4 <- gammacoi(7.6, L=200)
 lines(f4, col="green", lwd=2)
 }
 
-\seealso{ \code{\link[xoi]{stahlcoi}}, \code{\link[xoi]{location.given.one}},
-    \code{\link[xoi]{first.given.two}},
-      \code{\link[xoi]{distance.given.two}},
-\code{\link[xoi]{joint.given.two}},	\code{\link[xoi]{ioden}},
-	\code{\link[xoi]{firstden}},
-	\code{\link[xoi]{xoprob}} } 
+\seealso{ \code{\link{stahlcoi}}, \code{\link{location.given.one}},
+    \code{\link{first.given.two}},
+      \code{\link{distance.given.two}},
+\code{\link{joint.given.two}},	\code{\link{ioden}},
+	\code{\link{firstden}},
+	\code{\link{xoprob}} } 
 
 \keyword{distribution}

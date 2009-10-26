@@ -70,11 +70,11 @@ xoprob(4.3, L=103)
 xoprob(7.6, L=103)
 }
 
-\seealso{ \code{\link[xoi]{location.given.one}},
-    \code{\link[xoi]{first.given.two}},
-      \code{\link[xoi]{distance.given.two}},
-\code{\link[xoi]{joint.given.two}},	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
-      \code{\link[xoi]{gammacoi}} }
+\seealso{ \code{\link{location.given.one}},
+    \code{\link{first.given.two}},
+      \code{\link{distance.given.two}},
+\code{\link{joint.given.two}},	\code{\link{ioden}}, \code{\link{firstden}},
+      \code{\link{gammacoi}} }
 
 	
 

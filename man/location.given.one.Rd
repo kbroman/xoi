@@ -89,11 +89,11 @@ lines(f4, col="green", lwd=2)
 }
 
 \seealso{ 
-    \code{\link[xoi]{first.given.two}},
-      \code{\link[xoi]{distance.given.two}},
-      \code{\link[xoi]{joint.given.two}},
-	\code{\link[xoi]{ioden}}, \code{\link[xoi]{firstden}},
-	\code{\link[xoi]{xoprob}},
-      \code{\link[xoi]{gammacoi}} } 
+    \code{\link{first.given.two}},
+      \code{\link{distance.given.two}},
+      \code{\link{joint.given.two}},
+	\code{\link{ioden}}, \code{\link{firstden}},
+	\code{\link{xoprob}},
+      \code{\link{gammacoi}} } 
 
 \keyword{distribution}

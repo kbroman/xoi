@@ -16,6 +16,14 @@ copyright (c) 1999-2009, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.56-1, 10/26/2009:
+
+   Fixed a bug in find.breaks (changing call to locate.xo to
+   locateXO). 
+
+   Fixed links in help files.
+
+
 Version 0.55-2, 6/2/2009:
 
    Added functions stahlLoglik and fitStahl, for calculating the log

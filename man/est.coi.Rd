@@ -64,7 +64,7 @@ lines(coi2 ~ d, data=out, lwd=2, col="green")
 lines(gammacoi(7), lwd=2, col="red", lty=2)
 }
 
-\seealso{ \code{\link[xoi]{gammacoi}}, \code{\link[xoi]{stahlcoi}} }
+\seealso{ \code{\link{gammacoi}}, \code{\link{stahlcoi}} }
 
 
 \keyword{models}

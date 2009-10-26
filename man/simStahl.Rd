@@ -56,6 +56,6 @@ xogamma <- simStahl(100, nu=7.6, p=0, L=200)
 xostahl <- simStahl(100, nu=7.6, p=0.1, L=200)
 }
 
-\seealso{ \code{\link[xoi]{fitGamma}}, \code{\link[qtl]{sim.cross}} }
+\seealso{ \code{\link{fitGamma}}, \code{\link[qtl]{sim.cross}} }
 
 \keyword{datagen}

@@ -41,7 +41,7 @@ nxo <- countxo(bssbsb, chr=1)
 nxo <- countxo(bssbsb)
 }
 
-\seealso{ \code{\link[xoi]{find.breaks}} }
+\seealso{ \code{\link{find.breaks}} }
 
 
 \keyword{utilities}

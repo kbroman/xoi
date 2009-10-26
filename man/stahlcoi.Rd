@@ -81,11 +81,11 @@ f4s <- stahlcoi(7.6, p=0.1, L=200)
 lines(f4s, col="green", lwd=2, lty=2)
 }
 
-\seealso{ \code{\link[xoi]{gammacoi}}, \code{\link[xoi]{location.given.one}},
-    \code{\link[xoi]{first.given.two}},
-      \code{\link[xoi]{distance.given.two}},
-	\code{\link[xoi]{ioden}},
-	\code{\link[xoi]{firstden}},
-	\code{\link[xoi]{xoprob}} } 
+\seealso{ \code{\link{gammacoi}}, \code{\link{location.given.one}},
+    \code{\link{first.given.two}},
+      \code{\link{distance.given.two}},
+	\code{\link{ioden}},
+	\code{\link{firstden}},
+	\code{\link{xoprob}} } 
 
 \keyword{distribution}

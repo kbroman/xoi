@@ -36,7 +36,7 @@ est.recrate(genmap, phymap, pos, window=5)
 %\examples{
 %}
 
-\seealso{ \code{\link[xoi]{est.coi}} }
+\seealso{ \code{\link{est.coi}} }
 
 
 \keyword{models}
