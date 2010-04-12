@@ -10,7 +10,7 @@
 }
 
 \usage{
-chiasma(xo, max.chiasma=max(xo)*2+5, n.iter=10000, tol=1e-6)
+chiasma(xo, max.chiasma=max(xo)*2+5, n.iter=10000, tol=1e-6, verbose=FALSE)
 }
 \arguments{
  \item{xo}{Vector of non-negative integers; the number of crossovers in
@@ -18,6 +18,8 @@ chiasma(xo, max.chiasma=max(xo)*2+5, n.iter=10000, tol=1e-6)
 \item{max.chiasma}{Maximum number of chiasmata to allow.}
 \item{n.iter}{Maximum number of iterations in the EM algorithm.}
 \item{tol}{Tolerance for convergence of the EM algorithm.}
+\item{verbose}{If TRUE, print number of interations for each of the 4
+  models at the end.}
 }
 
 \value{

@@ -1,7 +1,7 @@
 
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2009, Karl W Broman
+copyright (c) 1999-2010, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
@@ -15,6 +15,12 @@ copyright (c) 1999-2009, Karl W Broman
     A copy of the GNU General Public License, version 3, is available
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
+
+Version 0.56-2, 4/11/2010:
+
+   Revised chiasma() slightly, so that "Done!" is printed only if
+   verbose=TRUE.
+
 
 Version 0.56-1, 10/26/2009:
 
