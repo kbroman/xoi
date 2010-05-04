@@ -2,9 +2,9 @@
  *
  * fitStahl.c
  *
- * copyright (c) 2009, Karl W Broman
+ * copyright (c) 2009-2010, Karl W Broman
  * 
- * last modified Jun, 2009
+ * last modified May, 2010
  * first written Jun, 2009
  *
  *     This program is free software; you can redistribute it and/or
@@ -76,8 +76,8 @@ void stahl_loglik(int n_ind, int *n_xo, double **xoloc, double *chrlen,
 		  int n_nu, double *nu, double *p, double *loglik,
 		  int max_conv, double intgr_tol, int max_subd, int min_subd)
 {
-  int i, ii, j, k, s, n_pat, max_n_xo;
-  double *y, *z, cury, curz, *patll, *indll, a, b;
+  int i, j, k, s, n_pat, max_n_xo;
+  double *y, *z, cury, curz, *patll, *indll;
   int n_y, n_z;
   struct gamma_data info;
   

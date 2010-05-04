@@ -2,9 +2,9 @@
  *
  * recrate.c
  *
- * copyright (c) 2008, Karl W Broman
+ * copyright (c) 2008-2010, Karl W Broman
  *
- * last modified Aug, 2008
+ * last modified May, 2010
  * first written Aug, 2008
  *
  *     This program is free software; you can redistribute it and/or
@@ -55,7 +55,7 @@ void est_recrate(int n_mar, double *gen, double *phy,
 		 int n_pos, double *pos, double *recrate,
 		 double window, double *work)
 {
-  int i, j, k, left=0;
+  int i, j;
   double denom=0.0, half=window/2.0, start, end;
   
   /* get estimated rate in each interval */

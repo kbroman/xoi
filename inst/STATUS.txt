@@ -16,6 +16,11 @@ copyright (c) 1999-2010, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.56-3, 5/4/2010:
+
+   Removed a few unused variables from C code.
+
+
 Version 0.56-2, 4/11/2010:
 
    Revised chiasma() slightly, so that "Done!" is printed only if
