@@ -1,7 +1,7 @@
 \name{est.recrate}
 \alias{est.recrate}
 
-\title{Estimate recombination rate.}
+\title{Estimate recombination rate}
 
 \description{
   Obtain a smoothed estimate of the recombination rate along a

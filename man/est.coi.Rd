@@ -1,7 +1,7 @@
 \name{est.coi}
 \alias{est.coi}
 
-\title{Estimate the coincidence function.}
+\title{Estimate the coincidence function}
 
 \description{
   Estimate the coincidence function from backcross data.
