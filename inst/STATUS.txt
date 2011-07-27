@@ -16,6 +16,12 @@ copyright (c) 1999-2011, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.57-1, 7/27/2011:
+
+   Added functions intensity() and coincidence(), plus internal
+   functions get_n_xo and identify_xo, from Il youp Kwak
+
+
 Version 0.56-4, 5/9/2011:
 
    Removed a few extraneous .'s from titles in help files

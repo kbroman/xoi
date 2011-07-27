@@ -3,6 +3,8 @@
 \alias{recrate2scanone}
 \alias{fitStahl.sub}
 \alias{fitStahl.sub2}
+\alias{get_n_xo}
+\alias{identify_xo}
 
 \title{Internal xoi functions}
 
@@ -18,6 +20,8 @@ fitStahl.sub(param, xoloc, chrlen, max.conv=25, integr.tol=1e-8,
              max.subd=1000, min.subd=10)
 fitStahl.sub2(nu, xoloc, chrlen, max.conv=25, integr.tol=1e-8,
               max.subd=1000, min.subd=10)
+get_n_xo(sdat)
+identify_xo(sdat)
 }
 
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu} }
