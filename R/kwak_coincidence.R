@@ -51,23 +51,10 @@ function(xomat, window, marker, n_ind, N)
    n_center <- length(center)
    n_xo <- ncol(xomat)
 
-   xovec <- c(xomat)
-
-   start_d <- 1
-   aa=0
-   i = 1
-   while(aa == 0)
-   {
-       if(center[i] > 3)
-       {
-           start_d <- i-1
-           aa = 1
-       }
-       i = i+1
-   }
+   start_d <- min(which(center >= window*1.5))-1
 
    output <- .C("R_get_coincidence",
-                   as.integer(xovec),
+                   as.integer(xomat),
                    as.double(int_dat),
                    as.double(window),
                    as.double(center),
@@ -81,7 +68,7 @@ function(xomat, window, marker, n_ind, N)
 
   result <- data.frame(distance=center, coincidence=output$coincidence/n_ind)
   attr(result, "window") <- window
-  result
+  result[!is.na(result[,2]),]
 }
 
 # end of coincidence.R

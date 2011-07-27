@@ -46,15 +46,7 @@ function(xomat, window, marker, n_ind, N)
   n_xo <- ncol(xomat)
   n_pos <- length(marker)
 
-  center = NULL
-  inc = ( marker[n_pos] - marker[1] ) / (N + 1)
-  pt = marker[1] + inc
-  
-  for(i in 1:N)
-    {
-        center <- c(center, pt)
-        pt = pt + inc
-    }
+  center <- seq(marker[1]+window/2, marker[n_pos]-window/2, length=N)
 
   n_center <- length(center)
   xovec <- c(xomat)
