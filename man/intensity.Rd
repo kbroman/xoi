@@ -8,7 +8,7 @@
 }
 
 \usage{
-intensity(cross, chr, window=5, ncalc=100)
+intensity(cross, chr, window=2.5, ncalc=500)
 }
 \arguments{
  \item{cross}{Cross object; must be a backcross.  See

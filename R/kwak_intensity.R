@@ -17,7 +17,7 @@
 #**********************************************************************/
 
 intensity <-
-function(cross, chr, window=5, ncalc=100)
+function(cross, chr, window=2.5, ncalc=500)
 {
   if(!missing(chr)) {
     cross <- subset(cross, chr)
