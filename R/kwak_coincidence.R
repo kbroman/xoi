@@ -51,7 +51,7 @@ function(xomat, window, marker, n_ind, N)
    n_center <- length(center)
    n_xo <- ncol(xomat)
 
-   start_d <- min(which(center >= window*1.5))-1
+   start_d <- min(which(center >= window/2))-1
 
    output <- .C("R_get_coincidence",
                    as.integer(xomat),
