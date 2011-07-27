@@ -16,7 +16,7 @@ est.coi(cross, chr, pos, window=0,
 \arguments{
  \item{cross}{Cross object; must be a backcross.  See
    \code{\link[qtl]{read.cross}} for format details.}
-\item{chr}{Chromosome to coinsider (only one is allowed).  If missing,
+\item{chr}{Chromosome to consider (only one is allowed).  If missing,
   the first chromosome is considered.}
 \item{pos}{If provided, these are used as the marker positions.  (This
   could be useful if you want to do things with respect to physical

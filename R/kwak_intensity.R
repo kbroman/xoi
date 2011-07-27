@@ -16,7 +16,31 @@
 #*
 #**********************************************************************/
 
-intensity <- function(xomat, window, marker, n_ind, N)
+intensity <-
+function(cross, chr, window=5, ncalc=100)
+{
+  if(!missing(chr)) {
+    cross <- subset(cross, chr)
+    if(nchr(cross) > 1)
+      warning("Considering only chr ", names(cross$geno)[1])
+  }
+
+  if(class(cross)[1] != "bc")
+    stop("coincidence() currently working only for a backcross.")
+
+  g <- cross$geno[[1]]$data
+  g[is.na(g)] <- 0
+  map <- cross$geno[[1]]$map
+
+  xomat <- identify_xo(g)$xomat
+  n.ind <- nind(cross)
+
+  intensitySUB(xomat, window, map, n.ind, ncalc)
+}
+
+
+intensitySUB <- 
+function(xomat, window, marker, n_ind, N)
 {
 
   n_xo <- ncol(xomat)
@@ -45,7 +69,11 @@ intensity <- function(xomat, window, marker, n_ind, N)
                as.double(marker),
                intensity=as.double(rep(0,n_center)),
                PACKAGE="xoi")
-  return(list(val = output$intensity/n_ind/window*100, center = center, window_size = window))
+
+  result <- data.frame(position=center,
+                       intensity=output$intensity/n_ind/window*100)
+  attr(result, "window") <- window
+  result
 }
 
 # end of intensity.R

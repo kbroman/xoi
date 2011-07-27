@@ -1,27 +1,27 @@
 \name{intensity}
 \alias{intensity}
 
-\title{Get intensity function}
+\title{Estimate intensity function}
 
 \description{
-  Get intensity function from XO information matrix.
+  Estimate intensity function for a chromosome.
 }
 
 \usage{
-intensity(xomat, window, marker, n_ind, N)
+intensity(cross, chr, window=5, ncalc=100)
 }
 \arguments{
- \item{xomat}{XO information matrix from identify2(dataset) function. }
- \item{window}{window size for intensity. }
- \item{marker}{marker vector. }
- \item{n_ind}{Total number of index. }
- \item{N}{Total number of points to calculate intensity.  }
+ \item{cross}{Cross object; must be a backcross.  See
+   \code{\link[qtl]{read.cross}} for format details.}
+ \item{chr}{Chromosome to consider (only one is allowed).  If missing,
+  the first chromosome is considered.}
+ \item{window}{Window size}
+ \item{ncalc}{Total number of points for calculations.}
 }
 
 \value{
-val : intensity fcn value at each of marker positions
-center : marker position vector (It have length N)
-window_size : window size 
+  Data frame with columns \code{position} and \code{intensity}.  The
+  input argument \code{window} is kept as an attribute.
 }
 
 %\details{
