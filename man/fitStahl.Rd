@@ -75,8 +75,8 @@ data(bssbsb)
 xoloc <- find.breaks(bssbsb, chr=1)
 L <- attr(xoloc, "L")
 
-# get MLE
-mle <- fitStahl(xoloc, L, nu=c(9, 12))
+# get MLE (limiting maximum iterations to 10, just for speed in this example)
+mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=10))
 }
 
 \seealso{ \code{\link{fitGamma}}, \code{\link{stahlLoglik}}, \code{\link{simStahl}}  } 
