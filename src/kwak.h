@@ -1,3 +1,6 @@
+#define MAX(a,b) (((a) > (b)) ? (a) : (b))
+#define MIN(a,b) (((a) > (b)) ? (b) : (a))
+
 /* cleansing.c */
 void R_cleansing(int *xovec, int *n_ind, int *n_xo, int *ob_ind, 
 		 double *marker, double *criteria, int *cl);
