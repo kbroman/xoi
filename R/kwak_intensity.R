@@ -60,10 +60,11 @@ function(xomat, window, marker, n_ind, N)
                as.integer(n_center),
                as.double(marker),
                intensity=as.double(rep(0,n_center)),
+               as.integer(n_ind),
                PACKAGE="xoi")
 
   result <- data.frame(position=center,
-                       intensity=output$intensity/n_ind/window*100)
+                       intensity=output$intensity)
   attr(result, "window") <- window
   result
 }

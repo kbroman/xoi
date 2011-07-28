@@ -17,15 +17,15 @@
  *
  **********************************************************************/
 void R_get_intensity(int *xovec, double *window, double *center, 
-		      int *n_pos, int *n_xo,  int *n_center, 
-		      double *marker, double *intensity)
+		     int *n_pos, int *n_xo,  int *n_center, 
+		     double *marker, double *intensity, int *n_ind)
 {
-  get_intensity(xovec, *window, center, *n_pos, *n_xo, *n_center, marker, intensity);
+  get_intensity(xovec, *window, center, *n_pos, *n_xo, *n_center, marker, intensity, *n_ind);
 }
 
 void get_intensity(int *xovec, double window, double *center, 
-		    int n_pos, int n_xo, int n_center, double *marker, 
-		    double *intensity)
+		   int n_pos, int n_xo, int n_center, double *marker, 
+		   double *intensity, int n_ind)
 {
   int i, j, ob;
   double weight, prob;
@@ -38,12 +38,12 @@ void get_intensity(int *xovec, double window, double *center,
 	{
 	  if(ob == xovec[j*3])
 	    {
-	      if( ( marker[xovec[j*3+1]-1] < center[i] + window/2 &&
-		    marker[xovec[j*3+1]-1] > center[i] - window/2 ) || 
-		  ( marker[xovec[j*3+2]-1] < center[i] + window/2 &&
-		    marker[xovec[j*3+2]-1] > center[i] - window/2 ) ||
-		  ( marker[xovec[j*3+1]-1] < center[i] - window/2 &&
-		    marker[xovec[j*3+2]-1] > center[i] + window/2 )  ) 
+	      if( ( marker[xovec[j*3+1]-1] <= center[i] + window/2 &&
+		    marker[xovec[j*3+1]-1] >= center[i] - window/2 ) || 
+		  ( marker[xovec[j*3+2]-1] <= center[i] + window/2 &&
+		    marker[xovec[j*3+2]-1] >= center[i] - window/2 ) ||
+		  ( marker[xovec[j*3+1]-1] <= center[i] - window/2 &&
+		    marker[xovec[j*3+2]-1] >= center[i] + window/2 )  ) 
 		{
 		  weight = MIN(center[i]+window/2, marker[xovec[j*3+2]-1]) - MAX(center[i]-window/2, marker[xovec[j*3+1]-1]) ;
 		  prob += weight / ( marker[xovec[j*3+2]-1] - marker[xovec[j*3+1]-1] ); 
@@ -55,12 +55,12 @@ void get_intensity(int *xovec, double window, double *center,
 	      //    Rprintf("(%f,%f) ob : %d,  intensity[%i] : %f \n", center[i] - window/2, center[i] + window/2, ob, i, intensity[i]);
 	      ob = xovec[j*3];
 	      prob = 0;
-	      if( ( marker[xovec[j*3+1]-1] < center[i] + window/2 &&
-		    marker[xovec[j*3+1]-1] > center[i] - window/2 ) || 
-		  ( marker[xovec[j*3+2]-1] < center[i] + window/2 &&
-		    marker[xovec[j*3+2]-1] > center[i] - window/2 ) ||
-		  ( marker[xovec[j*3+1]-1] < center[i] - window/2 &&
-		    marker[xovec[j*3+2]-1] > center[i] + window/2 )        ) 
+	      if( ( marker[xovec[j*3+1]-1] <= center[i] + window/2 &&
+		    marker[xovec[j*3+1]-1] >= center[i] - window/2 ) || 
+		  ( marker[xovec[j*3+2]-1] <= center[i] + window/2 &&
+		    marker[xovec[j*3+2]-1] >= center[i] - window/2 ) ||
+		  ( marker[xovec[j*3+1]-1] <= center[i] - window/2 &&
+		    marker[xovec[j*3+2]-1] >= center[i] + window/2 )        ) 
 		{
 		  weight = MIN(center[i]+window/2, marker[xovec[j*3+2]-1]) - MAX(center[i]-window/2, marker[xovec[j*3+1]-1]) ;
 		  prob += weight / ( marker[xovec[j*3+2]-1] - marker[xovec[j*3+1]-1] ); 
@@ -74,7 +74,13 @@ void get_intensity(int *xovec, double window, double *center,
 		}
 	    }
 	}	  
-    }
+
+      /* contained window */
+      weight = MIN(center[i]+window/2, marker[n_pos-1]) - MAX(center[i]-window/2, marker[0]);
+
+      intensity[i] /= (weight*(double)n_ind/100.0);
+
+    } /* loop over center */
 }
 
   

@@ -43,8 +43,8 @@ void identify_xo(int *sdat, int n_ind, int n_pos, int n_xo, int *left,
 /* intensity.c */
 void R_get_intensity(int *xovec, double *window, double *center, 
 		     int *n_pos, int *n_xo,  int *n_center, 
-		     double *marker, double *intensity);
+		     double *marker, double *intensity, int *n_ind);
 
 void get_intensity(int *xovec, double window, double *center, 
 		   int n_pos, int n_xo, int n_center, double *marker, 
-		   double *intensity);
+		   double *intensity, int n_ind);
