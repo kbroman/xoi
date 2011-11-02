@@ -1,0 +1,16 @@
+useDynLib(xoi)
+
+# Export all names
+export(chiasma, coincidence, coincidenceSUB, convertxoloc, countxo,
+       distance.given.two, est.coi, est.recrate, find.breaks, first.given.two,
+       firstden, fitGamma, fitStahl, fitStahl.sub, fitStahl.sub2,
+       gammacoi, get_n_xo, identify_xo, intensity, intensitySUB,
+       ioden, joint.given.two, kfunc, location.given.one, recrate2scanone,
+       simStahl, stahlcoi, stahlLoglik, xoiversion, xoprob)
+
+# Import qtl package
+import(qtl)
+
+# other imports
+importFrom(stats, optimize, optim, qpois)
+
