@@ -23,6 +23,7 @@
 #
 ######################################################################
 
-.First.lib <- function(lib, pkg) library.dynam("xoi", pkg, lib)
+.onUnload <- function(libpath)
+    library.dynam.unload("xoi", libpath)
 
 # end of zzz.R
