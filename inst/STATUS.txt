@@ -16,11 +16,11 @@ copyright (c) 1999-2011, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.58-1, 11/2/2001:
+Version 0.58-2, 11/7/2001:
 
-   Added NAMESPACE
+   Added NAMESPACE.
 
-   Compressed bssbsb data
+   Compressed bssbsb data.
 
 
 Version 0.57-5, 7/28/2011:
