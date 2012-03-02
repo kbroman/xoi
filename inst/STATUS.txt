@@ -1,7 +1,7 @@
 
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2011, Karl W Broman
+copyright (c) 1999-2012, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
@@ -16,7 +16,12 @@ copyright (c) 1999-2011, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.58-2, 11/7/2001:
+Version 0.58-3, 3/2/2012:
+
+   Revised xoiversion() to use packageVersion().
+
+
+Version 0.58-2, 11/7/2011:
 
    Added NAMESPACE.
 

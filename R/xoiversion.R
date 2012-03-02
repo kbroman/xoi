@@ -4,6 +4,8 @@
 xoiversion <-
 function()
 {
-  u <- strsplit(library(help=xoi)[[3]][[1]][2]," ")[[1]]
-  u[length(u)]
+  version <- unlist(packageVersion("xoi"))
+
+  # make it like #.#-#
+  paste(c(version,".","-")[c(1,4,2,5,3)], collapse="")
 }
