@@ -2,9 +2,9 @@
  *
  * GammaS.c
  *
- * copyright (c) 1998-2006, Karl W Broman
+ * copyright (c) 1998-2012, Karl W Broman
  * 
- * last modified Nov, 2006
+ * last modified Oct, 2012
  * first written ~Oct, 1998
  *
  *     This program is free software; you can redistribute it and/or
@@ -33,7 +33,7 @@
 #include <Rmath.h>
 #include <R_ext/Applic.h>
 #include <R_ext/Utils.h>
-
+#include "zeroin.h"
 
 /**********************************************
  * GammaS
@@ -216,8 +216,8 @@ void GammaInterval(int *n_length, double *length, int *type,
   /* lower limit */
   temptol = *tol;
   tempmaxit = *maxit;
-  interval[0] = R_zeroin(*low, *nu, (double (*)(double, void *))calcLLmdrop, 
-			 (void *)(&info), &temptol, &tempmaxit);
+  interval[0] = Rxoi_zeroin(*low, *nu, (double (*)(double, void *))calcLLmdrop, 
+                            (void *)(&info), &temptol, &tempmaxit);
   interval_level[0] = -calcLL(interval[0], &info);
 
   R_CheckUserInterrupt(); /* check for ^C */
@@ -225,8 +225,8 @@ void GammaInterval(int *n_length, double *length, int *type,
   /* upper limit */
   temptol = *tol;
   tempmaxit = *maxit;
-  interval[1] = R_zeroin(*nu, *high, (double (*)(double, void *))calcLLmdrop, 
-			 (void *)(&info), &temptol, &tempmaxit);
+  interval[1] = Rxoi_zeroin(*nu, *high, (double (*)(double, void *))calcLLmdrop, 
+                            (void *)(&info), &temptol, &tempmaxit);
   interval_level[1] = -calcLL(interval[1], &info);
 }
 

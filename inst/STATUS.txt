@@ -16,6 +16,12 @@ copyright (c) 1999-2012, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.59-1, 10/15/2012:
+
+   Removed use of R_zeroin() by incorporating code within the package
+   as the function Rxoi_zeroin().
+
+
 Version 0.58-3, 3/2/2012:
 
    Revised xoiversion() to use packageVersion().
