@@ -16,10 +16,18 @@ copyright (c) 1999-2012, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.59-1, 10/15/2012:
+Version 0.60-1, 11/20/2012:
+
+   Added some error messages for fitStahl and stahlLoglik, if input is
+   not a list.
+
+
+Version 0.59-2, 10/15/2012:
 
    Removed use of R_zeroin() by incorporating code within the package
    as the function Rxoi_zeroin().
+
+   Reduced computation time for examples in several help files.
 
 
 Version 0.58-3, 3/2/2012:

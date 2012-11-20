@@ -1,9 +1,9 @@
 ######################################################################
 # fitStahl.R
 #
-# copyright (c) 2009, Karl W Broman
+# copyright (c) 2009-2012, Karl W Broman
 #
-# last modified Jun, 2009
+# last modified Nov, 2012
 # first written Jun, 2009
 #
 #     This program is free software; you can redistribute it and/or
@@ -47,7 +47,8 @@ stahlLoglik <-
 function(xoloc, chrlen, nu, p,
          max.conv=25, integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
-  if(!is.list(xoloc)) xoloc <- list(xoloc)
+  if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
+  if(!is.list(xoloc)) stop("xoloc should be a list.")
   if(length(chrlen) == 1) chrlen <- rep(chrlen, length(xoloc))
   else if(length(chrlen) != length(xoloc))
     stop("chrlen should have length 1 or the same as length(xoloc).")
@@ -126,6 +127,9 @@ fitStahl <-
 function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
          max.subd=1000, min.subd=10, verbose=TRUE, ...)
 {
+  if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
+  if(!is.list(xoloc)) stop("xoloc should be a list.")
+
   if(length(nu) > 2) {
     warning("nu should have length 2; using the first two values.")
     nu <- nu[1:2]
@@ -168,7 +172,5 @@ function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
   names(out) <- c("nu", "p", "loglik", "nu0", "loglik0", "ln LR testing p=0")
   out
 }
-
-
 
 # end of fitStahl.R
