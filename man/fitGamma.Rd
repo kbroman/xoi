@@ -104,25 +104,30 @@ fitGamma(d, censor, nu, lo, hi,
 
 \examples{
 data(bssbsb)
+\dontshow{bssbsb <- bssbsb[,1:50]}
 
 xodist <- convertxoloc(find.breaks(bssbsb, chr=1))
 
 # plot a rough log likelihood curve
-out <- fitGamma(xodist, nu=1:20)
+\dontrun{out <- fitGamma(xodist, nu=seq(1, 19, by=2))}
+\dontshow{out <- fitGamma(xodist, nu=seq(1, 19, by=2), tol=0.001)}
 plot(out, type="l", lwd=2)
 
 # get MLE
-mle <- fitGamma(xodist, lo=8, hi=12)
+\dontrun{mle <- fitGamma(xodist, lo=8, hi=12)}
+\dontshow{mle <- fitGamma(xodist, lo=8, hi=12, tol=0.001)}
 mle
 
 abline(v=mle[1], h=mle[2], col="blue", lty=2)
 
 # get MLE and SE
-mle <- fitGamma(xodist, lo=9.5, hi=10.5, se=TRUE)
+\dontrun{mle <- fitGamma(xodist, lo=9.5, hi=10.5, se=TRUE)}
+\dontshow{mle <- fitGamma(xodist, lo=9.5, hi=10.5, se=TRUE, tol=0.001)}
 mle
 
 # get MLE and 10^1.5 support interval
-int <- fitGamma(xodist, lo=1, hi=20, supint=TRUE)
+\dontrun{int <- fitGamma(xodist, lo=1, hi=20, supint=TRUE)}
+\dontshow{int <- fitGamma(xodist, lo=1, hi=20, supint=TRUE, tol=0.001)}
 int
 abline(v=mle[2:3,1], h=mle[2:3,2], col="red", lty=2)
 }

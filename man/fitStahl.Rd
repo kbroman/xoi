@@ -71,12 +71,14 @@ fitStahl(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25,
 
 \examples{
 data(bssbsb)
+\dontshow{bssbsb <- bssbsb[,1:50]}
 
 xoloc <- find.breaks(bssbsb, chr=1)
 L <- attr(xoloc, "L")
 
 # get MLE (limiting maximum iterations to 10, just for speed in this example)
-mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=10))
+\dontrun{mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=10))}
+\dontshow{mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=2))}
 }
 
 \seealso{ \code{\link{fitGamma}}, \code{\link{stahlLoglik}}, \code{\link{simStahl}}  } 

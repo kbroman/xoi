@@ -69,7 +69,8 @@ data(bssbsb)
 nxo <- countxo(bssbsb, chr=1)
 
 # estimate chiasma distribution
-chiasma(nxo)
+\dontrun{chiasma(nxo)}
+\dontshow{chiasma(nxo, tol=0.001)}
 }
 
 \seealso{ \code{\link{fitGamma}}, \code{\link[qtl]{fitstahl}},

@@ -80,18 +80,20 @@ first.given.two(nu, L=103, x, n=400, max.conv=25,
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu}}
 
 \examples{
-f1 <- first.given.two(1, L=200, n=201)
+f1 <- first.given.two(1, L=200, n=101)
 plot(f1, type="l", lwd=2, las=1,
      ylim=c(0,0.011), yaxs="i", xaxs="i", xlim=c(0,200))
 
-f2 <- first.given.two(2.6, L=200, n=201)
+f2 <- first.given.two(2.6, L=200, n=101)
 lines(f2, col="blue", lwd=2)
 
-f3 <- first.given.two(4.3, L=200, n=201)
+\dontrun{
+f3 <- first.given.two(4.3, L=200, n=101)
 lines(f3, col="red", lwd=2)
 
-f4 <- first.given.two(7.6, L=200, n=201)
+f4 <- first.given.two(7.6, L=200, n=101)
 lines(f4, col="green", lwd=2)
+}
 }
 
 \seealso{ \code{\link{location.given.one}},

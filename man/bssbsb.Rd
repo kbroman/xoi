@@ -42,7 +42,8 @@
 
 \examples{
 data(bssbsb)
-plot(bssbsb)
+summary(bssbsb)
+\dontrun{plot(bssbsb)}
 }
 
 \keyword{datasets}
