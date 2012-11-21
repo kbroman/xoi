@@ -19,7 +19,8 @@
 #     at http://www.r-project.org/Licenses/GPL-3
 #
 # Part of the R/xoi package
-# Contains: find.breaks, find.breaks.F2, inferxoloc.F2, countxo, convertxoloc
+# Contains: find.breaks, find.breaks.F2, inferxoloc.F2, countxo,
+#           convertxoloc, addlog
 #
 ######################################################################
 
@@ -61,6 +62,7 @@ function(cross)
   for(i in seq(along=thechr)) {
     v[[i]] <- lapply(locateXO(subset(cross, chr=thechr[i]), full.info=TRUE),
                      inferxoloc.F2)
+    attr(v[[i]], "L") <- L[i]
   }
 
   if(length(v)==1) return(v[[1]])
@@ -72,10 +74,10 @@ inferxoloc.F2 <-
 function(fullxoinfo)
 {
   # no XOs
-  if(length(fullxoinfo)==0) return(list(numeric(0), numeric(0)))
+  if(length(fullxoinfo)==0) return(list(list(numeric(0), numeric(0))))
 
   # 1 XO
-  if(nrow(fullxoinfo) == 1) return(list(fullxoinfo[1,1], numeric(0)))
+  if(nrow(fullxoinfo) == 1) return(list(list(fullxoinfo[1,1], numeric(0))))
 
   # drop extraneous rows
   fullxoinfo <- fullxoinfo[c(TRUE, fullxoinfo[-nrow(fullxoinfo),4] != fullxoinfo[-1,4]),, drop=FALSE]
@@ -214,6 +216,22 @@ function(breaks)
   names(v) <- c("distance", "censor")
   v
 }  
+
+
+# addlog: calculates log(sum(exp(input))
+addlog <- function(..., threshold=200)
+{
+  a <- unlist(list(...))
+  if(length(a)<=1) return(a)
+  x <- a[1]
+  a <- a[-1]
+  for(i in seq(along=a)) {
+    if(a[i] > x + threshold) x <- a[i]
+    else if(x < a[i] + threshold)
+      x <- a[i] + log1p(exp(x-a[i]))
+  }
+  x
+}
 
 
 # end of util.R

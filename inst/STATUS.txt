@@ -16,12 +16,18 @@ copyright (c) 1999-2012, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.60, 11/20/2012:
+Version 0.60, 11/21/2012:
 
    Added some error messages for fitStahl and stahlLoglik, if input is
    not a list.
 
    Modified find.breaks to handle an F2 intercross.
+
+   Revised stahlLoglik to handle the case of an intercross.
+
+   stahlLoglik returns just the vector of log likelihoods (rather than
+   a data.frame with the parameters as well).  The parameter values
+   are saved as attributes of the result.
 
 
 Version 0.59-2, 10/15/2012:

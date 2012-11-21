@@ -19,7 +19,8 @@
 #     at http://www.r-project.org/Licenses/GPL-3
 #
 # Part of the R/xoi package
-# Contains: stahlLoglik, fitStahl
+# Contains: stahlLoglik, stahlLoglikF2,
+#           fitStahl, fitStahl.sub, fitStahl.sub2
 #
 ######################################################################
 
@@ -49,22 +50,19 @@ function(xoloc, chrlen, nu, p,
 {
   if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
   if(!is.list(xoloc)) stop("xoloc should be a list.")
-  if(length(chrlen) == 1) chrlen <- rep(chrlen, length(xoloc))
-  else if(length(chrlen) != length(xoloc))
-    stop("chrlen should have length 1 or the same as length(xoloc).")
 
-  flag <- 0
-  for(i in seq(along=xoloc)) {
-    if(any(xoloc[[i]] < 0 | xoloc[[i]] > chrlen[i])) {
-      flag <- 1
-      break
-    }
+  if(missing(chrlen) && "L" %in% names(attributes(xoloc)))
+    chrlen <- attr(xoloc, "L")
+
+  if(length(chrlen) == 1) {
+    chrlen <- rep(chrlen, length(xoloc))
+    constant.chrlen <- TRUE
   }
-  if(flag) stop("xoloc should be between 0 and chrlen.")
-
-  # convert to Morgans
-  xoloc <- lapply(xoloc, function(a) a/100)
-  chrlen <- chrlen/100
+  else {
+    constant.chrlen <- FALSE
+    if(length(chrlen) != length(xoloc))
+      stop("chrlen should have length 1 or the same as length(xoloc).")
+  }
 
   if(length(nu)==1) {
     if(length(p) > 1) nu <- rep(nu, length(p))
@@ -75,14 +73,28 @@ function(xoloc, chrlen, nu, p,
       stop("nu and p should be the same length (though either can have length 1).")
   }
 
+  flag <- 0
+  for(i in seq(along=xoloc)) {
+    thisxoloc <- unlist(xoloc[[i]])
+    if(any(thisxoloc < 0 | thisxoloc > chrlen[i])) {
+      flag <- 1
+      break
+    }
+  }
+  if(flag) stop("xoloc should be between 0 and chrlen.")
+
+  # intercross?  then send to stahlLoglikF2
+  if(is.list(xoloc[[1]])) 
+    return(stahlLoglikF2(xoloc, chrlen, nu, p, max.conv, integr.tol, max.subd, min.subd, constant.chrlen))
+
   n <- sapply(xoloc, length)
   n.nu <- length(nu)
 
   loglik <- .C("R_stahl_loglik",
                as.integer(length(xoloc)),
                as.integer(n),
-               as.double(unlist(xoloc)),
-               as.double(chrlen),
+               as.double(unlist(xoloc)/100), # convert to Morgans
+               as.double(chrlen/100), # convert to Morgasn
                as.integer(n.nu),
                as.double(nu),
                as.double(p),
@@ -91,9 +103,51 @@ function(xoloc, chrlen, nu, p,
                as.double(integr.tol),
                as.integer(max.subd),
                as.integer(min.subd),
-               PACKAGE="xoi")
+               as.integer(constant.chrlen),
+               PACKAGE="xoi")$loglik
+  attr(loglik, "nu") <- nu
+  attr(loglik, "p") <- p
 
-  data.frame(nu=nu, p=p, loglik=loglik$loglik)
+  loglik
+}
+
+# stahlLoglik for intercross
+stahlLoglikF2 <-
+function(xoloc, chrlen, nu, p,
+         max.conv=25, integr.tol=1e-8, max.subd=1000, min.subd=10,
+         constant.chrlen=FALSE)
+{
+  n.ind <- length(xoloc)
+  n.alternatives <- unlist(lapply(xoloc, length))
+  n.xo.per <- unlist(lapply(xoloc, lapply, lapply, length))
+  n.products <- length(n.xo.per) # = 2 * sum(n.alternatives)
+
+  # expand chromosome lengths
+  chrlen <- rep(chrlen, n.alternatives*2)
+
+  n.nu <- length(nu)
+
+  loglik <- .C("R_stahl_loglik_F2",
+               as.integer(n.ind),
+               as.integer(n.alternatives),
+               as.integer(n.products),
+               as.integer(n.xo.per),
+               as.double(unlist(xoloc)/100), # convert to Morgans
+               as.double(chrlen/100), # convert to Morgans
+               as.integer(n.nu),
+               as.double(nu),
+               as.double(p),
+               loglik=as.double(rep(0,n.nu)),
+               as.integer(max.conv),
+               as.double(integr.tol),
+               as.integer(max.subd),
+               as.integer(min.subd),
+               as.integer(constant.chrlen),
+               PACKAGE="xoi")$loglik
+  attr(loglik, "nu") <- nu
+  attr(loglik, "p") <- p
+
+  loglik
 }
 
 ######################################################################
@@ -108,7 +162,7 @@ function(param, xoloc, chrlen, max.conv=25, integr.tol=1e-8,
     return(Inf)
 
   -stahlLoglik(xoloc, chrlen, param[1], param[2], max.conv,
-               integr.tol, max.subd, min.subd)[3]
+               integr.tol, max.subd, min.subd)
 }
 
 # here, to optimize for the model with p=0
@@ -119,7 +173,7 @@ function(nu, xoloc, chrlen, max.conv=25, integr.tol=1e-8,
   if(nu < 0) return(Inf)
 
   -stahlLoglik(xoloc, chrlen, nu, 0, max.conv,
-               integr.tol, max.subd, min.subd)[,3]
+               integr.tol, max.subd, min.subd)
 }
 
 # function to optimize for the Stahl model
@@ -129,6 +183,9 @@ function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
 {
   if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
   if(!is.list(xoloc)) stop("xoloc should be a list.")
+
+  if(missing(chrlen) && "L" %in% names(attributes(xoloc)))
+    chrlen <- attr(xoloc, "L")
 
   if(length(nu) > 2) {
     warning("nu should have length 2; using the first two values.")

@@ -34,7 +34,9 @@ stahlLoglik(xoloc, chrlen, nu, p, max.conv=25,
 }
 
 \value{
-  A data frame with three columns: nu, p and the log likelihood.
+  A vector of log likelihoods.
+
+  The corresponding values of nu and p are saved as attributes.
 }
 
 \details{
@@ -60,8 +62,8 @@ stahlLoglik(xoloc, chrlen, nu, p, max.conv=25,
 \examples{
 data(bssbsb)
 xoloc <- find.breaks(bssbsb, chr=1)
-L <- diff(range(pull.map(bssbsb, chr=1)[[1]]))
 
+loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
 }
 
 \seealso{ \code{\link[qtl]{fitstahl}} } 

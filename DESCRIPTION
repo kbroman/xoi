@@ -1,6 +1,6 @@
 Package: xoi
-Version: 0.60-2
-Date: 11/20/2012
+Version: 0.60-3
+Date: 11/21/2012
 Depends: R (>= 2.10.1), qtl, stats
 Title: Tools for analyzing crossover interference
 Author: Karl W Broman <kbroman@biostat.wisc.edu>, Il youp Kwak
