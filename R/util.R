@@ -1,9 +1,9 @@
 ######################################################################
 # util.R
 #
-# copyright (c) 1999-2009, Karl W Broman
+# copyright (c) 1999-2012, Karl W Broman
 #
-# last modified Jun, 2009
+# last modified Nov, 2012
 # first written ~Jun, 1999
 #
 #     This program is free software; you can redistribute it and/or
@@ -19,7 +19,7 @@
 #     at http://www.r-project.org/Licenses/GPL-3
 #
 # Part of the R/xoi package
-# Contains: find.breaks, countxo
+# Contains: find.breaks, find.breaks.F2, inferxoloc.F2, countxo, convertxoloc
 #
 ######################################################################
 
@@ -31,15 +31,17 @@ function(cross, chr)
     stop("Input should have class \"cross\".")
 
   type <- class(cross)[1]
-  if(type != "bc" && type != "risib" && type != "riself") 
-    stop("This works only for a backcross or RIL.")
 
   if(!missing(chr)) cross <- subset(cross, chr=chr)
   
+  if(type == "f2") return(find.breaks.F2(cross))
+
+  if(type != "bc" && type != "risib" && type != "riself") 
+    stop("This works only for a backcross or RIL.")
+
   v <- vector("list", nchr(cross))
-  names(v) <- names(cross$geno)
+  thechr <- names(v) <- names(cross$geno)
   L <- chrlen(cross)
-  thechr <- names(cross$geno)
   for(i in seq(along=thechr)) {
     v[[i]] <- locateXO(subset(cross, chr=thechr[i]))
     attr(v[[i]], "L") <- L[i]
@@ -48,6 +50,120 @@ function(cross, chr)
   if(length(v)==1) return(v[[1]])
   v
 }             
+
+# find breakpoints in F2
+find.breaks.F2 <-
+function(cross)
+{
+  v <- vector("list", nchr(cross))
+  names(v) <- thechr <- names(cross$geno)
+  L <- chrlen(cross)
+  for(i in seq(along=thechr)) {
+    v[[i]] <- lapply(locateXO(subset(cross, chr=thechr[i]), full.info=TRUE),
+                     inferxoloc.F2)
+  }
+
+  if(length(v)==1) return(v[[1]])
+  v
+}
+
+# infer strand-specific XO locations in F2
+inferxoloc.F2 <-
+function(fullxoinfo)
+{
+  # no XOs
+  if(length(fullxoinfo)==0) return(list(numeric(0), numeric(0)))
+
+  # 1 XO
+  if(nrow(fullxoinfo) == 1) return(list(fullxoinfo[1,1], numeric(0)))
+
+  # drop extraneous rows
+  fullxoinfo <- fullxoinfo[c(TRUE, fullxoinfo[-nrow(fullxoinfo),4] != fullxoinfo[-1,4]),, drop=FALSE]
+
+  # make sure we have midpoints
+  fullxoinfo[,1] <- (fullxoinfo[,2]+fullxoinfo[,3])/2
+
+  xo <- fullxoinfo[,1]
+  gleft <- fullxoinfo[,6]
+  gright <- fullxoinfo[,7]
+
+  if(gleft[1]==gright[1]+2 || gleft[1]+2==gright[1]) {
+    result <- list(list(xo[1], xo[1]))
+    last <- list(0)
+  }
+  else {
+    result <- list(list(xo[1], numeric(0)))
+    last <- list(1)
+  }
+
+  if(nrow(fullxoinfo)==1) return(result)
+
+  for(i in 2:nrow(fullxoinfo)) {
+    if(gleft[i]==gright[i]+2 || gleft[i]+2==gright[i]) { # A-B or B-A
+      for(j in seq(along=result)) {
+        result[[j]][[1]] <- c(result[[j]][[1]], xo[i])
+        result[[j]][[2]] <- c(result[[j]][[2]], xo[i])
+      }
+    }
+
+    else if(gleft[i]==2 && gright[i]==gleft[i-1]) { # A-H-A or B-H-B
+      for(j in seq(along=result)) {
+        result[[j]][[last[[j]]]] <- c(result[[j]][[last[[j]]]], xo[i])
+      }
+    }
+
+    else if(gleft[i]==2 && gright[i]!=gleft[i-1]) { # A-H-B or B-H-A
+      for(j in seq(along=result)) {
+        last[[j]] <- 3 - last[[j]] # put on opposite strand
+        result[[j]][[last[[j]]]] <- c(result[[j]][[last[[j]]]], xo[i])
+      }
+    }
+
+    else if(gleft[i-1]==2 && gright[i]==2) { # H-B-H or H-A-H
+      result2add <- result
+      last2add <- last
+      for(j in seq(along=result)) {
+        result[[j]][[1]] <- c(result[[j]][[1]], xo[i])
+        last[[j]] <- 1
+
+        result2add[[j]][[2]] <- c(result2add[[j]][[2]], xo[i])
+        last2add[[j]] <- 2
+      }
+
+      result <- c(result, result2add)
+      last <- c(last, last2add)
+    }
+
+    else if(gright[i] == 2) { # A-B-H or B-A-H
+      if(any(gleft[1:i] == 2)) { # was a previous H; consider both possibilities
+        result2add <- result
+        last2add <- last
+        for(j in seq(along=result)) {
+          result[[j]][[1]] <- c(result[[j]][[1]], xo[i])
+          last[[j]] <- 1
+          
+          result2add[[j]][[2]] <- c(result2add[[j]][[2]], xo[i])
+          last2add[[j]] <- 2
+        }
+
+        result <- c(result, result2add)
+        last <- c(last, last2add)
+      }
+      else { # arbitrary
+        for(j in seq(along=result)) {
+          result[[j]][[1]] <- c(result[[j]][[1]], xo[i])
+          last[[j]] <- 1
+        }
+      }
+    }
+
+  } # end loop over rows in fullxoinfo
+
+  result
+}
+
+
+
 
 # count number of crossovers
 countxo <-

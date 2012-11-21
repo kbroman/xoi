@@ -11,28 +11,37 @@
 find.breaks(cross, chr)
 }
 \arguments{
- \item{cross}{An object of class \code{cross}. (This must be a backcross.) See
-   \code{\link[qtl]{read.cross}} for details.  }
+ \item{cross}{An object of class \code{cross}. (This must be a
+   backcross, RIL, or intercross.) See \code{\link[qtl]{read.cross}} for
+   details.}
  \item{chr}{Optional set of chromosomes on which to look for crossovers.
    If missing, all chromosomes are considered.}
 }
 
 \value{
   If only one chromosome is considered, this is a list with one
-  component for each individual, with each component being
+  component for each individual.  
+  If multiple chromosomes were considered, this is a list with one
+  element for each chromosome, each of which is a list with one element
+  for each individual, as above.  
+
+
+  For backcrosses and RIL, the componenets for the individuals are 
   \code{numeric(0)} if there were no crossovers or a vector giving the
   crossover locations.  The length of the chromosome (in cM) is saved as
   an attribute.  (Note that the format is the same as the output of
   \code{\link{simStahl}}.)   
 
-  If multiple chromosomes were considered, this is a list with one
-  element for each chromosome, each of which is a list with one element
-  for each individual, as above.  
+  For an intercross, the components for the individuals are themselves
+  lists with all possible allocations of the crossovers to the two
+  meiotic products; each component of this list is itself a list with
+  two components, corresponding to the two meiotic products.
 }
 
 \details{
-  This works only a backcross.  We use the internal function (within
-  R/qtl) \code{locate.xo}.  Crossovers are estimated to be at the midpoint
+  This works only a backcross, RIL, or intercross.  We use the function
+  \code{\link[qtl]{locateXO}} in R/qtl.
+  Crossovers are estimated to be at the midpoint
   of the interval between the nearest flanking typed markers.
 }
 

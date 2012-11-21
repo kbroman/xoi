@@ -7,6 +7,8 @@
 \alias{identify_xo}
 \alias{intensitySUB}
 \alias{coincidenceSUB}
+\alias{find.breaks.F2}
+\alias{inferxoloc.F2}
 
 \title{Internal xoi functions}
 
@@ -26,6 +28,8 @@ get_n_xo(sdat)
 identify_xo(sdat)
 intensitySUB(xomat, window, marker, n_ind, N)
 coincidenceSUB(xomat, window, marker, n_ind, N)
+find.breaks.F2(cross)
+inferxoloc.F2(fullxoinfo)
 }
 
 \author{Karl W Broman, \email{kbroman@biostat.wisc.edu} }

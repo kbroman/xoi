@@ -1,5 +1,5 @@
 Package: xoi
-Version: 0.60-1
+Version: 0.60-2
 Date: 11/20/2012
 Depends: R (>= 2.10.1), qtl, stats
 Title: Tools for analyzing crossover interference
