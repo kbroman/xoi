@@ -2,9 +2,9 @@
  *
  * gammaS.h
  *
- * copyright (c) 1998-2007, Karl W Broman
+ * copyright (c) 1998-2013, Karl W Broman
  * 
- * last modified Apr, 2007
+ * last modified Jan, 2013
  * first written ~Oct, 1998
  *
  *     This program is free software; you can redistribute it and/or
@@ -63,6 +63,13 @@ void GammaInterval(int *n_length, double *length, int *type,
 		   double *interval_level, double *drop,
 		   int *max_conv, double *tol, int *maxit,
 		   double *integr_tol, int *maxsubd, int *minsubd);
+
+/* Optimize function used by R's optimize
+   Taken from R ver 2.15.2, in src/appl/fmin.c 
+*/
+double rxoi_Brent_fmin(double ax, double bx, double (*f)(double, void *),
+                       void *info, double tol);
+
 
 /* from GammaUtil.c */
 double mydgamma(double x, double shape, double rate);

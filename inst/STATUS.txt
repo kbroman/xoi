@@ -16,6 +16,11 @@ copyright (c) 1999-2012, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.61, 1/14/2013:
+
+   Incorporated C code for Brent_fmin from R
+
+
 Version 0.60, 11/21/2012:
 
    Added some error messages for fitStahl and stahlLoglik, if input is
