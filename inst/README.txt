@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
 R/xoi
-copyright (c) 1999-2012, Karl W Broman
+copyright (c) 1999-2013, Karl W Broman
 http://www.biostat.wisc.edu/~kbroman/software/xoi
 ----------------------------------------------------------------------
 

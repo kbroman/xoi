@@ -2,9 +2,9 @@
  *
  * simStahl.c
  *
- * copyright (c) 2006, Karl W Broman
+ * copyright (c) 2006-2013, Karl W Broman
  * 
- * last modified Dec, 2006
+ * last modified Sep, 2013
  * first written Nov, 2006
  *
  *     This program is free software; you can redistribute it and/or
@@ -69,7 +69,7 @@ void simStahl(int *n_sim, double *nu, double *p, double *L,
     startprob = (double *)R_alloc(*n_bins4start, sizeof(double));
     step = *L/(double)*n_bins4start;
 
-    startprob[0] = 2.0*(1.0 - *p)*pgamma(((double)i+0.5)*step, *nu, scale, 0, 0)*step;
+    startprob[0] = 2.0*(1.0 - *p)*pgamma(0.5*step, *nu, scale, 0, 0)*step;
     for(i=1; i< *n_bins4start; i++) {
       R_CheckUserInterrupt(); /* check for ^C */
 
