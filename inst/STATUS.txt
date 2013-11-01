@@ -16,9 +16,15 @@ copyright (c) 1999-2013, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.63, 11/1/2013:
+
+   Revised est.recrate to handle multiple chromosomes at once.
+
+
 Version 0.62, 9/13/2013:
 
    Fixed a big in simStahl
+
 
 Version 0.61, 1/14/2013:
 

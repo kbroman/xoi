@@ -1,9 +1,9 @@
 ######################################################################
 # recrate.R
 #
-# copyright (c) 2008-9, Karl W Broman
+# copyright (c) 2008-2013, Karl W Broman
 #
-# last modified May, 2009
+# last modified Nov, 2013
 # first written Aug, 2008
 #
 #     This program is free software; you can redistribute it and/or
@@ -37,6 +37,21 @@
 est.recrate <-
 function(genmap, phymap, pos, window=5)
 {
+  # multiple-chromosome version
+  if(is.list(genmap) && is.list(phymap)) {
+    if(length(genmap) != length(phymap))
+      stop("length(genmap) != length(phymap)")
+    if(missing(pos)) {
+        result <- apply(mapply(est.recrate, genmap, phymap, window=window), 2, as.data.frame)
+    } else {
+      if(length(pos) != length(genmap))
+        stop("length(pos) != length(genmap)")
+        result <- apply(mapply(est.recrate, genmap, phymap, pos, window=window), 2, as.data.frame)
+    }
+    names(result) <- names(genmap)
+    return(result)
+  }
+
   if(length(genmap) != length(phymap))
     stop("genmap and phymap should be the same length.")
 

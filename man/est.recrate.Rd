@@ -13,11 +13,11 @@ est.recrate(genmap, phymap, pos, window=5)
 }
 
 \arguments{
-  \item{genmap}{Vector of cM positions of markers.}
-  \item{phymap}{Vector of Mbp positions of markers; same length as
+  \item{genmap}{Vector of cM positions of markers, or a list of such vectors.}
+  \item{phymap}{Vector of Mbp positions of markers, or a list of such vectors; same length as
     \code{genmap}.}
   \item{pos}{Vector of positions at which the recombination rate should
-    be estimated.  If missing, we use the physical marker positions
+    be estimated, or a list of such vectors.  If missing, we use the physical marker positions
     plus a grid with 4 positions per Mbp.}
   \item{window}{Length of sliding window (in Mbp).}
 }
