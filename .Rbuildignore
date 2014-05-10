@@ -1,2 +1,4 @@
 \.git
-^README.txt$
+README.md
+\.gitignore
+Makefile
