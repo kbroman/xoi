@@ -1,28 +1,49 @@
-######################################################################
-# coincidence.R
-#
-# copyright (c) 2006-7, Karl W Broman
-#
-# last modified Apr, 2007
-# first written Dec, 2006
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-# 
-# Part of the R/xoi package
-# Contains: est.coi
-#
-######################################################################
+## coincidence.R
 
+#' Estimate the coincidence function
+#' 
+#' Estimate the coincidence function from backcross data.
+#' 
+#' The coincidence function is the probability of a recombination event in both
+#' of two intervals, divided by the product of the two recombination fraction.
+#' We estimate this as a function of the distance between the two intervals.
+#' 
+#' Note that we first call \code{\link[qtl]{fill.geno}} to impute any missing
+#' genotype data.
+#' 
+#' @param cross Cross object; must be a backcross.  See
+#' \code{\link[qtl]{read.cross}} for format details.
+#' @param chr Chromosome to consider (only one is allowed).  If missing, the
+#' first chromosome is considered.
+#' @param pos If provided, these are used as the marker positions.  (This could
+#' be useful if you want to do things with respect to physical distance.)
+#' @param window Window size used to smooth the estimates.
+#' @param fill.method Method used to impute missing data.
+#' @param error.prob Genotyping error probability used in imputation of missing
+#' data.
+#' @param map.function Map function used in imputation of missing data.
+#' @return A data.frame containing the distance between intervals and the
+#' corresponding estimate of the coincidence.  There are actually two columns
+#' of estimates of the coincidence.  In the first estimate, we take a running
+#' mean of each of the numerator and denominator and then divide.  In the
+#' second estimate, we first take a ratio and then take a running mean.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
+#' @references McPeek, M. S. and Speed, T. P. (1995) Modeling interference in
+#' genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' @keywords models
+#' @examples
+#' 
+#' map1 <- sim.map(103, n.mar=104, anchor=TRUE, include.x=FALSE, eq=TRUE)
+#' x <- sim.cross(map1, n.ind=2000, m=6, type="bc")
+#' 
+#' out <- est.coi(x, window=5)
+#' plot(coi1 ~ d, data=out, type="l", lwd=2, col="blue")
+#' lines(coi2 ~ d, data=out, lwd=2, col="green")
+#' lines(gammacoi(7), lwd=2, col="red", lty=2)
+#' 
+#' @useDynLib xoi
+#' @export
 est.coi <-
 function(cross, chr, pos, window=0, 
          fill.method=c("imp", "argmax"), error.prob=1e-10,
@@ -81,7 +102,3 @@ function(cross, chr, pos, window=0,
   n <- out$n
   data.frame(d=out$d[1:n], coi1=out$coi1[1:n], coi2=out$coi2[1:n])
 }
-
-
-
-# end of coincidence.R

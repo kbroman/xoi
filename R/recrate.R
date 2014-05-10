@@ -1,39 +1,27 @@
-######################################################################
-# recrate.R
-#
-# copyright (c) 2008-2013, Karl W Broman
-#
-# last modified Nov, 2013
-# first written Aug, 2008
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-#
-# Part of the R/xoi package
-# Contains: est.recrate, recrate2scanone
-#
-######################################################################
+## recrate.R
 
-######################################################################
-# est.recrate
-#
-# Obtain a smoothed estimate of recombination rate across
-# a chromosome, using a sliding window of fixed width
-#
-# genmap = cM positions of markers
-# phymap = Mbp positions of markers
-# pos    = Mbp positions at which to calculate the cM/Mbp rate
-# window = total length of sliding window (in Mbp)
-######################################################################
+#' Estimate recombination rate
+#' 
+#' Obtain a smoothed estimate of the recombination rate along a chromosome,
+#' using the cM and Mbp position of markers.
+#' 
+#' We assume constant recombination rate within each marker interval.
+#' 
+#' @param genmap Vector of cM positions of markers, or a list of such vectors.
+#' @param phymap Vector of Mbp positions of markers, or a list of such vectors;
+#' same length as \code{genmap}.
+#' @param pos Vector of positions at which the recombination rate should be
+#' estimated, or a list of such vectors.  If missing, we use the physical
+#' marker positions plus a grid with 4 positions per Mbp.
+#' @param window Length of sliding window (in Mbp).
+#' @return A data.frame containing the positions and estimate recombination
+#' rates.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{est.coi}}
+#' @keywords models
+#'
+#' @useDynLib xoi
+#' @export
 est.recrate <-
 function(genmap, phymap, pos, window=5)
 {
@@ -103,9 +91,21 @@ function(genmap, phymap, pos, window=5)
   data.frame(pos=pos, rate=rate)
 }
 
-######################################################################
-# convert results of recrate (for multiple chromosomes) to scanone
-# format (for R/qtl)
+
+#' Convert recrate to scanone format
+#' 
+#' Convert the result of \code{\link{est.recrate}} to the format
+#' output by R/qtl's \code{\link[qtl]{scanone}} function.
+#' 
+#' @param recrate A list of results from \code{\link{est.recrate}}
+#' @param phymap A list of vectors of Mbp positions of markers
+#' @return A data frame with class \code{"scanone"}, in the format output by \code{\link[qtl]{scanone}}.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{est.recrate}}
+#' @keywords models
+#'
+#' @useDynLib xoi
+#' @export
 recrate2scanone <-
 function(recrate, phymap)
 {
@@ -138,5 +138,3 @@ function(recrate, phymap)
 
   result
 }
-
-# end of recrate.R

@@ -1,21 +1,31 @@
-#**********************************************************************
-#* 
-#* intensity.R
-#* 
-#* Input
-#*   xomat : xo matrix
-#*   window : window size
-#*   marker : marker vector
-#*   n_ind : # of observations
-#*   N : # of marker positions that we want to calculate
-#*
-#* Return : 
-#*   val : intensity fcn value at each of marker positions
-#*   center : marker position vector (It have length N)
-#*   window_size : window size 
-#*
-#**********************************************************************/
+# kwak_intensity.R
 
+#' Estimate intensity function
+#' 
+#' Estimate intensity function for a chromosome.
+#' 
+#' 
+#' @param cross Cross object; must be a backcross.  See
+#' \code{\link[qtl]{read.cross}} for format details.
+#' @param chr Chromosome to consider (only one is allowed).  If missing, the
+#' first chromosome is considered.
+#' @param window Window size
+#' @param ncalc Total number of points for calculations.
+#' @return Data frame with columns \code{position} and \code{intensity}.  The
+#' input argument \code{window} is kept as an attribute.
+#' @author Il youp Kwak
+#' @seealso \code{\link{coincidence}}
+#' @keywords utilities
+#' @examples
+#' 
+#' map1 <- sim.map(103, n.mar=104, anchor=TRUE, include.x=FALSE, eq=TRUE)
+#' x <- sim.cross(map1, n.ind=2000, m=6, type="bc")
+#' 
+#' out <- intensity(x)
+#' plot(out, type="l", lwd=2, ylim=c(0, max(out[,2])))
+#' 
+#' @useDynLib xoi
+#' @export
 intensity <-
 function(cross, chr, window=2.5, ncalc=500)
 {
@@ -68,5 +78,3 @@ function(xomat, window, marker, n_ind, N)
   attr(result, "window") <- window
   result
 }
-
-# end of intensity.R

@@ -1,38 +1,21 @@
-#####################################################################
-#
-# kfunc.h
-#
-# copyright (c) 2006, Karl W Broman
-#
-# last modified Nov, 2006
-# first written Apr, 2006
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-#
-# Part of the R/xoi package
-# Contains: kfunc
-#
-######################################################################
+## kfunc.R
 
-######################################################################
-# code to estimate the 1-d version of Ripley's K function
-#
-# x = list with sorted locations of the data
-# d = values at which to calculate the function
-# lengths = lengths of segments studied
-# exclude = distance to exclude
-######################################################################
-
+#' estimate Ripley's K function
+#'
+#' estimate the 1-d version of Ripley's K function
+#'
+#' @param x list with sorted locations of the data
+#' @param d values at which to calculate the function
+#' @param lengths lengths of segments studied
+#' @param exclude distance to exclude
+#' @param tol tolerance value
+#'
+#' @return data frame with \code{d}, \code{k}, and \code{se}
+#'
+#' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{coincidence}}
+#' @keywords models
+#' @useDynLib xoi
+#' @export
 kfunc <-
 function(x, d=seq(0,100,by=0.1), lengths, exclude=0, tol=1e-6)
 {

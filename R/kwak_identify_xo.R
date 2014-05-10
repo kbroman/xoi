@@ -1,6 +1,4 @@
-######################################################################
-#
-# identify_xo : identify crossover. 2nd version for speed by C coding
+## identify_xo : identify crossover. 2nd version for speed by C coding
 #
 # Input : data matrix.
 # Return : xo information matrix.
@@ -11,8 +9,6 @@
 #
 # ** have get_n_xo() as a sub function 
 # return : number of crossover happened
-# 
-######################################################################
 
 identify_xo <- function(sdat)
 {
@@ -37,4 +33,3 @@ identify_xo <- function(sdat)
   xomat <- rbind(output$ind_id, output$left, output$right)
   return(list(xomat=xomat, ob_ind=output$ob_ind))
 }
-# end of identify_xo.R

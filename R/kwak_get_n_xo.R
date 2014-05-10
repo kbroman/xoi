@@ -1,3 +1,5 @@
+## kwak_get_n_xoi.R
+
 get_n_xo <- function(sdat)
 {
   n_ind <- nrow(sdat) 

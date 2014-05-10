@@ -1,42 +1,49 @@
-######################################################################
-# simStahl.R
-#
-# copyright (c) 2006, Karl W Broman
-#
-# last modified Nov, 2006
-# first written Nov, 2006
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-#
-# Part of the R/xoi package
-# Contains: simStahl
-#
-######################################################################
+## simStahl.R
 
-######################################################################
-#
-# simStahl
-#
-# This function simulates crossover locations under the Stahl model.
-#
-# n.sim = number of meioses to simulate
-# nu    = interference parameter
-# p     = proportion of chiasmata from the NI mechanism
-# L     = chromosome length (in cM)
-#
-######################################################################
-
-
+#' Simulate crossover locations under the Stahl model
+#' 
+#' Simulate crossover locations under the Stahl model.
+#' 
+#' The Stahl model is an extension to the gamma model, in which chiasmata occur
+#' according to two independent mechanisms.  A proportion \eqn{p} come from a
+#' mechanism exhibiting no interference, and a proportion 1-\eqn{p} come from a
+#' mechanism in which chiasma locations follow a gamma model with interference
+#' parameter \eqn{\nu}{nu}.
+#' 
+#' @param n.sim Number of meiotic products to simulate.
+#' @param nu The interference parameter in the gamma model.
+#' @param p The proportion of chiasmata coming from the no-interference
+#' mechanism.
+#' @param L Chromosome length (in cM).
+#' @param n.bins4start We approximate the distribution of the location of the
+#' first crossover from the mechanism exhibiting interference using a even grid
+#' with this many bins.
+#' @return A vector of length \code{n.sim}, each element being empty (for
+#' products with no crossovers) or a vector of crossover locations, in cM.  An
+#' attribute, \code{L}, contains the chromosome length in cM.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{fitGamma}}, \code{\link[qtl]{sim.cross}}
+#' @references Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
+#' Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
+#' 1631--1639.
+#' 
+#' Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
+#' \emph{Am J Hum Genet} \bold{73}, 188--197.
+#' @keywords datagen
+#' @examples
+#' 
+#' # simulations with no interference
+#' xoNI <- simStahl(100, nu=1, p=0, L=200)
+#' 
+#' # simulations under gamma model with nu=7.6
+#' xogamma <- simStahl(100, nu=7.6, p=0, L=200)
+#' 
+#' # simulations under Stahl model with nu=7.6, p=0.1
+#' xostahl <- simStahl(100, nu=7.6, p=0.1, L=200)
+#' 
+#' @importFrom stats qpois
+#' @useDynLib xoi
+#' @export
 simStahl <-
 function(n.sim, nu=1, p=0, L=103, n.bins4start=10000)
 {
@@ -68,5 +75,3 @@ function(n.sim, nu=1, p=0, L=103, n.bins4start=10000)
   attr(out, "L") <- L*100
   out
 }
-
-# end of simStahl.R 

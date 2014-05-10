@@ -1,30 +1,48 @@
-######################################################################
-# util.R
-#
-# copyright (c) 1999-2012, Karl W Broman
-#
-# last modified Nov, 2012
-# first written ~Jun, 1999
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-#
-# Part of the R/xoi package
-# Contains: find.breaks, find.breaks.F2, inferxoloc.F2, countxo,
-#           convertxoloc, addlog
-#
-######################################################################
+## util.R
 
-# find breakpoints
+#' Estimate crossover locations
+#' 
+#' Estimate the locations of crossovers in a backcross.
+#' 
+#' This works only a backcross, RIL, or intercross.  We use the function
+#' \code{\link[qtl]{locateXO}} in R/qtl.  Crossovers are estimated to be at the
+#' midpoint of the interval between the nearest flanking typed markers.
+#' 
+#' @param cross An object of class \code{cross}. (This must be a backcross,
+#' RIL, or intercross.) See \code{\link[qtl]{read.cross}} for details.
+#' @param chr Optional set of chromosomes on which to look for crossovers.  If
+#' missing, all chromosomes are considered.
+#' @return If only one chromosome is considered, this is a list with one
+#' component for each individual.  If multiple chromosomes were considered,
+#' this is a list with one element for each chromosome, each of which is a list
+#' with one element for each individual, as above.
+#' 
+#' For backcrosses and RIL, the componenets for the individuals are
+#' \code{numeric(0)} if there were no crossovers or a vector giving the
+#' crossover locations.  The length of the chromosome (in cM) is saved as an
+#' attribute.  (Note that the format is the same as the output of
+#' \code{\link{simStahl}}.)
+#' 
+#' For an intercross, the components for the individuals are themselves lists
+#' with all possible allocations of the crossovers to the two meiotic products;
+#' each component of this list is itself a list with two components,
+#' corresponding to the two meiotic products.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{convertxoloc}}, \code{\link{fitGamma}},
+#' \code{\link{simStahl}}
+#' @keywords utilities
+#' @examples
+#' 
+#' data(bssbsb)
+#' 
+#' # crossover locations on chromosome 1
+#' xoloc1 <- find.breaks(bssbsb, chr=1)
+#' 
+#' # crossover locations on all chromosomes
+#' xoloc <- find.breaks(bssbsb)
+#' 
+#' @import qtl
+#' @export
 find.breaks <-
 function(cross, chr)
 {
@@ -167,7 +185,33 @@ function(fullxoinfo)
 
 
 
-# count number of crossovers
+#' Estimate number of crossovers
+#' 
+#' Estimate the number of crossovers in each meiosis in a backcross.
+#' 
+#' This works only a backcross.  We use the internal function (within R/qtl)
+#' \code{locate.xo}.
+#' 
+#' @param cross An object of class \code{cross}. (This must be a backcross.)
+#' See \code{\link[qtl]{read.cross}} for details.
+#' @param chr Optional set of chromosomes across which to count crossovers.  If
+#' missing, the total number of crossovers, genome-wide, is counted.
+#' @return A vector with the estimated number of crossovers for each
+#' individual.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{find.breaks}}
+#' @keywords utilities
+#' @examples
+#' 
+#' data(bssbsb)
+#' 
+#' # estimated number of crossovers on chr 1
+#' nxo <- countxo(bssbsb, chr=1)
+#' 
+#' # estimated number of crossovers genome-wide
+#' nxo <- countxo(bssbsb)
+#' 
+#' @export
 countxo <-
 function(cross, chr)
 {
@@ -186,6 +230,36 @@ function(cross, chr)
   apply(sapply(br, sapply, length),1,sum)
 }
 
+
+
+#' Convert format of crossover locations data
+#' 
+#' Convert the format of data on crossover locations to that needed for the
+#' function \code{\link{fitGamma}.}
+#' 
+#' 
+#' @param breaks A list of crossover locations, as output by
+#' \code{\link{find.breaks}} or \code{\link{simStahl}}.
+#' @return A data frame with two columns: the inter-crossover and crossover-to
+#' chromosome end differences (\code{"distance"}) and indicators of censoring
+#' type (\code{"censor"}), with 0 = distance between crossovers, 1=start of
+#' chromosome to first crossover, 2 = crossover to end of chromosome, and 3 =
+#' whole chromosome.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{find.breaks}}, \code{\link{fitGamma}},
+#' \code{\link{simStahl}}
+#' @keywords utilities
+#' @examples
+#' 
+#' data(bssbsb)
+#' 
+#' # crossover locations on chromosome 1
+#' xoloc1 <- convertxoloc(find.breaks(bssbsb, chr=1))
+#' 
+#' # crossover locations on all chromosomes
+#' xoloc <- convertxoloc(find.breaks(bssbsb))
+#' 
+#' @export
 convertxoloc <-
 function(breaks)
 {
@@ -232,6 +306,3 @@ addlog <- function(..., threshold=200)
   }
   x
 }
-
-
-# end of util.R

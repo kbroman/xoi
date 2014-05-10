@@ -1,49 +1,52 @@
-######################################################################
-# fitStahl.R
-#
-# copyright (c) 2009-2012, Karl W Broman
-#
-# last modified Nov, 2012
-# first written Jun, 2009
-#
-#     This program is free software; you can redistribute it and/or
-#     modify it under the terms of the GNU General Public License,
-#     version 3, as published by the Free Software Foundation.
-# 
-#     This program is distributed in the hope that it will be useful,
-#     but without any warranty; without even the implied warranty of
-#     merchantability or fitness for a particular purpose.  See the GNU
-#     General Public License, version 3, for more details.
-# 
-#     A copy of the GNU General Public License, version 3, is available
-#     at http://www.r-project.org/Licenses/GPL-3
-#
-# Part of the R/xoi package
-# Contains: stahlLoglik, stahlLoglikF2,
-#           fitStahl, fitStahl.sub, fitStahl.sub2
-#
-######################################################################
+## fitStahl.R
 
-######################################################################
-# stahlLoglik
-#
-# xoloc =  list of crossover locations; each component being a
-#          different meiotic product
-#          
-# chrlen = chromosome lengths, either of length 1 or of the same 
-#          length as xoloc
-#
-# nu     = interference parameter
-#
-# p      = proportion of crossovers coming from the no interference 
-#          pathway
-#
-# max.conv   = maximum number of convolutions
-# integr.tol = tolerance for integration
-# max.subd   = maximum number of subdivisions in integration
-# min.subd   = minimum number of subdivisions in integration
-#
-######################################################################
+#' Calculate log likelihood for Stahl model
+#' 
+#' Calculate the log likelihood for the Stahl model for varying parameters,
+#' with data on crossover locations.
+#' 
+#' See Housworth and Stahl (2003) and Broman and Weber (2000) for details of
+#' the method.
+#' 
+#' If neither \code{nu} nor \code{p} has length 1, they both must have the same
+#' length.  If one has length 1 and the other does not, the one with length 1
+#' is repeated so that they both have the same length.
+#' 
+#' @param xoloc A list of crossover locations (in cM), each component being a
+#' vector of locations for a different meiotic product.
+#' @param chrlen Chromosome length (in cM), either of length 1 or the same
+#' length as \code{xoloc}.
+#' @param nu A vector of interference parameters (\eqn{\nu}{nu}) at which to
+#' calculate the log likelihood.
+#' @param p A vector of parameter values for the proportion of crossovers from
+#' the no interference pathway.
+#' @param max.conv Maximum limit for summation in the convolutions to get
+#' inter-crossover distance distribution from the inter-chiasma distance
+#' distributions.  This should be greater than the maximum number of chiasmata
+#' on the 4-strand bundle.
+#' @param integr.tol Tolerance for convergence of numerical integration.
+#' @param max.subd Maximum number of subdivisions in numerical integration.
+#' @param min.subd Minimum number of subdivisions in numerical integration.
+#' @return A vector of log likelihoods.
+#' 
+#' The corresponding values of nu and p are saved as attributes.
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link[qtl]{fitstahl}}
+#' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
+#' in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+#' 
+#' Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
+#' interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' @keywords models
+#' @examples
+#' 
+#' data(bssbsb)
+#' xoloc <- find.breaks(bssbsb, chr=1)
+#' 
+#' loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
+#' 
+#' @useDynLib xoi
+#' @export
 stahlLoglik <-
 function(xoloc, chrlen, nu, p,
          max.conv=25, integr.tol=1e-8, max.subd=1000, min.subd=10)
@@ -177,6 +180,69 @@ function(nu, xoloc, chrlen, max.conv=25, integr.tol=1e-8,
 }
 
 # function to optimize for the Stahl model
+
+
+#' Fit Stahl model
+#' 
+#' Fit the Stahl model for crossover interference to data on crossover
+#' locations.
+#' 
+#' See Housworth and Stahl (2003) and Broman and Weber (2000) for details of
+#' the method.
+#' 
+#' We first use \code{\link[stats]{optimize}} to find the MLE with the
+#' contraint \code{p=0}, followed by use of \code{\link[stats]{optim}} to do a
+#' 2-dimensional optimization for the MLEs of the pair.
+#' 
+#' @param xoloc A list of crossover locations (in cM), each component being a
+#' vector of locations for a different meiotic product.
+#' @param chrlen Chromosome length (in cM), either of length 1 or the same
+#' length as \code{xoloc}.
+#' @param nu Interference parameter (\eqn{\nu}{nu}).  This should be a pair of
+#' values to be used as endpoints to first do a 1-dimensional optimization with
+#' \eqn{p=0}.
+#' @param p Starting value for the proportion of crossovers from the no
+#' interference pathway, for the 2-dimensional optimization.
+#' @param max.conv Maximum limit for summation in the convolutions to get
+#' inter-crossover distance distribution from the inter-chiasma distance
+#' distributions.  This should be greater than the maximum number of chiasmata
+#' on the 4-strand bundle.
+#' @param integr.tol Tolerance for convergence of numerical integration.
+#' @param max.subd Maximum number of subdivisions in numerical integration.
+#' @param min.subd Minimum number of subdivisions in numerical integration.
+#' @param verbose If TRUE, print tracing information.  If "\dots{}" includes
+#' \code{control}, this is ignored.
+#' @param \dots Further arguments sent to \code{\link[stats]{optim}}.
+#' @return A vector with the estimates of \eqn{\nu}{nu} (interference
+#' parameter) and \eqn{p} (proportion of crossovers coming from the no
+#' interference pathway), the maximized log likelihood, the estimate of nu with
+#' p constrained to be 0, the maximized log likelihood in this case, and the
+#' log likelihood ratio for comparing the model with p allowed to vary freely
+#' versus contrained to be 0.  (Note that it's the natural log of the
+#' likelihood ratio, and not twice that.)
+#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @seealso \code{\link{fitGamma}}, \code{\link{stahlLoglik}},
+#' \code{\link{simStahl}}
+#' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
+#' in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+#' 
+#' Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
+#' interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' @keywords models
+#' @examples
+#' 
+#' data(bssbsb)
+#' \dontshow{bssbsb <- bssbsb[,1:50]}
+#' 
+#' xoloc <- find.breaks(bssbsb, chr=1)
+#' L <- attr(xoloc, "L")
+#' 
+#' # get MLE (limiting maximum iterations to 10, just for speed in this example)
+#' \dontrun{mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=10))}
+#' \dontshow{mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=2))}
+#' 
+#' @importFrom stats optimize optim
+#' @export
 fitStahl <-
 function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
          max.subd=1000, min.subd=10, verbose=TRUE, ...)
@@ -229,5 +295,3 @@ function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
   names(out) <- c("nu", "p", "loglik", "nu0", "loglik0", "ln LR testing p=0")
   out
 }
-
-# end of fitStahl.R
