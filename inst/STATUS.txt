@@ -1,7 +1,7 @@
 
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2013, Karl W Broman
+copyright (c) 1999-2014, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
@@ -15,6 +15,11 @@ copyright (c) 1999-2013, Karl W Broman
     A copy of the GNU General Public License, version 3, is available
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
+
+Version 0.64, 5/9/2014:
+
+   Convert to using Roxygen2 for managing documentation
+
 
 Version 0.63, 11/1/2013:
 
