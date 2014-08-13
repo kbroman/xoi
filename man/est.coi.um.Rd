@@ -3,8 +3,8 @@
 \alias{est.coi.um}
 \title{Estimate the coincidence as a function of micron distance}
 \usage{
-est.coi.um(xoloc, sclength, centromeres, group, intwindow = 0.05,
-  coiwindow = 2, intloc, coiloc)
+est.coi.um(xoloc, sclength, centromeres, group, intwindow = 0.05, coiwindow,
+  intloc, coiloc)
 }
 \arguments{
 \item{xoloc}{list of crossover locations (in microns) for each of several oocytes or spermatocytes.}
