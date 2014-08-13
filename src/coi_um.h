@@ -22,15 +22,23 @@
  * coincidence = vector of length n_coiloc, to contain estimated coincidence
 
  */
-void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
-                  int *group, int *n_group, double *intwindow,
-                  double *coiwindow, double *intloc, int *n_intloc,
-                  double *coiloc, int *n_coiloc,
-                  double *intensity, double *coincidence);
-
 void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
                 int *group, int n_group, double intwindow,
                 double coiwindow, double *intloc, int n_intloc,
                 double *coiloc, int n_coiloc,
                 double **Intensity, double *coincidence);
 
+
+/* to be called from R */
+void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
+                  int *group, int *n_group, double *intwindow,
+                  double *coiwindow, double *intloc, int *n_intloc,
+                  double *coiloc, int *n_coiloc,
+                  double *intensity, double *coincidence);
+
+/* estimate intensity function for one group */
+void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
+                          double *sclength, int *group,
+                          int which_group, double intwindow,
+                          double *intloc, int n_intloc,
+                          double *intensity);
