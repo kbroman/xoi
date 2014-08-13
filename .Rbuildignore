@@ -1,4 +1,5 @@
 \.git
 ^README.md
+^LICENSE.txt
 \.gitignore
 Makefile
