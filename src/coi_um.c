@@ -86,6 +86,8 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
     int i, j, k, count;
     double adjpos;
 
+    /* this is definitely not the most efficient way to do this */
+    /* sufficient for small data sets, but should be re-worked */
     for(i=0; i<n_intloc; i++) {
         intensity[i] = 0.0;
 
@@ -95,9 +97,9 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
                 for(k=0; k<n_xo[j]; k++) {
                     /* position -> (0,0.5) for p-arm and (0.5,1) for q-arm */
                     if(XOLoc[j][k] <= centromeres[j])
-                        adjpos = XOLoc[j][k]/centromeres[j];
+                        adjpos = XOLoc[j][k]/centromeres[j]/2.0;
                     else
-                        adjpos = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j]) + 0.5;
+                        adjpos = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j])/2.0 + 0.5;
 
                     if(adjpos >= intloc[i]-intwindow/2.0 &&
                        adjpos <= intloc[i]+intwindow/2.0)
