@@ -38,13 +38,40 @@ void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
                 double *coiloc, int n_coiloc,
                 double **Intensity, double *coincidence)
 {
-    int i;
+    int i, total_xo;
+    double **IntensityVals, *intensityvals;
+    double **AdjustedXOPos, *adjustedxopos;
+
+    /* count total number of crossovers */
+    total_xo = 0;
+    for(i=0; i<n; i++)
+        total_xo += n_xo[i];
+    /* space for intensity values; same structure as XOLoc */
+    intensityvals = (double *)R_alloc(total_xo, sizeof(double));
+    IntensityVals = (double **)R_alloc(n, sizeof(double *));
+    IntensityVals[0] = intensityvals;
+    for(i=1; i<n; i++)
+        IntensityVals[i] = IntensityVals[i-1] + n_xo[i-1];
+    /* space for adjusted XO positions; same structure as XOLoc */
+    adjustedxopos = (double *)R_alloc(total_xo, sizeof(double));
+    AdjustedXOPos = (double **)R_alloc(n, sizeof(double *));
+    AdjustedXOPos[0] = adjustedxopos;
+    for(i=1; i<n; i++)
+        AdjustedXOPos[i] = AdjustedXOPos[i-1] + n_xo[i-1];
+
+    /* get adjusted XO positions: p-arm in (0, 0.5) and q-arm in (0.5, 1) */
+    calc_adjusted_xo_pos(n, XOLoc, n_xo, sclength, centromeres, AdjustedXOPos);
 
     /* estimate the intensity functions */
     for(i=0; i<n_group; i++)
-        est_coi_um_intensity(n, XOLoc, n_xo, sclength, centromeres,
+        est_coi_um_intensity(n, AdjustedXOPos, n_xo, sclength, centromeres,
                              group, i+1, intwindow,
                              intloc, n_intloc, Intensity[i]);
+
+    /* for each XO, find intensity at nearest calculated position */
+    grab_intensities(n, AdjustedXOPos, n_xo, group, intloc, n_intloc, 
+                     Intensity, IntensityVals);
+
 }
 
 /* to be called from R */
@@ -76,7 +103,7 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
 }
 
 /* estimate intensity function for one group */
-void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
+void est_coi_um_intensity(int n, double **AdjustedXOPos, int *n_xo,
                           double *sclength, double *centromeres,
                           int *group, int which_group, 
                           double intwindow,
@@ -84,7 +111,6 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
                           double *intensity)
 {
     int i, j, k, count;
-    double adjpos;
 
     /* this is definitely not the most efficient way to do this */
     /* sufficient for small data sets, but should be re-worked */
@@ -95,14 +121,8 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
         for(j=0; j<n; j++) {
             if(group[j] == which_group) {
                 for(k=0; k<n_xo[j]; k++) {
-                    /* position -> (0,0.5) for p-arm and (0.5,1) for q-arm */
-                    if(XOLoc[j][k] <= centromeres[j])
-                        adjpos = XOLoc[j][k]/centromeres[j]/2.0;
-                    else
-                        adjpos = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j])/2.0 + 0.5;
-
-                    if(adjpos >= intloc[i]-intwindow/2.0 &&
-                       adjpos <= intloc[i]+intwindow/2.0)
+                    if(AdjustedXOPos[j][k] >= intloc[i]-intwindow/2.0 &&
+                       AdjustedXOPos[j][k] <= intloc[i]+intwindow/2.0)
                         intensity[i] += 1.0;
                 }
                 count++;
@@ -118,4 +138,58 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
             intensity[i] /= intwindow;
     }
 
+}
+
+/* grab the intensities that correspond to each XOLoc position */
+void grab_intensities(int n, double **XOLoc, int *n_xo,
+                      int *group, double *intloc, int n_intloc,
+                      double **Intensity, double **IntensityVal)
+{
+    int i, j, wh;
+
+    for(i=0; i<n; i++) {
+        for(j=0; j<n_xo[i]; j++) {
+            wh = find_index_of_closest_value(XOLoc[i][j], n_intloc, intloc);
+            IntensityVal[i][j] = Intensity[group[i]-1][wh];
+        }
+    }
+}
+
+/* find index of element in vec that is closest to x */
+/* with ties, we just pick the first one */
+int find_index_of_closest_value(double x, int n, double *vec)
+{
+    int i, index;
+    double minimum, cur;
+
+    index=0;
+    minimum=fabs(vec[0]-x);
+    
+    for(i=1; i<n; i++) {
+        cur = fabs(vec[i]-x);
+        if(cur < minimum) {
+            index=i;
+            minimum = cur;
+        }
+    }
+    return(index);
+}
+
+/* calculate the adjusted XO positions */ 
+/* p-arm in (0,0.5); q-arm in (0.5, 1) */
+void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo, 
+                          double *sclength, double *centromeres, 
+                          double **AdjustedXOPos)
+{
+    int j, k;
+
+    for(j=0; j<n; j++) {
+        for(k=0; k<n_xo[j]; k++) {
+            /* position -> (0,0.5) for p-arm and (0.5,1) for q-arm */
+            if(XOLoc[j][k] <= centromeres[j])
+                AdjustedXOPos[j][k] = XOLoc[j][k]/centromeres[j]/2.0;
+            else
+                AdjustedXOPos[j][k] = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j])/2.0 + 0.5;
+        }
+    }
 }

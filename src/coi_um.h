@@ -40,9 +40,24 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
                   double *intensity, double *coincidence);
 
 /* estimate intensity function for one group */
-void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
+void est_coi_um_intensity(int n, double **AdjustedXOPos, int *n_xo,
                           double *sclength, double *centromeres,
                           int *group, int which_group, 
                           double intwindow,
                           double *intloc, int n_intloc,
                           double *intensity);
+
+/* grab the intensities that correspond to each XOLoc position */
+void grab_intensities(int n, double **XOLoc, int *n_xo,
+                      int *group, double *intloc, int n_intloc,
+                      double **Intensity, double **IntensityVal);
+
+/* find index of element in vec that is closest to x */
+/* with ties, we just pick the first one */
+int find_index_of_closest_value(double x, int n, double *vec);
+
+/* calculate the adjusted XO positions */ 
+/* p-arm in (0,0.5); q-arm in (0.5, 1) */
+void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo, 
+                          double *sclength, double *centromeres, 
+                          double **AdjustedXOPos);
