@@ -94,8 +94,8 @@ function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
 
     # reformat the results
     result <- list(coincidence = cbind(um=coiloc, coi=z$coincidence),
-                   intensity = cbind(x=intloc, as.matrix(z$intensity,
-                                     nrow=length(intloc))))
+                   intensity = cbind(x=intloc,
+                                     matrix(z$intensity, ncol=max(group))))
     colnames(result$intensity)[-1] <- ugroup
 
     result
