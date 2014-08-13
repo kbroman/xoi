@@ -61,3 +61,9 @@ int find_index_of_closest_value(double x, int n, double *vec);
 void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo, 
                           double *sclength, double *centromeres, 
                           double **AdjustedXOPos);
+
+/* estimate coincidence */
+void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
+                            int *n_xo, double *sclength, double intwindow, 
+                            double coiwindow, double *coiloc, int n_coiloc, 
+                            double *coicidence);

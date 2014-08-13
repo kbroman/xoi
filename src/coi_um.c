@@ -72,6 +72,11 @@ void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
     grab_intensities(n, AdjustedXOPos, n_xo, group, intloc, n_intloc, 
                      Intensity, IntensityVals);
 
+    /* estimate coincidence */
+    est_coi_um_coincidence(n, XOLoc, IntensityVals, n_xo,
+                           sclength, intwindow, coiwindow,
+                           coiloc, n_coiloc, coincidence);
+
 }
 
 /* to be called from R */
@@ -191,5 +196,47 @@ void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
             else
                 AdjustedXOPos[j][k] = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j])/2.0 + 0.5;
         }
+    }
+}
+
+/* estimate coincidence */
+void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
+                            int *n_xo, double *sclength, double intwindow, 
+                            double coiwindow, double *coiloc, int n_coiloc, 
+                            double *coincidence)
+{
+    int i, j1, j2, k;
+    double *denom, d;
+
+    /* space for denominator; zero it out */
+    denom = (double *)R_alloc(n_coiloc, sizeof(double));
+    for(k=0; k<n_coiloc; k++)
+        coincidence[k] = denom[k] = 0.0;
+
+    for(i=0; i<n; i++) { /* loop over cells */
+
+        for(k=0; k<n_coiloc; k++)
+            denom[k] += coiwindow/(sclength[i] - coiloc[k]); /* totally not sure about this */
+
+        /* loop over pairs of XO locations */
+        for(j1=0; j1<n_xo[i]-1; j1++) { 
+            for(j2=j1+1; j2<n_xo[i]; j2++) {
+                
+                d = fabs(XOLoc[i][j1] - XOLoc[i][j2]); /* distance between XOs */
+                for(k = 0; k<n_coiloc; k++) {
+                    if(fabs(d - coiloc[k]) < coiwindow/2.0) {
+                        coincidence[k] += 1.0/(IntensityVals[i][j1]*IntensityVals[i][j2]*
+                                               intwindow*intwindow);
+                    }
+                }
+
+            }
+        }
+    }
+
+    for(k=0; k<n_coiloc; k++) {
+        coincidence[k] /= (denom[k]);
+        if(coiloc[k] < coiwindow/2.0) /* adjust for edge effect */
+            coincidence[k] *= coiwindow/(coiwindow/2.0 + coiloc[k]);
     }
 }
