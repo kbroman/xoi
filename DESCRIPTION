@@ -1,6 +1,6 @@
 Package: xoi
 Version: 0.65-1
-Date: 8/12/2014
+Date: 8/13/2014
 Depends:
     R (>= 2.10.1),
     qtl,
@@ -14,6 +14,7 @@ Imports:
     stats
 Suggests:
     devtools,
-    roxygen2
+    roxygen2,
+    testthat
 License: GPL-3
 URL: http://github.com/kbroman/xoi
