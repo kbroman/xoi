@@ -50,7 +50,7 @@ function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
         group <- rep(1, length(xoloc))
         ugroup <- 1
     } else {
-        stopifnot(length(group) != length(xoloc))
+        stopifnot(length(group) == length(xoloc))
         ugroup <- unique(group)
         group <- match(group, ugroup) # turn into integers
     }
