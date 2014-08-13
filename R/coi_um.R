@@ -41,7 +41,7 @@
 #' @useDynLib xoi
 #' @export
 est.coi.um <-
-function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow=2.0,
+function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
          intloc, coiloc)
 {
     # check inputs
@@ -71,10 +71,11 @@ function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow=2.0,
         stop("At least one group with < 2 individuals")
 
     stopifnot(intwindow > 0 && intwindow < 1)
+    if(missing(coiwindow)) coiwindow <- min(sclength)/10
     stopifnot(coiwindow > 0 && coiwindow < max(sclength))
 
     if(missing(intloc)) {
-        intloc <- seq(0, 1, by=intwindow/5)
+        intloc <- seq(0, 1, length=501)
     } else {
         intloc <- sort(intloc)
         stopifnot(length(intloc) > 0)
@@ -82,7 +83,7 @@ function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow=2.0,
     }
 
     if(missing(coiloc)) {
-        coiloc <- seq(0, min(sclength), by=coiwindow/5)
+        coiloc <- seq(0, min(sclength)-coiwindow/2, length=501)
     } else {
         coiloc <- sort(coiloc)
         stopifnot(length(coiloc) > 0)
