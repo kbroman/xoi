@@ -18,6 +18,7 @@
  * xoloc = XO locations in each cell (in microns)
  * n_xo = number of XO in each cell (length n)
  * sclength = SC lengths (in microns, length n)
+ * centromeres = positions of centromeres (in microns, length n)
  * group = vector of groups with common intensity function, {1, ..., n_group}
  * n_group = number of groups
  * intwindow = window for smoothing intensity function
@@ -31,8 +32,9 @@
 
  */
 void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
-                int *group, int n_group, double intwindow,
-                double coiwindow, double *intloc, int n_intloc,
+                double *centromeres, int *group, int n_group,
+                double intwindow, double coiwindow,
+                double *intloc, int n_intloc,
                 double *coiloc, int n_coiloc,
                 double **Intensity, double *coincidence)
 {
@@ -40,15 +42,16 @@ void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
 
     /* estimate the intensity functions */
     for(i=0; i<n_group; i++)
-        est_coi_um_intensity(n, XOLoc, n_xo, sclength,
+        est_coi_um_intensity(n, XOLoc, n_xo, sclength, centromeres,
                              group, i+1, intwindow,
                              intloc, n_intloc, Intensity[i]);
 }
 
 /* to be called from R */
 void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
-                  int *group, int *n_group, double *intwindow,
-                  double *coiwindow, double *intloc, int *n_intloc,
+                  double *centromeres, int *group, int *n_group,
+                  double *intwindow, double *coiwindow,
+                  double *intloc, int *n_intloc,
                   double *coiloc, int *n_coiloc,
                   double *intensity, double *coincidence)
 {
@@ -67,19 +70,21 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
     for(i=1; i<*n_group; i++)
         Intensity[i] = Intensity[i-1] + *n_intloc;
   
-    est_coi_um(*n, XOLoc, n_xo, sclength, group, *n_group,
+    est_coi_um(*n, XOLoc, n_xo, sclength, centromeres, group, *n_group,
                *intwindow, *coiwindow, intloc, *n_intloc,
                coiloc, *n_coiloc, Intensity, coincidence);
 }
 
 /* estimate intensity function for one group */
 void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
-                          double *sclength, int *group,
-                          int which_group, double intwindow,
+                          double *sclength, double *centromeres,
+                          int *group, int which_group, 
+                          double intwindow,
                           double *intloc, int n_intloc,
                           double *intensity)
 {
     int i, j, k, count;
+    double adjpos;
 
     for(i=0; i<n_intloc; i++) {
         intensity[i] = 0.0;
@@ -88,8 +93,14 @@ void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
         for(j=0; j<n; j++) {
             if(group[j] == which_group) {
                 for(k=0; k<n_xo[j]; k++) {
-                    if(XOLoc[j][k]/sclength[j] >= intloc[i]-intwindow/2.0 &&
-                       XOLoc[j][k]/sclength[j] <= intloc[i]+intwindow/2.0)
+                    /* position -> (0,0.5) for p-arm and (0.5,1) for q-arm */
+                    if(XOLoc[j][k] <= centromeres[j])
+                        adjpos = XOLoc[j][k]/centromeres[j];
+                    else
+                        adjpos = (XOLoc[j][k]-centromeres[j])/(sclength[j]-centromeres[j]) + 0.5;
+
+                    if(adjpos >= intloc[i]-intwindow/2.0 &&
+                       adjpos <= intloc[i]+intwindow/2.0)
                         intensity[i] += 1.0;
                 }
                 count++;

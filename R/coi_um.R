@@ -14,6 +14,7 @@
 #'
 #' @param xoloc list of crossover locations (in microns) for each of several oocytes or spermatocytes.
 #' @param sclength vector of SC lengths (in microns).
+#' @param centromeres vector of centromere locations (in microns). If missing, taken to be \code{sclength/2}.
 #' @param group nominal vector of groups; the intensity function of
 #' the crossover process will be estimated separately for each group,
 #' but a joint coincidence function will be estimated.
@@ -40,20 +41,34 @@
 #' @useDynLib xoi
 #' @export
 est.coi.um <-
-function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
+function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow=2.0,
          intloc, coiloc)
 {
     # check inputs
     stopifnot(length(xoloc) == length(sclength))
+    stopifnot(all(!is.na(unlist(xoloc))))
+    stopifnot(all(!is.na(sclength) & sclength >= 0))
+    for(i in seq(along=xoloc))
+        stopifnot(all(xoloc[[i]] >= 0 & xoloc[[i]] <= sclength[i]))
+
+    if(missing(centromeres)) {
+        centromeres <- sclength/2
+    } else {
+        stopifnot(length(centromeres) == length(xoloc))
+        stopifnot(all(!is.na(centromeres) & centromeres > 0 & centromeres < sclength))
+    }
 
     if(missing(group)) {
         group <- rep(1, length(xoloc))
-        ugroup <- 1
+        ugroup <- "intensity"
     } else {
         stopifnot(length(group) == length(xoloc))
         ugroup <- unique(group)
         group <- match(group, ugroup) # turn into integers
     }
+
+    if(min(table(group)) < 2)
+        stop("At least one group with < 2 individuals")
 
     stopifnot(intwindow > 0 && intwindow < 1)
     stopifnot(coiwindow > 0 && coiwindow < max(sclength))
@@ -73,6 +88,7 @@ function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
         stopifnot(length(coiloc) > 0)
         stopifnot(all(!is.na(coiloc) & coiloc >= 0 & coiloc <= max(sclength)))
     }
+    # end checks of inputs
 
     # do the estimation
     z <- .C("R_est_coi_um",
@@ -80,6 +96,7 @@ function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
             as.double(unlist(xoloc)),
             as.integer(sapply(xoloc, length)),
             as.double(sclength),
+            as.double(centromeres),
             as.integer(group),
             as.integer(max(group)),
             as.double(intwindow),
@@ -94,7 +111,7 @@ function(xoloc, sclength, group, intwindow=0.05, coiwindow=2.0,
 
     # reformat the results
     result <- list(coincidence = cbind(um=coiloc, coi=z$coincidence),
-                   intensity = cbind(x=intloc,
+                   intensity = cbind(pos=intloc,
                                      matrix(z$intensity, ncol=max(group))))
     colnames(result$intensity)[-1] <- ugroup
 

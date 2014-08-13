@@ -3,13 +3,15 @@
 \alias{est.coi.um}
 \title{Estimate the coincidence as a function of micron distance}
 \usage{
-est.coi.um(xoloc, sclength, group, intwindow = 0.05, coiwindow = 2, intloc,
-  coiloc)
+est.coi.um(xoloc, sclength, centromeres, group, intwindow = 0.05,
+  coiwindow = 2, intloc, coiloc)
 }
 \arguments{
 \item{xoloc}{list of crossover locations (in microns) for each of several oocytes or spermatocytes.}
 
 \item{sclength}{vector of SC lengths (in microns).}
+
+\item{centromeres}{vector of centromere locations (in microns). If missing, taken to be \code{sclength/2}.}
 
 \item{group}{nominal vector of groups; the intensity function of
 the crossover process will be estimated separately for each group,

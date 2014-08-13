@@ -10,6 +10,7 @@
  * xoloc = XO locations in each cell (in microns)
  * n_xo = number of XO in each cell (length n)
  * sclength = SC lengths (in microns, length n)
+ * centromeres = positions of centromeres (in microns, length n)
  * group = vector of groups with common intensity function, {1, ..., n_group}
  * n_group = number of groups
  * intwindow = window for smoothing intensity function
@@ -23,22 +24,25 @@
 
  */
 void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
-                int *group, int n_group, double intwindow,
-                double coiwindow, double *intloc, int n_intloc,
+                double *centromeres, int *group, int n_group,
+                double intwindow, double coiwindow,
+                double *intloc, int n_intloc,
                 double *coiloc, int n_coiloc,
                 double **Intensity, double *coincidence);
 
 
 /* to be called from R */
 void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
-                  int *group, int *n_group, double *intwindow,
-                  double *coiwindow, double *intloc, int *n_intloc,
+                  double *centromeres, int *group, int *n_group,
+                  double *intwindow, double *coiwindow,
+                  double *intloc, int *n_intloc,
                   double *coiloc, int *n_coiloc,
                   double *intensity, double *coincidence);
 
 /* estimate intensity function for one group */
 void est_coi_um_intensity(int n, double **XOLoc, int *n_xo,
-                          double *sclength, int *group,
-                          int which_group, double intwindow,
+                          double *sclength, double *centromeres,
+                          int *group, int which_group, 
+                          double intwindow,
                           double *intloc, int n_intloc,
                           double *intensity);
