@@ -216,7 +216,7 @@ void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
     for(i=0; i<n; i++) { /* loop over cells */
 
         for(k=0; k<n_coiloc; k++)
-            denom[k] += coiwindow/(sclength[i] - coiloc[k]); /* totally not sure about this */
+            denom[k] += (sclength[i] - coiloc[k]); /* totally not sure about this */
 
         /* loop over pairs of XO locations */
         for(j1=0; j1<n_xo[i]-1; j1++) { 
@@ -226,7 +226,7 @@ void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
                 for(k = 0; k<n_coiloc; k++) {
                     if(fabs(d - coiloc[k]) < coiwindow/2.0) {
                         coincidence[k] += 1.0/(IntensityVals[i][j1]*IntensityVals[i][j2]*
-                                               intwindow*intwindow);
+                                               coiwindow/sclength[i]/sclength[i]);
                     }
                 }
 
