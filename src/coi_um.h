@@ -42,7 +42,7 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
 /* estimate intensity function for one group */
 void est_coi_um_intensity(int n, double **AdjustedXOPos, int *n_xo,
                           double *sclength, double *centromeres,
-                          int *group, int which_group, 
+                          int *group, int which_group,
                           double intwindow,
                           double *intloc, int n_intloc,
                           double *intensity);
@@ -56,14 +56,14 @@ void grab_intensities(int n, double **XOLoc, int *n_xo,
 /* with ties, we just pick the first one */
 int find_index_of_closest_value(double x, int n, double *vec);
 
-/* calculate the adjusted XO positions */ 
+/* calculate the adjusted XO positions */
 /* p-arm in (0,0.5); q-arm in (0.5, 1) */
-void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo, 
-                          double *sclength, double *centromeres, 
+void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
+                          double *sclength, double *centromeres,
                           double **AdjustedXOPos);
 
 /* estimate coincidence */
-void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
-                            int *n_xo, double *sclength, double *centromeres, 
-                            double intwindow, double coiwindow, double *coiloc, 
+void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
+                            int *n_xo, double *sclength, double *centromeres,
+                            double intwindow, double coiwindow, double *coiloc,
                             int n_coiloc, double *coincidence);

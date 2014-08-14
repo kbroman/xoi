@@ -69,7 +69,7 @@ void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
                              intloc, n_intloc, Intensity[i]);
 
     /* for each XO, find intensity at nearest calculated position */
-    grab_intensities(n, AdjustedXOPos, n_xo, group, intloc, n_intloc, 
+    grab_intensities(n, AdjustedXOPos, n_xo, group, intloc, n_intloc,
                      Intensity, IntensityVals);
 
     /* estimate coincidence */
@@ -95,13 +95,13 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
     XOLoc[0] = xoloc;
     for(i=1; i<*n; i++)
         XOLoc[i] = XOLoc[i-1] + n_xo[i-1];
-  
+
     /* set up matrix for intensity values */
     Intensity = (double **)R_alloc(*n_group, sizeof(double *));
     Intensity[0] = intensity;
     for(i=1; i<*n_group; i++)
         Intensity[i] = Intensity[i-1] + *n_intloc;
-  
+
     est_coi_um(*n, XOLoc, n_xo, sclength, centromeres, group, *n_group,
                *intwindow, *coiwindow, intloc, *n_intloc,
                coiloc, *n_coiloc, Intensity, coincidence);
@@ -110,7 +110,7 @@ void R_est_coi_um(int *n, double *xoloc, int *n_xo, double *sclength,
 /* estimate intensity function for one group */
 void est_coi_um_intensity(int n, double **AdjustedXOPos, int *n_xo,
                           double *sclength, double *centromeres,
-                          int *group, int which_group, 
+                          int *group, int which_group,
                           double intwindow,
                           double *intloc, int n_intloc,
                           double *intensity)
@@ -133,7 +133,7 @@ void est_coi_um_intensity(int n, double **AdjustedXOPos, int *n_xo,
                 count++;
             }
         }
-        
+
         intensity[i] /= (double)count;
         if(intloc[i] < intwindow/2.0)
             intensity[i] /= (intloc[i] + intwindow/2.0);
@@ -169,7 +169,7 @@ int find_index_of_closest_value(double x, int n, double *vec)
 
     index=0;
     minimum=fabs(vec[0]-x);
-    
+
     for(i=1; i<n; i++) {
         cur = fabs(vec[i]-x);
         if(cur < minimum) {
@@ -180,10 +180,10 @@ int find_index_of_closest_value(double x, int n, double *vec)
     return(index);
 }
 
-/* calculate the adjusted XO positions */ 
+/* calculate the adjusted XO positions */
 /* p-arm in (0,0.5); q-arm in (0.5, 1) */
-void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo, 
-                          double *sclength, double *centromeres, 
+void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
+                          double *sclength, double *centromeres,
                           double **AdjustedXOPos)
 {
     int j, k;
@@ -200,9 +200,9 @@ void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
 }
 
 /* estimate coincidence */
-void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
-                            int *n_xo, double *sclength, double *centromeres, 
-                            double intwindow, double coiwindow, double *coiloc, 
+void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
+                            int *n_xo, double *sclength, double *centromeres,
+                            double intwindow, double coiwindow, double *coiloc,
                             int n_coiloc, double *coincidence)
 {
     int i, j1, j2, k;
@@ -220,13 +220,13 @@ void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
             denom[k] += (sclength[i] - coiloc[k]); /* totally not sure about this */
 
         /* loop over pairs of XO locations */
-        for(j1=0; j1<n_xo[i]-1; j1++) { 
+        for(j1=0; j1<n_xo[i]-1; j1++) {
             for(j2=j1+1; j2<n_xo[i]; j2++) {
-                
+
                 d = fabs(XOLoc[i][j1] - XOLoc[i][j2]); /* distance between XOs */
                 for(k = 0; k<n_coiloc; k++) {
                     if(fabs(d - coiloc[k]) < coiwindow/2.0) {
-                        
+
                         /* scale intensities differently on the p-arm and the q-arm */
                         factor1 = XOLoc[i][j1] < centromeres[i] ? centromeres[i]*2.0 : (sclength[i]-centromeres[i])*2.0;
                         factor2 = XOLoc[i][j2] < centromeres[i] ? centromeres[i]*2.0 : (sclength[i]-centromeres[i])*2.0;
