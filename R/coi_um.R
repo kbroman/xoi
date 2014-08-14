@@ -46,8 +46,7 @@
 #' # plot estimated coincidence and intensity
 #' #    (intensity is after scaling chromosome to length 1)
 #' par(mfrow=c(2,1), las=1)
-#' plot(coi$coincidence, type="l", lwd=2, main="Coincidence",
-#'      ylim=c(0, max(coi$coincidence[,2]))
+#' plot(coi$coincidence, type="l", lwd=2, ylim=c(0, max(coi$coincidence[,2])))
 #' plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 #'
 #' @useDynLib xoi
