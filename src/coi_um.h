@@ -64,6 +64,6 @@ void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
 
 /* estimate coincidence */
 void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
-                            int *n_xo, double *sclength, double intwindow, 
-                            double coiwindow, double *coiloc, int n_coiloc, 
-                            double *coicidence);
+                            int *n_xo, double *sclength, double *centromeres, 
+                            double intwindow, double coiwindow, double *coiloc, 
+                            int n_coiloc, double *coincidence);

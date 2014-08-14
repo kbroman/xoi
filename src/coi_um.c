@@ -74,7 +74,7 @@ void est_coi_um(int n, double **XOLoc, int *n_xo, double *sclength,
 
     /* estimate coincidence */
     est_coi_um_coincidence(n, XOLoc, IntensityVals, n_xo,
-                           sclength, intwindow, coiwindow,
+                           sclength, centromeres, intwindow, coiwindow,
                            coiloc, n_coiloc, coincidence);
 
 }
@@ -201,12 +201,13 @@ void calc_adjusted_xo_pos(int n, double **XOLoc, int *n_xo,
 
 /* estimate coincidence */
 void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals, 
-                            int *n_xo, double *sclength, double intwindow, 
-                            double coiwindow, double *coiloc, int n_coiloc, 
-                            double *coincidence)
+                            int *n_xo, double *sclength, double *centromeres, 
+                            double intwindow, double coiwindow, double *coiloc, 
+                            int n_coiloc, double *coincidence)
 {
     int i, j1, j2, k;
     double *denom, d;
+    double factor1, factor2;
 
     /* space for denominator; zero it out */
     denom = (double *)R_alloc(n_coiloc, sizeof(double));
@@ -225,8 +226,14 @@ void est_coi_um_coincidence(int n, double **XOLoc, double **IntensityVals,
                 d = fabs(XOLoc[i][j1] - XOLoc[i][j2]); /* distance between XOs */
                 for(k = 0; k<n_coiloc; k++) {
                     if(fabs(d - coiloc[k]) < coiwindow/2.0) {
-                        coincidence[k] += 1.0/(IntensityVals[i][j1]*IntensityVals[i][j2]*
-                                               coiwindow/sclength[i]/sclength[i]);
+                        
+                        /* scale intensities differently on the p-arm and the q-arm */
+                        factor1 = XOLoc[i][j1] < centromeres[i] ? centromeres[i]*2.0 : (sclength[i]-centromeres[i])*2.0;
+                        factor2 = XOLoc[i][j2] < centromeres[i] ? centromeres[i]*2.0 : (sclength[i]-centromeres[i])*2.0;
+
+                        coincidence[k] += 1.0/(IntensityVals[i][j1]/factor1 *
+                                               IntensityVals[i][j2]/factor2 *
+                                               coiwindow);
                     }
                 }
 
