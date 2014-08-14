@@ -35,8 +35,20 @@
 #' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}},
 #' \code{\link{kfunc}}, \code{\link{est.coi}}
 #' @keywords models
-# @examples
-# PUT AT EXAMPLE HERE
+#' @examples
+#' # simple example using data simulated with no crossover interference
+#' ncells <- 1000
+#' L <- 2                      # chr lengths in Morgans (constant here)
+#' nchi <- rpois(ncells, 2*L)  # number of chiasmata
+#' xoloc <- lapply(nchi, function(a) runif(a, 0, L)) # chi locations
+#' coi <- est.coi.um(xoloc, rep(L, ncells))
+#'
+#' # plot estimated coincidence and intensity
+#' #    (intensity is after scaling chromosome to length 1)
+#' par(mfrow=c(2,1), las=1)
+#' plot(coi$coincidence, type="l", lwd=2, main="Coincidence",
+#'      ylim=c(0, max(coi$coincidence[,2]))
+#' plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 #'
 #' @useDynLib xoi
 #' @export
@@ -111,8 +123,8 @@ function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
             PACKAGE="xoi")
 
     # reformat the results
-    result <- list(coincidence = cbind(um=coiloc, coi=z$coincidence),
-                   intensity = cbind(pos=intloc,
+    result <- list(coincidence = cbind(distance=coiloc, coincidence=z$coincidence),
+                   intensity = cbind(position=intloc,
                                      matrix(z$intensity, ncol=max(group))))
     colnames(result$intensity)[-1] <- ugroup
 
