@@ -84,7 +84,6 @@ function(n.sim, nu=1, p=0, L=100,
       if(obligate_chiasma)
           Lstar <- calc_Lstar(L, nu-1, p)
       else Lstar <- L
-      cat("Lstar: ", Lstar, "\n")
 
       out <- .C("R_simStahl_int",
                 as.integer(n.sim),
