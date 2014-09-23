@@ -16,6 +16,13 @@ copyright (c) 1999-2014, Karl W Broman
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.65, 9/23/2014:
+
+   Revise simStahl to: (a) use different code in the case that the
+   interference parameter, nu, is an integer, and (b) include the
+   option obligate_chiasma=TRUE/FALSE for that integer nu case.
+
+
 Version 0.64, 5/9/2014:
 
    Convert to using Roxygen2 for managing documentation
