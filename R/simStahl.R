@@ -15,7 +15,8 @@
 #' @param p The proportion of chiasmata coming from the no-interference
 #' mechanism.
 #' @param L Chromosome length (in cM).
-#' @param obligate_chiasma If
+#' @param obligate_chiasma Require an obligate chiasma (requires nu to
+#' be an integer; if nu is not an integer, it is rounded.
 #' @param n.bins4start We approximate the distribution of the location of the
 #' first crossover from the mechanism exhibiting interference using a even grid
 #' with this many bins.
