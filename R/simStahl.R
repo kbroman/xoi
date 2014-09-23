@@ -15,11 +15,11 @@
 #' @param p The proportion of chiasmata coming from the no-interference
 #' mechanism.
 #' @param L Chromosome length (in cM).
-#' @param obligate_chiasma Require an obligate chiasma (requires nu to
+#' @param obligate_chiasma Require an obligate chiasma (requires \code{nu} to
 #' be an integer; if nu is not an integer, it is rounded.
 #' @param n.bins4start We approximate the distribution of the location of the
 #' first crossover from the mechanism exhibiting interference using a even grid
-#' with this many bins.
+#' with this many bins. (Only if \code{nu} is not an integer.)
 #' @return A vector of length \code{n.sim}, each element being empty (for
 #' products with no crossovers) or a vector of crossover locations, in cM.  An
 #' attribute, \code{L}, contains the chromosome length in cM.
@@ -77,12 +77,13 @@ function(n.sim, nu=1, p=0, L=103,
       }
 
       if(obligate_chiasma)
-          Lstar <- calc_Lstar(L, nu+1, p)
+          Lstar <- calc_Lstar(L, nu-1, p)
       else Lstar <- L
+      cat("Lstar: ", Lstar, "\n")
 
       out <- .C("R_simStahl_int",
                 as.integer(n.sim),
-                as.double(nu+1),
+                as.integer(nu-1),
                 as.double(p),
                 as.double(L),
                 as.double(Lstar),
@@ -141,9 +142,7 @@ function(L, m=0, p=0)
         else {
             lambda1 <- Lstar/50 * (m+1) * (1-p)
             lambda2 <- Lstar/50 * p
-            denom <- Lstar
-            for(i in seq(along=Lstar))
-                denom[i] <- 1 - sum(dpois(0:m, lambda1[i]) * (m+1 - (0:m))/(m+1)) * exp(-lambda2[i])
+            denom <- 1 - sum(dpois(0:m, lambda1) * (m+1 - (0:m))/(m+1)) * exp(-lambda2)
         }
 
         2*L - 2*Lstar / denom

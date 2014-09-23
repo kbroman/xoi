@@ -187,9 +187,8 @@ void simStahl_int(int n_sim, int m, double p, double L,
         lambda2 = Lstar/50.0 * p;
 
         for(i=0; i< n_sim; i++) { 
-            R_CheckUserInterrupt(); /* check for ^C */
-
             while(1) {
+                R_CheckUserInterrupt(); /* check for ^C */
 
                 /* simulate no. chiasmata + intermediate pts from interference process */
                 n_pts = rpois(lambda1);
@@ -198,12 +197,12 @@ void simStahl_int(int n_sim, int m, double p, double L,
                 first = random_int(0, m);
 
                 if(first > n_pts) n_ichi = 0;
-                else n_ichi = n_pts/(m+1) + (first < (n_pts % (m+1)));
+                else n_ichi = n_pts/(m+1) + (int)(first < (n_pts % (m+1)));
 
                 /* simulate no. chiamata from the no-interference model */
                 n_nichi = rpois(lambda2);
 
-                if(!obligate_chiasma || n_nichi + n_nichi > 0) break;
+                if(!obligate_chiasma || n_ichi + n_nichi > 0) break;
             }
 
             /* simulate no. chiasmta + intermediate points */
@@ -213,8 +212,8 @@ void simStahl_int(int n_sim, int m, double p, double L,
                 max_pts = n_pts*2;
             }
             
-            for(i=0; i<n_pts; i++)
-                ptloc[i] = runif(0.0, L);
+            for(j=0; j<n_pts; j++)
+                ptloc[j] = runif(0.0, L);
 
             /* sort them */
             R_rsort(ptloc, n_pts);

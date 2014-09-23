@@ -16,12 +16,12 @@ mechanism.}
 
 \item{L}{Chromosome length (in cM).}
 
-\item{obligate_chiasma}{Require an obligate chiasma (requires nu to
+\item{obligate_chiasma}{Require an obligate chiasma (requires \code{nu} to
 be an integer; if nu is not an integer, it is rounded.}
 
 \item{n.bins4start}{We approximate the distribution of the location of the
 first crossover from the mechanism exhibiting interference using a even grid
-with this many bins.}
+with this many bins. (Only if \code{nu} is not an integer.)}
 }
 \value{
 A vector of length \code{n.sim}, each element being empty (for
