@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kbroman/xoi.png?branch=master)](https://travis-ci.org/kbroman/xoi)
 
-copyright (c) 1999-2014, [Karl W Broman](http://kbroman.org)
+[Karl W Broman](http://kbroman.org)
 
 ---
 
