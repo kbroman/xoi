@@ -10,12 +10,12 @@
  *     This program is free software; you can redistribute it and/or
  *     modify it under the terms of the GNU General Public License,
  *     version 3, as published by the Free Software Foundation.
- * 
+ *
  *     This program is distributed in the hope that it will be useful,
  *     but without any warranty; without even the implied warranty of
  *     merchantability or fitness for a particular purpose.  See the GNU
  *     General Public License, version 3, for more details.
- * 
+ *
  *     A copy of the GNU General Public License, version 3, is available
  *     at http://www.r-project.org/Licenses/GPL-3
  *
@@ -25,11 +25,11 @@
 
 /* R wrapper */
 void R_est_recrate(int *n_mar, double *gen, double *phy,
-		   int *n_pos, double *pos, double *recrate,
-		   double *window, double *work);
+                   int *n_pos, double *pos, double *recrate,
+                   double *window, double *work);
 
 /**********************************************************************
- * estimate smoothed recombination rate 
+ * estimate smoothed recombination rate
  *
  * n_mar = number of markers
  * gen   = cM positions of markers (non-decreasing)
@@ -41,7 +41,7 @@ void R_est_recrate(int *n_mar, double *gen, double *phy,
  * work  = workspace of length n_mar-1
  **********************************************************************/
 void est_recrate(int n_mar, double *gen, double *phy,
-		 int n_pos, double *pos, double *recrate,
-		 double window, double *work);
+                 int n_pos, double *pos, double *recrate,
+                 double window, double *work);
 
 /* end of recrate.h */

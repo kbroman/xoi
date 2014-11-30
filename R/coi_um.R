@@ -52,8 +52,8 @@
 #' @useDynLib xoi
 #' @export
 est.coi.um <-
-function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
-         intloc, coiloc)
+    function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
+             intloc, coiloc)
 {
     # check inputs
     stopifnot(length(xoloc) == length(sclength))
@@ -124,7 +124,7 @@ function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
     # reformat the results
     result <- list(coincidence = cbind(distance=coiloc, coincidence=z$coincidence),
                    intensity = cbind(position=intloc,
-                                     matrix(z$intensity, ncol=max(group))))
+                   matrix(z$intensity, ncol=max(group))))
     colnames(result$intensity)[-1] <- ugroup
 
     result

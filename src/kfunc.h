@@ -1,5 +1,5 @@
 /**********************************************************************
- * 
+ *
  * kfunc.h
  *
  * Code to calculate the 1-d version of Ripley's K function
@@ -11,23 +11,23 @@
  *     This program is free software; you can redistribute it and/or
  *     modify it under the terms of the GNU General Public License,
  *     version 3, as published by the Free Software Foundation.
- * 
+ *
  *     This program is distributed in the hope that it will be useful,
  *     but without any warranty; without even the implied warranty of
  *     merchantability or fitness for a particular purpose.  See the GNU
  *     General Public License, version 3, for more details.
- * 
+ *
  *     A copy of the GNU General Public License, version 3, is available
  *     at http://www.r-project.org/Licenses/GPL-3
  *
  **********************************************************************/
 
 /**********************************************************************
- * 
+ *
  * ngrp   number of groups of locations
- * 
+ *
  * n      vector giving number of locations in each group
- * 
+ *
  * loc    vector of locations (assumed sorted); of length sum(n)
  *
  * maxl   maximum length studied in each group
@@ -46,12 +46,12 @@
  *
  **********************************************************************/
 
-void R_kfunc(int *ngrp, int *n, double *loc, double *maxl, 
-	     int *n_d, double *d, double *exclude, double *k, 
-	     double *area, double *rate, double *tol);
+void R_kfunc(int *ngrp, int *n, double *loc, double *maxl,
+             int *n_d, double *d, double *exclude, double *k,
+             double *area, double *rate, double *tol);
 
 void kfunc(int ngrp, int *n, double **Loc, double *maxl,
-	   int n_d, double *d, double exclude, double *k, 
-	   double *area, double *rate, int tot, double tol);
-  
+           int n_d, double *d, double exclude, double *k,
+           double *area, double *rate, int tot, double tol);
+
 /* end of kfunc.h */
