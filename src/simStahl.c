@@ -243,7 +243,7 @@ void simStahl_int(int n_sim, int m, double p, double L,
     } /* m > 0 */
 
 
-  PutRNGstate();
+    PutRNGstate();
 }
 
 /* simStahl_int: called from R */

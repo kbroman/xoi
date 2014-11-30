@@ -10,16 +10,16 @@
  *     This program is free software; you can redistribute it and/or
  *     modify it under the terms of the GNU General Public License,
  *     version 3, as published by the Free Software Foundation.
- * 
+ *
  *     This program is distributed in the hope that it will be useful,
  *     but without any warranty; without even the implied warranty of
  *     merchantability or fitness for a particular purpose.  See the GNU
  *     General Public License, version 3, for more details.
- * 
+ *
  *     A copy of the GNU General Public License, version 3, is available
  *     at http://www.r-project.org/Licenses/GPL-3
  *
- * Contains: chiasma, chiasma_estep, chiasma_mstep 
+ * Contains: chiasma, chiasma_estep, chiasma_mstep
  *
  *     This program is to be called from R.  It takes data for
  * the number of crossovers (recombination events) observed per
@@ -54,21 +54,20 @@
 /* main chiasma function */
 void chiasma(int *xo, int *n_xo, int *max_ch,
              double *p_ch, double *p_xo, double *lambda,
-	     double *work, int *n_iter, double *tol);
+             double *work, int *n_iter, double *tol);
 
 
 
 /* E step */
 void chiasma_estep(int *xo, int n_xo, double *w, int maxchp1,
-		   double *p, double *lambda, int model);
+                   double *p, double *lambda, int model);
 
 
 
 /* M step */
 void chiasma_mstep(int *xo, int n_xo, double *w, int maxchp1,
-		   double *p, double *lambda, int model,
-		   int n_iter, double tol);
+                   double *p, double *lambda, int model,
+                   int n_iter, double tol);
 
 
 /* end of chiasma.h */
-

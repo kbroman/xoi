@@ -3,19 +3,19 @@
  * fitStahl.h
  *
  * copyright (c) 2009-2012, Karl W Broman
- * 
+ *
  * last modified Nov, 2012
  * first written Jun, 2009
  *
  *     This program is free software; you can redistribute it and/or
  *     modify it under the terms of the GNU General Public License,
  *     version 3, as published by the Free Software Foundation.
- * 
+ *
  *     This program is distributed in the hope that it will be useful,
  *     but without any warranty; without even the implied warranty of
  *     merchantability or fitness for a particular purpose.  See the GNU
  *     General Public License, version 3, for more details.
- * 
+ *
  *     A copy of the GNU General Public License, version 3, is available
  *     at http://www.r-project.org/Licenses/GPL-3
  *
@@ -30,21 +30,21 @@
  **********************************************************************/
 
 void R_stahl_loglik(int *n_ind, int *n_xo, double *xoloc, double *chrlen,
-		    int *n_nu, double *nu, double *p, double *loglik,
-		    int *max_conv, double *intgr_tol, int *max_subd, 
-		    int *min_subd, int *constant_chrlen);
+                    int *n_nu, double *nu, double *p, double *loglik,
+                    int *max_conv, double *intgr_tol, int *max_subd,
+                    int *min_subd, int *constant_chrlen);
 
 /* for intercross */
 void R_stahl_loglik_F2(int *n_ind, int *n_alternatives, int *n_products,
-                       int *n_xo_per, 
+                       int *n_xo_per,
                        double *xoloc, double *chrlen,
                        int *n_nu, double *nu, double *p, double *loglik,
-                       int *max_conv, double *intgr_tol, int *max_subd, 
+                       int *max_conv, double *intgr_tol, int *max_subd,
                        int *min_subd, int *constant_chrlen);
 
 /**********************************************************************
  * stahl_loglik: calculate log likelihood for the Stahl model
- * 
+ *
  * n_ind  = no. individuals
  * n_xo   = vector with no. crossovers for each individual
  * xoloc  = crossover locations xoloc[i][j] = XO j in individual i
@@ -60,8 +60,8 @@ void R_stahl_loglik_F2(int *n_ind, int *n_alternatives, int *n_products,
  **********************************************************************/
 
 void stahl_loglik(int n_ind, int *n_xo, double **xoloc, double *chrlen,
-		  int n_nu, double *nu, double *p, double *loglik,
-		  int max_conv, double intgr_tol, int max_subd, int min_subd,
+                  int n_nu, double *nu, double *p, double *loglik,
+                  int max_conv, double intgr_tol, int max_subd, int min_subd,
                   int constant_chrlen);
 
 /* for intercross */
@@ -73,7 +73,7 @@ void stahl_loglik_F2(int n_ind, int *n_alternatives, int n_products, int *n_xo_p
 /**********************************************************************
  * stahl_loglik_byind: calculate log likelihood for the Stahl model
  *       This calculates the log likelihood for each of a vector of individuals
- * 
+ *
  * n_ind  = no. individuals
  * n_xo   = vector with no. crossovers for each individual
  * xoloc  = crossover locations xoloc[i][j] = XO j in individual i
@@ -105,4 +105,3 @@ void stahl_loglik_byind(int n_ind, int *n_xo, double **xoloc, double *chrlen,
 double addlog(double a, double b);
 
 /* end of fitStahl.h */
-
