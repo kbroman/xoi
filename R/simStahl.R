@@ -52,80 +52,80 @@
 #' @useDynLib xoi
 #' @export
 simStahl <-
-function(n.sim, nu=1, p=0, L=100,
-         obligate_chiasma=FALSE, n.bins4start=10000)
+    function(n.sim, nu=1, p=0, L=100,
+             obligate_chiasma=FALSE, n.bins4start=10000)
 {
-  if(nu <= 0) stop("nu should be positive.")
-  if(p < 0 || p > 1) stop("p should be in [0,1].")
-  if(p==1) { # if p is 1, might as well take nu == 1
-      nu <- 1L
-      p <- 0
-  }
-  if(n.sim <= 0) stop("n should be a positive integer.")
-  if(L < 0) stop("L should be positive.")
-  if(n.bins4start < 1000) {
-    warning("n.bins4start should be large.  Using 1000.")
-    n.bins4start <- 1000
-  }
-  if(nu %% 1 < 1e-6) { # if nu is very close to integer, just make it an integer
-      nu <- as.integer(nu)
-  }
+    if(nu <= 0) stop("nu should be positive.")
+    if(p < 0 || p > 1) stop("p should be in [0,1].")
+    if(p==1) { # if p is 1, might as well take nu == 1
+        nu <- 1L
+        p <- 0
+    }
+    if(n.sim <= 0) stop("n should be a positive integer.")
+    if(L < 0) stop("L should be positive.")
+    if(n.bins4start < 1000) {
+        warning("n.bins4start should be large.  Using 1000.")
+        n.bins4start <- 1000
+    }
+    if(nu %% 1 < 1e-6) { # if nu is very close to integer, just make it an integer
+        nu <- as.integer(nu)
+    }
 
-  max.nxo <- qpois(1-1e-10, L)*10
+    max.nxo <- qpois(1-1e-10, L)*10
 
-  if(obligate_chiasma || is.integer(nu)) { # use integer version
+    if(obligate_chiasma || is.integer(nu)) { # use integer version
 
-      if(!is.integer(nu)) {
-          nu <- as.integer(round(nu))
-          warning("Simulations with obligate chiasma require that nu be an integer; ",
-                  "rounding nu to ", nu)
-      }
+        if(!is.integer(nu)) {
+            nu <- as.integer(round(nu))
+            warning("Simulations with obligate chiasma require that nu be an integer; ",
+                    "rounding nu to ", nu)
+        }
 
-      if(obligate_chiasma)
-          Lstar <- calc_Lstar(L, nu-1, p)
-      else Lstar <- L
+        if(obligate_chiasma)
+            Lstar <- calc_Lstar(L, nu-1, p)
+        else Lstar <- L
 
-      out <- .C("R_simStahl_int",
-                as.integer(n.sim),
-                as.integer(nu-1),
-                as.double(p),
-                as.double(L),
-                as.double(Lstar),
-                nxo = as.integer(rep(0,n.sim)), # number of crossovers
-                loc = as.double(rep(0,n.sim*max.nxo)),
-                as.integer(max.nxo),
-                as.integer(obligate_chiasma),
-                PACKAGE="xoi")
+        out <- .C("R_simStahl_int",
+                  as.integer(n.sim),
+                  as.integer(nu-1),
+                  as.double(p),
+                  as.double(L),
+                  as.double(Lstar),
+                  nxo = as.integer(rep(0,n.sim)), # number of crossovers
+                  loc = as.double(rep(0,n.sim*max.nxo)),
+                  as.integer(max.nxo),
+                  as.integer(obligate_chiasma),
+                  PACKAGE="xoi")
 
-      out <- lapply(as.data.frame(rbind(out$nxo, matrix(out$loc, nrow=max.nxo))),
-                    function(a) {if(a[1]==0) return(numeric(0)); a[(1:a[1])+1] })
-  }
-  else {
-      out <- .C("simStahl",
-                as.integer(n.sim),
-                as.double(nu),
-                as.double(p),
-                as.double(L/100),
-                nxo = as.integer(rep(0,n.sim)), # number of crossovers
-                loc = as.double(rep(0,n.sim*max.nxo)),
-                as.integer(max.nxo),
-                as.integer(n.bins4start),
-                PACKAGE="xoi")
+        out <- lapply(as.data.frame(rbind(out$nxo, matrix(out$loc, nrow=max.nxo))),
+                      function(a) {if(a[1]==0) return(numeric(0)); a[(1:a[1])+1] })
+    }
+    else {
+        out <- .C("simStahl",
+                  as.integer(n.sim),
+                  as.double(nu),
+                  as.double(p),
+                  as.double(L/100),
+                  nxo = as.integer(rep(0,n.sim)), # number of crossovers
+                  loc = as.double(rep(0,n.sim*max.nxo)),
+                  as.integer(max.nxo),
+                  as.integer(n.bins4start),
+                  PACKAGE="xoi")
 
-      out <- lapply(as.data.frame(rbind(out$nxo, matrix(out$loc*100, nrow=max.nxo))),
-                    function(a) {if(a[1]==0) return(numeric(0)); a[(1:a[1])+1] })
-  }
+        out <- lapply(as.data.frame(rbind(out$nxo, matrix(out$loc*100, nrow=max.nxo))),
+                      function(a) {if(a[1]==0) return(numeric(0)); a[(1:a[1])+1] })
+    }
 
-  attr(out, "L") <- L
-  names(out) <- NULL
-  out
+    attr(out, "L") <- L
+    names(out) <- NULL
+    out
 }
 
 # calculate reduced length to give expected no. chiasmata when conditioning on >= 1
 #
 # L and Lstar are in cM
 calc_Lstar <-
-function(L, m=0, p=0)
+    function(L, m=0, p=0)
 {
     if(L <= 50) stop("Must have L > 50")
     if(m < 0) stop("Must have m==0")

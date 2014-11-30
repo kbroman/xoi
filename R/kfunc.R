@@ -17,42 +17,42 @@
 #' @useDynLib xoi
 #' @export
 kfunc <-
-function(x, d=seq(0,100,by=0.1), lengths, exclude=0, tol=1e-6)
+    function(x, d=seq(0,100,by=0.1), lengths, exclude=0, tol=1e-6)
 {
-  npt <- sapply(x, length)
-  if(!any(npt>0)) stop("Need to have some points.")
+    npt <- sapply(x, length)
+    if(!any(npt>0)) stop("Need to have some points.")
 
-  x <- x[npt > 0]
-  if(missing(lengths)) 
-    lengths <- sapply(x, max)
-  else lengths <- lengths[npt > 0]
+    x <- x[npt > 0]
+    if(missing(lengths))
+        lengths <- sapply(x, max)
+    else lengths <- lengths[npt > 0]
 
-  if(length(lengths) != length(x))
-    stop("length(lengths) != length(x)")
-  if(any(d < exclude)) {
-    warning("some d < exclude; these excluded")
-    d <- d[d > exclude]
-  }
+    if(length(lengths) != length(x))
+        stop("length(lengths) != length(x)")
+    if(any(d < exclude)) {
+        warning("some d < exclude; these excluded")
+        d <- d[d > exclude]
+    }
 
-  output <- .C("R_kfunc",
-               as.integer(length(x)),
-               as.integer(sapply(x, length)),
-               as.double(unlist(x)),
-               as.double(lengths),
-               as.integer(length(d)),
-               as.double(d),
-               as.double(exclude),
-               k=as.double(rep(0,length(d))),
-               area=as.double(rep(0,length(d))),
-               rate = as.double(0),
-               as.double(tol),
-               PACKAGE="xoi")
+    output <- .C("R_kfunc",
+                 as.integer(length(x)),
+                 as.integer(sapply(x, length)),
+                 as.double(unlist(x)),
+                 as.double(lengths),
+                 as.integer(length(d)),
+                 as.double(d),
+                 as.double(exclude),
+                 k=as.double(rep(0,length(d))),
+                 area=as.double(rep(0,length(d))),
+                 rate = as.double(0),
+                 as.double(tol),
+                 PACKAGE="xoi")
 
-  rate <- output$rate
-  k <- output$k
-  area = output$area
-  result <- data.frame(d=d, k=k, se=1/sqrt(output$area * rate))
-  attr(result,"rate") <- rate
-  class(result) <- c("kfunc","data.frame")
-  result
+    rate <- output$rate
+    k <- output$k
+    area = output$area
+    result <- data.frame(d=d, k=k, se=1/sqrt(output$area * rate))
+    attr(result,"rate") <- rate
+    class(result) <- c("kfunc","data.frame")
+    result
 }
