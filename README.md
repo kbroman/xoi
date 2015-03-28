@@ -1,6 +1,6 @@
 ## R/xoi
 
-[![Build Status](https://travis-ci.org/kbroman/xoi.png?branch=master)](https://travis-ci.org/kbroman/xoi)
+[![Build Status](https://travis-ci.org/kbroman/xoi.svg?branch=master)](https://travis-ci.org/kbroman/xoi)
 
 [Karl W Broman](http://kbroman.org)
 
