@@ -130,7 +130,7 @@ void stahl_loglik_F2(int n_ind, int *n_alternatives, int n_products, int *n_xo_p
                      int constant_chrlen)
 {
     int i, j, k, curspot;
-    double *indll, ll;
+    double *indll, ll=0.0;
 
     /* allocate space for individual log likelihoods */
     indll = (double *)R_alloc(n_products, sizeof(double));
@@ -180,7 +180,7 @@ void stahl_loglik_byind(int n_ind, int *n_xo, double **xoloc, double *chrlen,
 {
     int i, j, k, s, n_pat, max_n_xo;
     double *y, *z, cury, curz, patll;
-    double noXOll, noXOll_ni, noXOll_i;
+    double noXOll=0.0, noXOll_ni=0.0, noXOll_i=0.0;
     int n_y, n_z;
     struct gamma_data info;
 
