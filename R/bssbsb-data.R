@@ -22,8 +22,7 @@
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
 #' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
-#' @source Lucy Rowe,
-#' \url{http://www.jax.org/resources/documents/cmdata/ftp.html}
+#' @source Lucy Rowe, Jackson Laboratory
 #' @keywords datasets
 #' @examples
 #'
