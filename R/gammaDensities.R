@@ -499,9 +499,7 @@ joint.given.two <-
 #' @examples
 #'
 #' xoprob(1, L=103)
-#' xoprob(2.6, L=103)
 #' xoprob(4.3, L=103)
-#' xoprob(7.6, L=103)
 #'
 #' @useDynLib xoi
 #' @export
