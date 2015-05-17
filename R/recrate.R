@@ -17,8 +17,21 @@
 #' @return A data.frame containing the positions and estimate recombination
 #' rates.
 #' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
-#' @seealso \code{\link{est.coi}}
+#' @seealso \code{\link{est.coi}}, \code{\link{intensity}}
 #' @keywords models
+#' @examples
+#' # create equally-spaced map
+#' pmap <- sim.map(100, n.mar=51, anchor=TRUE, include.x=FALSE, eq.spacing=TRUE)
+#'
+#' # simulate cross
+#' x <- sim.cross(pmap, type="bc", n.ind=501)
+#'
+#' # estimate map for that cross
+#' emap <- est.map(x)
+#'
+#' # empirical estimate of recombination rate
+#' rr <- est.recrate(emap[[1]], pmap[[1]], window=5)
+#' plot(rr, type="l", lwd=2)
 #'
 #' @useDynLib xoi
 #' @export
