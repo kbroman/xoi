@@ -18,6 +18,25 @@ A data frame with class \code{"scanone"}, in the format output by \code{\link[qt
 Convert the result of \code{\link{est.recrate}} to the format
 output by R/qtl's \code{\link[qtl]{scanone}} function.
 }
+\examples{
+pmap <- sim.map(100, n.mar=51, anchor=TRUE, include.x=FALSE, eq.spacing=TRUE)
+
+# simulate cross
+x <- sim.cross(pmap, type="bc", n.ind=501)
+
+# estimate map for that cross
+emap <- est.map(x)
+
+# empirical estimate of recombination rate
+rr <- est.recrate(emap[[1]], pmap[[1]], window=5)
+
+# make it a list (one component per chromosome, but here just the one chromosome)
+rr <- list("1"=rr)
+
+# convert to scanone output and plot
+rr_scanone <- recrate2scanone(rr)
+plot(rr_scanone)
+}
 \author{
 Karl W Broman, \email{kbroman@biostat.wisc.edu}
 }

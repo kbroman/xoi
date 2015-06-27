@@ -1,20 +1,24 @@
-
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2014, Karl W Broman
+copyright (c) 1999-2015, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
     version 3, as published by the Free Software Foundation.
-    
+
     This program is distributed in the hope that it will be useful,
     but without any warranty; without even the implied warranty of
     merchantability or fitness for a particular purpose.  See the GNU
     General Public License for more details.
-    
+
     A copy of the GNU General Public License, version 3, is available
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
+
+Version 0.66, 2015-06-27:
+
+  Add example in the help files for est.recrate() and recrate2scanone().
+
 
 Version 0.65, 9/23/2014:
 
@@ -102,7 +106,7 @@ Version 0.56-2, 4/11/2010:
 Version 0.56-1, 10/26/2009:
 
    Fixed a bug in find.breaks (changing call to locate.xo to
-   locateXO). 
+   locateXO).
 
    Fixed links in help files.
 
@@ -121,7 +125,7 @@ Version 0.54-1, 5/18/2009:
    In est.recrate, modified the default positions at which the
    recombination rate is calculated (that is, if the "pos" argument is
    not specified) so that calculations will be done at the marker
-   positions and at a grid with 4 positions per Mbp. 
+   positions and at a grid with 4 positions per Mbp.
 
    Added a function recrate2scanone for converting est.recrate results
    for multiple chromosomes to the form of the output of scanone (from
