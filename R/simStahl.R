@@ -48,7 +48,7 @@
 #'
 #' # simulations under Stahl model with nu=11, p=0.1, and obligate chiasma
 #' xo_oblchi_stahl <- simStahl(100, nu=11, p=0.1, L=80, obligate_chiasma=TRUE)
-#' @importFrom stats qpois
+#' @importFrom stats qpois dpois
 #' @useDynLib xoi
 #' @export
 simStahl <-
@@ -152,6 +152,6 @@ calc_Lstar <-
         2*L - 2*Lstar / denom
     }
 
-    uniroot(func_to_zero, c(1e-8, L), L=L, m=m, p=p,
-            tol=sqrt(.Machine$double.eps))$root
+    stats::uniroot(func_to_zero, c(1e-8, L), L=L, m=m, p=p,
+                   tol=sqrt(.Machine$double.eps))$root
 }
