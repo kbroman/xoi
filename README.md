@@ -1,7 +1,7 @@
 ## R/xoi
 
 [![Build Status](https://travis-ci.org/kbroman/xoi.svg?branch=master)](https://travis-ci.org/kbroman/xoi)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/xoi)](http://cran.r-project.org/package=pkgname)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/xoi)](http://cran.r-project.org/package=xoi)
 
 [Karl W Broman](http://kbroman.org)
 
