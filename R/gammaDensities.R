@@ -69,12 +69,12 @@
 #' @useDynLib xoi
 #' @export
 location.given.one <-
-    function(nu, L=103, x, n=400, max.conv=25,
+    function(nu, L=103, x=NULL, n=400, max.conv=25,
              integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -177,12 +177,12 @@ location.given.one <-
 #' @useDynLib xoi
 #' @export
 first.given.two <-
-    function(nu, L=103, x, n=400, max.conv=25,
+    function(nu, L=103, x=NULL, n=400, max.conv=25,
              integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -285,12 +285,12 @@ first.given.two <-
 #' @useDynLib xoi
 #' @export
 distance.given.two <-
-    function(nu, L=103, x, n=400, max.conv=25,
+    function(nu, L=103, x=NULL, n=400, max.conv=25,
              integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -386,26 +386,26 @@ distance.given.two <-
 #' @useDynLib xoi
 #' @export
 joint.given.two <-
-    function(nu, L=103, x, y, n=20, max.conv=25,
+    function(nu, L=103, x=NULL, y=NULL, n=20, max.conv=25,
              integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x) && missing(y)) { # compute on a grid
+    if(is.null(x) && is.null(y)) { # compute on a grid
         x <- seq(0,L, length=n+1)
         x <- x[-1]-x[2]/2
         y <- x
         x <- rep(x, n)
         y <- rep(y, rep(n,n))
     }
-    else if(missing(x)) {
+    else if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
         m <- length(x)
         x <- rep(x, length(y))
         y <- rep(y, rep(m,length(y)))
     }
-    else if(missing(y)) {
+    else if(is.null(y)) {
         y <- seq(0,L,length=n+1)
         y <- y[-1]-y[2]/2
         m <- length(x)
@@ -581,11 +581,11 @@ xoprob <-
 #' @useDynLib xoi
 #' @export
 ioden <-
-    function(nu, L=103, x, n=400, max.conv=25)
+    function(nu, L=103, x=NULL, n=400, max.conv=25)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -671,11 +671,11 @@ ioden <-
 #' @useDynLib xoi
 #' @export
 firstden <-
-    function(nu, L=103, x, n=400, max.conv=25)
+    function(nu, L=103, x=NULL, n=400, max.conv=25)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -752,11 +752,11 @@ firstden <-
 #' @useDynLib xoi
 #' @export
 gammacoi <-
-    function(nu, L=103, x, n=400, max.conv=25)
+    function(nu, L=103, x=NULL, n=400, max.conv=25)
 {
     if(nu <= 0) stop("nu should be positive.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
@@ -848,12 +848,12 @@ gammacoi <-
 #' @useDynLib xoi
 #' @export
 stahlcoi <-
-    function(nu, p=0, L=103, x, n=400, max.conv=25)
+    function(nu, p=0, L=103, x=NULL, n=400, max.conv=25)
 {
     if(nu <= 0) stop("nu should be positive.")
     if(p < 0 || p > 1) stop("p should be between 0 and 1.")
 
-    if(missing(x)) {
+    if(is.null(x)) {
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }

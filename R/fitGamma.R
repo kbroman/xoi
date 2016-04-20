@@ -23,7 +23,7 @@
 #' right-censored, \code{2} = initial crossover on chromosome, \code{3} = whole
 #' chromosome.
 #' @param nu A vector of interference parameters (\eqn{\nu}{nu}) at which to
-#' calculate the log likelihood.  If missing, \code{lo} and \code{hi} must be
+#' calculate the log likelihood.  If NULL, \code{lo} and \code{hi} must be
 #' specified.
 #' @param lo If \code{nu} is unspecified, \code{lo} indicates the lower value
 #' of the interval in which to search for the MLE.  If \code{supint=TRUE}, this
@@ -109,13 +109,13 @@
 #' @useDynLib xoi
 #' @export
 fitGamma <-
-    function(d, censor, nu, lo, hi,
+    function(d, censor=NULL, nu=NULL, lo=NULL, hi=NULL,
              se=FALSE, supint=FALSE, rescale=FALSE,
              drop=1.5, tol=1e-5, maxit=1000, max.conv=25,
              integr.tol=1e-8, max.subd=1000, min.subd=10,
              h=0.1, hstep=1.5)
 {
-    if(missing(censor) && !is.null(d) && ncol(d)==2) {
+    if(is.null(censor) && !is.null(d) && ncol(d)==2) {
         censor <- d[,2]
         d <- d[,1]
     }
@@ -131,8 +131,8 @@ fitGamma <-
 
     d <- d/100
 
-    if(!missing(nu)) {
-        if(!missing(lo) || !missing(hi))
+    if(!is.null(nu)) {
+        if(!is.null(lo) || !is.null(hi))
             warning("lo and hi ignored")
         if(se || supint)
             warning("se and support interval not calculated when nu is specified.")
@@ -157,7 +157,7 @@ fitGamma <-
         return(data.frame(nu=result$nu, loglik=result$loglik))
     }
     else {
-        if(missing(lo) || missing(hi))
+        if(is.null(lo) || is.null(hi))
             stop("Need to specify nu or both lo and hi")
 
 

@@ -48,13 +48,13 @@
 #' @useDynLib xoi
 #' @export
 stahlLoglik <-
-    function(xoloc, chrlen, nu, p,
+    function(xoloc, chrlen=NULL, nu, p,
              max.conv=25, integr.tol=1e-8, max.subd=1000, min.subd=10)
 {
     if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
     if(!is.list(xoloc)) stop("xoloc should be a list.")
 
-    if(missing(chrlen) && "L" %in% names(attributes(xoloc)))
+    if(is.null(chrlen) && "L" %in% names(attributes(xoloc)))
         chrlen <- attr(xoloc, "L")
 
     if(length(chrlen) == 1) {
@@ -244,13 +244,13 @@ fitStahl.sub2 <-
 #' @importFrom stats optimize optim
 #' @export
 fitStahl <-
-    function(xoloc, chrlen, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
+    function(xoloc, chrlen=NULL, nu=c(1,20), p=0.02, max.conv=25, integr.tol=1e-8,
              max.subd=1000, min.subd=10, verbose=TRUE, ...)
 {
     if(is.data.frame(xoloc)) stop("xoloc should not be a data.frame.")
     if(!is.list(xoloc)) stop("xoloc should be a list.")
 
-    if(missing(chrlen) && "L" %in% names(attributes(xoloc)))
+    if(is.null(chrlen) && "L" %in% names(attributes(xoloc)))
         chrlen <- attr(xoloc, "L")
 
     if(length(nu) > 2) {

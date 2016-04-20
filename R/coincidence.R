@@ -13,7 +13,7 @@
 #'
 #' @param cross Cross object; must be a backcross.  See
 #' \code{\link[qtl]{read.cross}} for format details.
-#' @param chr Chromosome to consider (only one is allowed).  If missing, the
+#' @param chr Chromosome to consider (only one is allowed).  If NULL, the
 #' first chromosome is considered.
 #' @param pos If provided, these are used as the marker positions.  (This could
 #' be useful if you want to do things with respect to physical distance.)
@@ -45,19 +45,19 @@
 #' @useDynLib xoi
 #' @export
 est.coi <-
-    function(cross, chr, pos, window=0,
+    function(cross, chr=NULL, pos=NULL, window=0,
              fill.method=c("imp", "argmax"), error.prob=1e-10,
              map.function=c("haldane", "kosambi", "c-f", "morgan"))
 {
     if(length(class(cross)) < 2 || class(cross)[1] != "bc")
         stop("This function is only prepared for backcrosses.")
 
-    if(!missing(chr)) {
-        if(length(chr) != 1)
-            stop("You should specify just one chromosome.")
-        cross <- subset(cross, chr=chr)
-    }
-    else cross <- subset(cross, chr=1)
+    if(is.null(chr))
+        chr <- chrnames(cross)[1]
+
+    if(length(chr) != 1)
+        stop("You should specify just one chromosome.")
+    cross <- subset(cross, chr=chr)
 
     dat <- cross$geno[[1]]$data
     if(any(is.na(dat))) {
@@ -74,7 +74,7 @@ est.coi <-
     }
 
     map <- cross$geno[[1]]$map
-    if(!missing(pos)) {
+    if(!is.null(pos)) {
         if(length(pos) != length(map))
             stop("pos must have length ", length(map))
         map <- pos

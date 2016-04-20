@@ -11,7 +11,7 @@
 #' @param phymap Vector of Mbp positions of markers, or a list of such vectors;
 #' same length as \code{genmap}.
 #' @param pos Vector of positions at which the recombination rate should be
-#' estimated, or a list of such vectors.  If missing, we use the physical
+#' estimated, or a list of such vectors.  If NULL, we use the physical
 #' marker positions plus a grid with 4 positions per Mbp.
 #' @param window Length of sliding window (in Mbp).
 #' @return A data.frame containing the positions and estimate recombination
@@ -36,13 +36,13 @@
 #' @useDynLib xoi
 #' @export
 est.recrate <-
-    function(genmap, phymap, pos, window=5)
+    function(genmap, phymap, pos=NULL, window=5)
 {
     # multiple-chromosome version
     if(is.list(genmap) && is.list(phymap)) {
         if(length(genmap) != length(phymap))
             stop("length(genmap) != length(phymap)")
-        if(missing(pos)) {
+        if(is.null(pos)) {
             result <- apply(mapply(est.recrate, genmap, phymap, window=window), 2, as.data.frame)
         } else {
             if(length(pos) != length(genmap))
@@ -70,7 +70,7 @@ est.recrate <-
     if(window < 0)
         stop("window should be > 0")
 
-    if(missing(pos)) {
+    if(is.null(pos)) {
         pos <- sort(c(phymap, seq(min(phymap), max(phymap), by=0.25)))
         pos <- unique(pos[pos >= min(phymap) & pos <= max(phymap)])
     }
@@ -139,7 +139,7 @@ est.recrate <-
 #' @useDynLib xoi
 #' @export
 recrate2scanone <-
-    function(recrate, phymap)
+    function(recrate, phymap=NULL)
 {
     if(is.data.frame(recrate) && names(recrate)[1]=="pos" && names(recrate)[2]=="rate")
         recrate <- list(recrate)
@@ -157,7 +157,7 @@ recrate2scanone <-
     for(i in seq(along=recrate))
         locnam[[i]] <- paste("c", names(recrate)[i], ".loc", seq(along=recrate[[i]]$pos), sep="")
 
-    if(!missing(phymap)) {
+    if(!is.null(phymap)) {
         for(i in seq(along=recrate)) {
             m <- match(phymap[[i]], recrate[[i]]$pos)
             locnam[[i]][m] <- names(phymap[[i]])

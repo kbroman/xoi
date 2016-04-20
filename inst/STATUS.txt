@@ -1,6 +1,6 @@
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2015, Karl W Broman
+copyright (c) 1999-2016, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
@@ -14,6 +14,11 @@ copyright (c) 1999-2015, Karl W Broman
     A copy of the GNU General Public License, version 3, is available
     at http://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
+
+Version 0.67, 2016-04-20:
+
+  Remove calls to missing() and use NULL argument defaults instead.
+
 
 Version 0.66, 2015-10-18:
 

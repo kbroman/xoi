@@ -34,13 +34,13 @@
 #' @useDynLib xoi
 #' @export
 kfunc <-
-    function(x, d=seq(0,100,by=0.1), lengths, exclude=0, tol=1e-6)
+    function(x, d=seq(0,100,by=0.1), lengths=NULL, exclude=0, tol=1e-6)
 {
     npt <- sapply(x, length)
     if(!any(npt>0)) stop("Need to have some points.")
 
     x <- x[npt > 0]
-    if(missing(lengths))
+    if(is.null(lengths))
         lengths <- sapply(x, max)
     else lengths <- lengths[npt > 0]
 

@@ -14,7 +14,7 @@
 #'
 #' @param xoloc list of crossover locations (in microns) for each of several oocytes or spermatocytes.
 #' @param sclength vector of SC lengths (in microns).
-#' @param centromeres vector of centromere locations (in microns). If missing, taken to be \code{sclength/2}.
+#' @param centromeres vector of centromere locations (in microns). If NULL, taken to be \code{sclength/2}.
 #' @param group nominal vector of groups; the intensity function of
 #' the crossover process will be estimated separately for each group,
 #' but a joint coincidence function will be estimated.
@@ -52,8 +52,8 @@
 #' @useDynLib xoi
 #' @export
 est.coi.um <-
-    function(xoloc, sclength, centromeres, group, intwindow=0.05, coiwindow,
-             intloc, coiloc)
+    function(xoloc, sclength, centromeres=NULL, group=NULL, intwindow=0.05, coiwindow=NULL,
+             intloc=NULL, coiloc=NULL)
 {
     # check inputs
     stopifnot(length(xoloc) == length(sclength))
@@ -62,14 +62,14 @@ est.coi.um <-
     for(i in seq(along=xoloc))
         stopifnot(all(xoloc[[i]] >= 0 & xoloc[[i]] <= sclength[i]))
 
-    if(missing(centromeres)) {
+    if(is.null(centromeres)) {
         centromeres <- sclength/2
     } else {
         stopifnot(length(centromeres) == length(xoloc))
         stopifnot(all(!is.na(centromeres) & centromeres > 0 & centromeres < sclength))
     }
 
-    if(missing(group)) {
+    if(is.null(group)) {
         group <- rep(1, length(xoloc))
         ugroup <- "intensity"
     } else {
@@ -82,10 +82,10 @@ est.coi.um <-
         stop("At least one group with < 2 individuals")
 
     stopifnot(intwindow > 0 && intwindow < 1)
-    if(missing(coiwindow)) coiwindow <- min(sclength)/10
+    if(is.null(coiwindow)) coiwindow <- min(sclength)/10
     stopifnot(coiwindow > 0 && coiwindow < max(sclength))
 
-    if(missing(intloc)) {
+    if(is.null(intloc)) {
         intloc <- seq(0, 1, length=501)
     } else {
         intloc <- sort(intloc)
@@ -93,7 +93,7 @@ est.coi.um <-
         stopifnot(all(!is.na(intloc) & intloc >= 0 & intloc <= 1))
     }
 
-    if(missing(coiloc)) {
+    if(is.null(coiloc)) {
         coiloc <- seq(0, min(sclength)-coiwindow/2, length=501)
     } else {
         coiloc <- sort(coiloc)

@@ -6,7 +6,7 @@
 #'
 #' @param cross Cross object; must be a backcross.  See
 #' \code{\link[qtl]{read.cross}} for format details.
-#' @param chr Chromosome to consider (only one is allowed).  If missing, the
+#' @param chr Chromosome to consider (only one is allowed).  If NULL, the
 #' first chromosome is considered.
 #' @param window Window size
 #' @param ncalc Total number of points for calculations.
@@ -26,13 +26,12 @@
 #' @useDynLib xoi
 #' @export
 coincidence <-
-    function(cross, chr, window=5, ncalc=500)
+    function(cross, chr=NULL, window=5, ncalc=500)
 {
-    if(!missing(chr)) {
-        cross <- subset(cross, chr)
-        if(nchr(cross) > 1)
-            warning("Considering only chr ", names(cross$geno)[1])
-    }
+    if(is.null(chr)) chr <- chrnames(cross)[1]
+    cross <- subset(cross, chr)
+    if(nchr(cross) > 1)
+        warning("Considering only chr ", names(cross$geno)[1])
 
     if(class(cross)[1] != "bc")
         stop("coincidence() currently working only for a backcross.")

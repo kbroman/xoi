@@ -11,7 +11,7 @@
 #' @param cross An object of class \code{cross}. (This must be a backcross,
 #' RIL, or intercross.) See \code{\link[qtl]{read.cross}} for details.
 #' @param chr Optional set of chromosomes on which to look for crossovers.  If
-#' missing, all chromosomes are considered.
+#' NULL, all chromosomes are considered.
 #' @return If only one chromosome is considered, this is a list with one
 #' component for each individual.  If multiple chromosomes were considered,
 #' this is a list with one element for each chromosome, each of which is a list
@@ -44,14 +44,14 @@
 #' @import qtl
 #' @export
 find.breaks <-
-    function(cross, chr)
+    function(cross, chr=NULL)
 {
     if(length(class(cross)) < 2 || class(cross)[2] != "cross")
         stop("Input should have class \"cross\".")
 
     type <- class(cross)[1]
 
-    if(!missing(chr)) cross <- subset(cross, chr=chr)
+    if(!is.null(chr)) cross <- subset(cross, chr=chr)
 
     if(type == "f2") return(find.breaks.F2(cross))
 
@@ -195,7 +195,7 @@ inferxoloc.F2 <-
 #' @param cross An object of class \code{cross}. (This must be a backcross.)
 #' See \code{\link[qtl]{read.cross}} for details.
 #' @param chr Optional set of chromosomes across which to count crossovers.  If
-#' missing, the total number of crossovers, genome-wide, is counted.
+#' NULL, the total number of crossovers, genome-wide, is counted.
 #' @return A vector with the estimated number of crossovers for each
 #' individual.
 #' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
@@ -213,7 +213,7 @@ inferxoloc.F2 <-
 #'
 #' @export
 countxo <-
-    function(cross, chr)
+    function(cross, chr=NULL)
 {
     if(length(class(cross)) < 2 || class(cross)[2] != "cross")
         stop("Input should have class \"cross\".")
@@ -222,7 +222,7 @@ countxo <-
     if(type != "bc" && type != "risib" && type != "riself")
         stop("This works only for a backcross or RIL.")
 
-    if(!missing(chr)) cross <- subset(cross, chr=chr)
+    if(!is.null(chr)) cross <- subset(cross, chr=chr)
 
     br <- find.breaks(cross)
 
