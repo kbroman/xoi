@@ -60,6 +60,7 @@ F*(x;nu)} where \eqn{F^*}{F*} is the cdf of \eqn{f^*}{f*}.
 integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
 accurate results.}
 }
+
 \examples{
 
 # Calculate the distribution of the average of the crossover locations,
@@ -77,9 +78,6 @@ plot((f$x+f$y)/2, f$f, type="l", xlim=c(0, L), ylim=c(0,max(f$f)),
 abline(v=c(d/2,L-d/2), h=1/(L-d), lty=2, lwd=2)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
 crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
@@ -95,5 +93,7 @@ recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link{first.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
 \code{\link{xoprob}}, \code{\link{gammacoi}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{distribution}
-

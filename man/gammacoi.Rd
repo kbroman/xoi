@@ -54,9 +54,6 @@ f4 <- gammacoi(7.6, L=200)
 lines(f4, col="green", lwd=2)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
 crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
@@ -73,5 +70,7 @@ recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
 \code{\link{xoprob}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{distribution}
-

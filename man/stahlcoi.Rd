@@ -73,9 +73,6 @@ f4s <- stahlcoi(7.6, p=0.1, L=200)
 lines(f4s, col="green", lwd=2, lty=2)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
 Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
@@ -89,5 +86,7 @@ Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
 \code{\link{first.given.two}}, \code{\link{distance.given.two}},
 \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{distribution}
-

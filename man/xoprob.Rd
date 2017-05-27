@@ -53,9 +53,6 @@ xoprob(1, L=103)
 xoprob(4.3, L=103)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
 crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
@@ -71,5 +68,7 @@ recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
 \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{gammacoi}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{distribution}
-

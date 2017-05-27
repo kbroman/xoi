@@ -46,4 +46,3 @@ lines(k ~ d, data=kf)
 \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{coincidence}}
 }
 \keyword{models}
-

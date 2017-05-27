@@ -21,4 +21,3 @@ xoiversion()
 Karl W Broman, \email{kbroman@biostat.wisc.edu}
 }
 \keyword{print}
-

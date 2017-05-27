@@ -36,4 +36,3 @@ Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
 interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
 }
 \keyword{datasets}
-

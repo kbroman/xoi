@@ -33,11 +33,10 @@ out <- intensity(x)
 plot(out, type="l", lwd=2, ylim=c(0, max(out[,2])))
 
 }
-\author{
-Il youp Kwak
-}
 \seealso{
 \code{\link{coincidence}}
 }
+\author{
+Il youp Kwak
+}
 \keyword{utilities}
-

@@ -56,9 +56,6 @@ xo_oblchi <- simStahl(100, nu=11, p=0, L=80, obligate_chiasma=TRUE)
 # simulations under Stahl model with nu=11, p=0.1, and obligate chiasma
 xo_oblchi_stahl <- simStahl(100, nu=11, p=0.1, L=80, obligate_chiasma=TRUE)
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
 Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
@@ -70,5 +67,7 @@ Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
 \seealso{
 \code{\link{fitGamma}}, \code{\link[qtl]{sim.cross}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{datagen}
-

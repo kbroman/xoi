@@ -64,12 +64,11 @@ plot(coi$coincidence, type="l", lwd=2, ylim=c(0, max(coi$coincidence[,2])))
 plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \seealso{
 \code{\link{gammacoi}}, \code{\link{stahlcoi}},
 \code{\link{kfunc}}, \code{\link{est.coi}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-

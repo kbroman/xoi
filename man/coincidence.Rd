@@ -33,11 +33,10 @@ out <- coincidence(x, ncalc=101)
 plot(out, type="l", lwd=2, ylim=c(0, max(out[,2])))
 
 }
-\author{
-Il youp Kwak
-}
 \seealso{
 \code{\link{intensity}}, \code{\link{est.coi}}
 }
+\author{
+Il youp Kwak
+}
 \keyword{utilities}
-

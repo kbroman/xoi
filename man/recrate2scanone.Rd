@@ -38,11 +38,10 @@ rr_scanone <- recrate2scanone(rr)
 plot(rr_scanone)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \seealso{
 \code{\link{est.recrate}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-

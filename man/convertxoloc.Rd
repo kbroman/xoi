@@ -32,12 +32,11 @@ xoloc1 <- convertxoloc(find.breaks(bssbsb, chr=1))
 xoloc <- convertxoloc(find.breaks(bssbsb))
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \seealso{
 \code{\link{find.breaks}}, \code{\link{fitGamma}},
 \code{\link{simStahl}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{utilities}
-

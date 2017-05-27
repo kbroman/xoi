@@ -56,9 +56,6 @@ lines(coi2 ~ d, data=out, lwd=2, col="green")
 lines(gammacoi(7), lwd=2, col="red", lty=2)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 McPeek, M. S. and Speed, T. P. (1995) Modeling interference in
 genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
@@ -66,5 +63,7 @@ genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \seealso{
 \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-

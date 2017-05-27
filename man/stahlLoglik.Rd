@@ -56,9 +56,6 @@ xoloc <- find.breaks(bssbsb, chr=1)
 loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
 in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
@@ -69,5 +66,7 @@ interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
 \seealso{
 \code{\link[qtl]{fitstahl}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-

@@ -44,11 +44,10 @@ rr <- est.recrate(emap[[1]], pmap[[1]], window=5)
 plot(rr, type="l", lwd=2)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \seealso{
 \code{\link{est.coi}}, \code{\link{intensity}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-

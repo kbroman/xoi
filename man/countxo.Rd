@@ -35,11 +35,10 @@ nxo <- countxo(bssbsb, chr=1)
 nxo <- countxo(bssbsb)
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \seealso{
 \code{\link{find.breaks}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{utilities}
-

@@ -72,9 +72,6 @@ L <- attr(xoloc, "L")
 \dontshow{mle <- fitStahl(xoloc, L, nu=c(9, 12), control=list(maxit=2))}
 
 }
-\author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
-}
 \references{
 Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
 in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
@@ -86,5 +83,7 @@ interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
 \code{\link{fitGamma}}, \code{\link{stahlLoglik}},
 \code{\link{simStahl}}
 }
+\author{
+Karl W Broman, \email{kbroman@biostat.wisc.edu}
+}
 \keyword{models}
-
