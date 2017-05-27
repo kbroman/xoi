@@ -1,3 +1,3 @@
 # the following to get NAMESPACE file
-#' @useDynLib xoi
+#' @useDynLib xoi, .registration=TRUE
 NULL
