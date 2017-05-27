@@ -24,7 +24,6 @@
 #' out <- intensity(x)
 #' plot(out, type="l", lwd=2, ylim=c(0, max(out[,2])))
 #'
-#' @useDynLib xoi
 #' @export
 intensity <-
     function(cross, chr=NULL, window=2.5, ncalc=500)

@@ -49,7 +49,6 @@
 #' # simulations under Stahl model with nu=11, p=0.1, and obligate chiasma
 #' xo_oblchi_stahl <- simStahl(100, nu=11, p=0.1, L=80, obligate_chiasma=TRUE)
 #' @importFrom stats qpois dpois
-#' @useDynLib xoi
 #' @export
 simStahl <-
     function(n.sim, nu=1, p=0, L=100,

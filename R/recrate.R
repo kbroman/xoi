@@ -33,7 +33,6 @@
 #' rr <- est.recrate(emap[[1]], pmap[[1]], window=5)
 #' plot(rr, type="l", lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 est.recrate <-
     function(genmap, phymap, pos=NULL, window=5)

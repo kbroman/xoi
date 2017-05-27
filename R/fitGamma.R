@@ -106,7 +106,6 @@
 #' int
 #' abline(v=mle[2:3,1], h=mle[2:3,2], col="red", lty=2)
 #'
-#' @useDynLib xoi
 #' @export
 fitGamma <-
     function(d, censor=NULL, nu=NULL, lo=NULL, hi=NULL,

@@ -42,7 +42,6 @@
 #' lines(coi2 ~ d, data=out, lwd=2, col="green")
 #' lines(gammacoi(7), lwd=2, col="red", lty=2)
 #'
-#' @useDynLib xoi
 #' @export
 est.coi <-
     function(cross, chr=NULL, pos=NULL, window=0,

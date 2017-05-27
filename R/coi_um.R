@@ -49,7 +49,6 @@
 #' plot(coi$coincidence, type="l", lwd=2, ylim=c(0, max(coi$coincidence[,2])))
 #' plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 #'
-#' @useDynLib xoi
 #' @export
 est.coi.um <-
     function(xoloc, sclength, centromeres=NULL, group=NULL, intwindow=0.05, coiwindow=NULL,

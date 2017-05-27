@@ -31,7 +31,6 @@
 #'         border=NA, col="#add8e650")
 #' lines(k ~ d, data=kf)
 #'
-#' @useDynLib xoi
 #' @export
 kfunc <-
     function(x, d=seq(0,100,by=0.1), lengths=NULL, exclude=0, tol=1e-6)

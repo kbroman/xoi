@@ -66,7 +66,6 @@
 #' f4 <- location.given.one(7.6, L=200, n=201)
 #' lines(f4, col="green", lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 location.given.one <-
     function(nu, L=103, x=NULL, n=400, max.conv=25,

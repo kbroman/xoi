@@ -58,7 +58,6 @@
 #' \dontrun{chiasma(nxo)}
 #' \dontshow{chiasma(nxo, tol=0.001)}
 #'
-#' @useDynLib xoi
 #' @export
 chiasma <-
     function(xo, max.chiasma=max(xo)*2+5, n.iter=10000, tol=1e-6, verbose=FALSE)

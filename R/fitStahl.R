@@ -45,7 +45,6 @@
 #'
 #' loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
 #'
-#' @useDynLib xoi
 #' @export
 stahlLoglik <-
     function(xoloc, chrlen=NULL, nu, p,
