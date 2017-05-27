@@ -173,7 +173,6 @@ location.given.one <-
 #' lines(f4, col="green", lwd=2)
 #' }
 #'
-#' @useDynLib xoi
 #' @export
 first.given.two <-
     function(nu, L=103, x=NULL, n=400, max.conv=25,
@@ -281,7 +280,6 @@ first.given.two <-
 #' lines(f4, col="green", lwd=2)
 #' }
 #'
-#' @useDynLib xoi
 #' @export
 distance.given.two <-
     function(nu, L=103, x=NULL, n=400, max.conv=25,
@@ -382,7 +380,6 @@ distance.given.two <-
 #'      lwd=2, xlab="Average location", ylab="Density")
 #' abline(v=c(d/2,L-d/2), h=1/(L-d), lty=2, lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 joint.given.two <-
     function(nu, L=103, x=NULL, y=NULL, n=20, max.conv=25,
@@ -500,7 +497,6 @@ joint.given.two <-
 #' xoprob(1, L=103)
 #' xoprob(4.3, L=103)
 #'
-#' @useDynLib xoi
 #' @export
 xoprob <-
     function(nu, L=103, max.conv=25,
@@ -577,7 +573,6 @@ xoprob <-
 #' f4 <- ioden(7.6, L=200, n=201)
 #' lines(f4, col="green", lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 ioden <-
     function(nu, L=103, x=NULL, n=400, max.conv=25)
@@ -667,7 +662,6 @@ ioden <-
 #' f4 <- firstden(7.6, L=200, n=201)
 #' lines(f4, col="green", lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 firstden <-
     function(nu, L=103, x=NULL, n=400, max.conv=25)
@@ -748,7 +742,6 @@ firstden <-
 #' f4 <- gammacoi(7.6, L=200)
 #' lines(f4, col="green", lwd=2)
 #'
-#' @useDynLib xoi
 #' @export
 gammacoi <-
     function(nu, L=103, x=NULL, n=400, max.conv=25)
@@ -844,7 +837,6 @@ gammacoi <-
 #' f4s <- stahlcoi(7.6, p=0.1, L=200)
 #' lines(f4s, col="green", lwd=2, lty=2)
 #'
-#' @useDynLib xoi
 #' @export
 stahlcoi <-
     function(nu, p=0, L=103, x=NULL, n=400, max.conv=25)

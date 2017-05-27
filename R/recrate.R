@@ -135,7 +135,6 @@ est.recrate <-
 #' rr_scanone <- recrate2scanone(rr)
 #' plot(rr_scanone)
 #'
-#' @useDynLib xoi
 #' @export
 recrate2scanone <-
     function(recrate, phymap=NULL)
