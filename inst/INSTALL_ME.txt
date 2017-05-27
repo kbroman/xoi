@@ -1,4 +1,3 @@
-
 README file for the xoi package
 ----------------------------------------------------------------------
 This explains the installation of the xoi package for R.  If you
@@ -9,17 +8,17 @@ have any problems with installation, send an email to Karl Broman
 OBTAINING R
 
   You can download R from the Comprehensive R Archive Network (CRAN).
-  Visit http://cran.r-project.org or a local mirror (for example,
-  http://cran.us.r-project.org).  Source code is available for Unix,
+  Visit https://cran.r-project.org or a local mirror (for example,
+  https://cran.us.r-project.org).  Source code is available for Unix,
   and binaries are available for Windows, MacOS, and many versions of
-  Linux.  
+  Linux.
 
 
 OBTAINING R/xoi
 
-  You can obtain the latest version of R/xoi from 
+  You can obtain the latest version of R/xoi from
 
-      http://www.biostat.wisc.edu/~kbroman/software/xoi.html
+      https://github.com/kbroman/xoi
 
   Copies of R/xoi will also be placed on CRAN
   (cran.r-project.org), but the version at the above site will be
@@ -64,7 +63,7 @@ INSTALLATION OF R AND R/xoi (MacOS version 10.2.x and above)
         or the source code.
 
      b. Start R by double-clicking "StartR" in your Applications
-        folder. 
+        folder.
 
      c. From the menu bar, click Packages -> Install from local files
         and then either "Binary package file" or "Source package file".
@@ -75,25 +74,25 @@ INSTALLATION OF R AND R/xoi (MacOS version 10.2.x and above)
 
 INSTALLATION OF R/xoi (Unix)
 
-  1. We'll assume that R has already been installed. 
+  1. We'll assume that R has already been installed.
 
   2. Go into the directory containing the file "xoi_*.tar.gz".
 
   3. Do one of the following:
 
      a. To install R/xoi in the standard location
-        (/usr/local/lib/R/library), type 
+        (/usr/local/lib/R/library), type
 
             R CMD INSTALL xoi_*.tar.gz
 
         You'll probably need to be superuser.
 
-     b. To install the package locally, type 
+     b. To install the package locally, type
 
             R CMD INSTALL --library=/home/auser/Rlibs xoi_*.tar.gz
 
         (where "/home/auser/Rlibs" should be replaced with the
-        appropriate directory).  
+        appropriate directory).
 
         Create a file ~/.Renviron containing the line
 
@@ -125,6 +124,6 @@ QUESTIONS/COMMENTS/CONCERNS
 
   If you have any questions, suggestions, problems or complaints
   regarding R/xoi, please email Karl Broman <kbroman@biostat.wisc.edu>.
-  
+
 ----------------------------------------------------------------------
 end of README.txt

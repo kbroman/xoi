@@ -1,7 +1,7 @@
 ## R/xoi
 
 [![Build Status](https://travis-ci.org/kbroman/xoi.svg?branch=master)](https://travis-ci.org/kbroman/xoi)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/xoi)](http://cran.r-project.org/package=xoi)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
 
 [Karl W Broman](http://kbroman.org)
 
@@ -22,4 +22,4 @@ merchantability or fitness for a particular purpose.  See the GNU
 General Public License for more details.
 
 A copy of the GNU General Public License, version 3, is available at
-<http://www.r-project.org/Licenses/GPL-3>
+<https://www.r-project.org/Licenses/GPL-3>

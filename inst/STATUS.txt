@@ -12,7 +12,7 @@ copyright (c) 1999-2017, Karl W Broman
     General Public License for more details.
 
     A copy of the GNU General Public License, version 3, is available
-    at http://www.r-project.org/Licenses/GPL-3
+    at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
 Version 0.67-2, 2017-05-27:

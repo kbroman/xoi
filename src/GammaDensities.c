@@ -17,7 +17,7 @@
  *     General Public License, version 3, for more details.
  *
  *     A copy of the GNU General Public License, version 3, is available
- *     at http://www.r-project.org/Licenses/GPL-3
+ *     at https://www.r-project.org/Licenses/GPL-3
  *
  * Part of the R/xoi package
  * Contains: location_given_one, first_given_two, distance_given_two
