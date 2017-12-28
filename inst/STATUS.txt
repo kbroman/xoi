@@ -15,6 +15,11 @@ copyright (c) 1999-2017, Karl W Broman
     at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.67-3, 2017-12-27:
+
+  Small bug fix in simStahl.c re over-running max_nxo.
+
+
 Version 0.67-2, 2017-05-27:
 
   Small changes to avoid Note about "R_registerRoutines"

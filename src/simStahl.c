@@ -2,9 +2,9 @@
  *
  * simStahl.c
  *
- * copyright (c) 2006-2014, Karl W Broman
+ * copyright (c) 2006-2017, Karl W Broman
  *
- * last modified Sep, 2014
+ * last modified Dec, 2017
  * first written Nov, 2006
  *
  *     This program is free software; you can redistribute it and/or
@@ -117,7 +117,7 @@ void simStahl(int *n_sim, double *nu, double *p, double *L,
             /* locations of crossovers from the no interference mechanism */
             if(*p > 0) {
                 n_nixo = rpois(*L * *p);
-                if(n_nixo > *max_nxo)
+                if(n_nixo + nxo[i] > *max_nxo)
                     error("Exceeded maximum number of crossovers.");
 
                 for(j=0; j < n_nixo; j++)
