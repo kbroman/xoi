@@ -1,6 +1,6 @@
 Revision history for the R/xoi package
 ----------------------------------------------------------------------
-copyright (c) 1999-2017, Karl W Broman
+copyright (c) 1999-2018, Karl W Broman
 
     The R/xoi package is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License,
@@ -15,17 +15,11 @@ copyright (c) 1999-2017, Karl W Broman
     at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.67-3, 2017-12-27:
+Version 0.67, 2018-03-08:
 
   Small bug fix in simStahl.c re over-running max_nxo.
 
-
-Version 0.67-2, 2017-05-27:
-
   Small changes to avoid Note about "R_registerRoutines"
-
-
-Version 0.67, 2016-04-20:
 
   Remove calls to missing() and use NULL argument defaults instead.
 
