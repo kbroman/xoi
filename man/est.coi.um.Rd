@@ -69,6 +69,6 @@ plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 \code{\link{kfunc}}, \code{\link{est.coi}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

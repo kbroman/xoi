@@ -65,7 +65,7 @@
 #' \code{se=TRUE}, we also include the estimated SE.  If \code{supint=TRUE}, we
 #' include two additional rows with the lower and upper limits of the
 #' likelihood support interval.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link[qtl]{fitstahl}}
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
 #' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.

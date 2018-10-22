@@ -6,8 +6,9 @@
 \usage{
 fitGamma(d, censor = NULL, nu = NULL, lo = NULL, hi = NULL,
   se = FALSE, supint = FALSE, rescale = FALSE, drop = 1.5,
-  tol = 0.00001, maxit = 1000, max.conv = 25, integr.tol = 0.00000001,
-  max.subd = 1000, min.subd = 10, h = 0.1, hstep = 1.5)
+  tol = 0.00001, maxit = 1000, max.conv = 25,
+  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10, h = 0.1,
+  hstep = 1.5)
 }
 \arguments{
 \item{d}{A vector of inter-crossover distances in cM.  This should include
@@ -139,6 +140,6 @@ recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link[qtl]{fitstahl}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

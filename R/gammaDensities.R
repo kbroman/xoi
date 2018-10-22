@@ -38,7 +38,7 @@
 #' @return A data frame with two columns: \code{x} is the location (between 0
 #' and \code{L}, in cM) at which the density was calculated and \code{f} is the
 #' density.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{first.given.two}}, \code{\link{distance.given.two}},
 #' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
 #' \code{\link{xoprob}}, \code{\link{gammacoi}}
@@ -143,7 +143,7 @@ location.given.one <-
 #' @section Warning: \bold{We sometimes have difficulty with the numerical
 #' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
 #' accurate results.}
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}}, \code{\link{distance.given.two}},
 #' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
 #' \code{\link{xoprob}}, \code{\link{gammacoi}}
@@ -249,7 +249,7 @@ first.given.two <-
 #' @section Warning: \bold{We sometimes have difficulty with the numerical
 #' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
 #' accurate results.}
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}},
 #' \code{\link{first.given.two}},\code{\link{joint.given.two}},
 #' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}},
@@ -351,7 +351,7 @@ distance.given.two <-
 #' @section Warning: \bold{We sometimes have difficulty with the numerical
 #' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
 #' accurate results.}
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}}, \code{\link{distance.given.two}},
 #' \code{\link{first.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
 #' \code{\link{xoprob}}, \code{\link{gammacoi}}
@@ -479,7 +479,7 @@ joint.given.two <-
 #' @param min.subd Minimum number of subdivisions in numerical integration.
 #' @return A vector of length 4, giving the probabilities of 0, 1, 2, or >2
 #' crossovers, respectively, on a chromosome of length \code{L} cM.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
 #' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
 #' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{gammacoi}}
@@ -545,7 +545,7 @@ xoprob <-
 #' @return A data frame with two columns: \code{x} is the distance (between 0
 #' and \code{L}, in cM) at which the density was calculated and \code{f} is the
 #' density.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
 #' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
 #' \code{\link{firstden}}, \code{\link{xoprob}}, \code{\link{gammacoi}}
@@ -634,7 +634,7 @@ ioden <-
 #' @return A data frame with two columns: \code{x} is the distance (between 0
 #' and \code{L}, in cM) at which the density was calculated and \code{f} is the
 #' density.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
 #' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
 #' \code{\link{ioden}}, \code{\link{xoprob}}, \code{\link{gammacoi}}
@@ -713,7 +713,7 @@ firstden <-
 #' @return A data frame with two columns: \code{x} is the distance (between 0
 #' and \code{L}, in cM) at which the coicidence was calculated and
 #' \code{coincidence}.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{stahlcoi}}, \code{\link{location.given.one}},
 #' \code{\link{first.given.two}}, \code{\link{distance.given.two}},
 #' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
@@ -802,7 +802,7 @@ gammacoi <-
 #' @return A data frame with two columns: \code{x} is the distance (between 0
 #' and \code{L}, in cM) at which the coicidence was calculated and
 #' \code{coincidence}.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{gammacoi}}, \code{\link{location.given.one}},
 #' \code{\link{first.given.two}}, \code{\link{distance.given.two}},
 #' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}}

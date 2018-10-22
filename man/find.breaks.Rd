@@ -54,6 +54,6 @@ xoloc <- find.breaks(bssbsb)
 \code{\link{simStahl}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{utilities}

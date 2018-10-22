@@ -64,6 +64,6 @@ genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

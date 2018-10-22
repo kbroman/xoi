@@ -67,6 +67,6 @@ interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
 \code{\link[qtl]{fitstahl}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

@@ -4,9 +4,9 @@
 \alias{fitStahl}
 \title{Fit Stahl model}
 \usage{
-fitStahl(xoloc, chrlen = NULL, nu = c(1, 20), p = 0.02, max.conv = 25,
-  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10,
-  verbose = TRUE, ...)
+fitStahl(xoloc, chrlen = NULL, nu = c(1, 20), p = 0.02,
+  max.conv = 25, integr.tol = 0.00000001, max.subd = 1000,
+  min.subd = 10, verbose = TRUE, ...)
 }
 \arguments{
 \item{xoloc}{A list of crossover locations (in cM), each component being a
@@ -84,6 +84,6 @@ interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
 \code{\link{simStahl}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

@@ -16,7 +16,7 @@
 #' @param window Length of sliding window (in Mbp).
 #' @return A data.frame containing the positions and estimate recombination
 #' rates.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{est.coi}}, \code{\link{intensity}}
 #' @keywords models
 #' @examples
@@ -112,7 +112,7 @@ est.recrate <-
 #' @param recrate A list of results from \code{\link{est.recrate}}
 #' @param phymap A list of vectors of Mbp positions of markers
 #' @return A data frame with class \code{"scanone"}, in the format output by \code{\link[qtl]{scanone}}.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{est.recrate}}
 #' @keywords models
 #'

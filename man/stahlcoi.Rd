@@ -87,6 +87,6 @@ Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
 \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{distribution}

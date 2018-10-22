@@ -2,7 +2,7 @@ README file for the xoi package
 ----------------------------------------------------------------------
 This explains the installation of the xoi package for R.  If you
 have any problems with installation, send an email to Karl Broman
-<kbroman@biostat.wisc.edu>.
+<broman@wisc.edu>.
 ----------------------------------------------------------------------
 
 OBTAINING R
@@ -123,7 +123,7 @@ GETTING STARTED
 QUESTIONS/COMMENTS/CONCERNS
 
   If you have any questions, suggestions, problems or complaints
-  regarding R/xoi, please email Karl Broman <kbroman@biostat.wisc.edu>.
+  regarding R/xoi, please email Karl Broman <broman@wisc.edu>.
 
 ----------------------------------------------------------------------
 end of README.txt

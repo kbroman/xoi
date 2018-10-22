@@ -48,6 +48,6 @@ plot(rr, type="l", lwd=2)
 \code{\link{est.coi}}, \code{\link{intensity}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

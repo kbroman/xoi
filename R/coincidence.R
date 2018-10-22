@@ -27,7 +27,7 @@
 #' of estimates of the coincidence.  In the first estimate, we take a running
 #' mean of each of the numerator and denominator and then divide.  In the
 #' second estimate, we first take a ratio and then take a running mean.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
 #' @references McPeek, M. S. and Speed, T. P. (1995) Modeling interference in
 #' genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.

@@ -71,6 +71,6 @@ recombination.  \emph{Genetics} \bold{139}, 1031--1044.
 \code{\link{xoprob}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{distribution}

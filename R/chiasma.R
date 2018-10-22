@@ -34,7 +34,7 @@
 #'
 #' Third, the estimated average number of crossovers under the Poisson and
 #' truncated Poisson models.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{fitGamma}}, \code{\link[qtl]{fitstahl}},
 #' \code{\link{countxo}}
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human

@@ -31,7 +31,7 @@
 #' coincidence) and the estimated intensity functions (as a matrix
 #' with \code{length(group)+1} columns (the locations at which the
 #' intensity functions were estimated followed by the group-specific estimates).
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}},
 #' \code{\link{kfunc}}, \code{\link{est.coi}}
 #' @keywords models

@@ -30,7 +30,7 @@
 #' @return A vector of log likelihoods.
 #'
 #' The corresponding values of nu and p are saved as attributes.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link[qtl]{fitstahl}}
 #' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
 #' in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
@@ -219,7 +219,7 @@ fitStahl.sub2 <-
 #' log likelihood ratio for comparing the model with p allowed to vary freely
 #' versus contrained to be 0.  (Note that it's the natural log of the
 #' likelihood ratio, and not twice that.)
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{fitGamma}}, \code{\link{stahlLoglik}},
 #' \code{\link{simStahl}}
 #' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference

@@ -42,6 +42,6 @@ plot(rr_scanone)
 \code{\link{est.recrate}}
 }
 \author{
-Karl W Broman, \email{kbroman@biostat.wisc.edu}
+Karl W Broman, \email{broman@wisc.edu}
 }
 \keyword{models}

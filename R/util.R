@@ -27,7 +27,7 @@
 #' with all possible allocations of the crossovers to the two meiotic products;
 #' each component of this list is itself a list with two components,
 #' corresponding to the two meiotic products.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{convertxoloc}}, \code{\link{fitGamma}},
 #' \code{\link{simStahl}}
 #' @keywords utilities
@@ -198,7 +198,7 @@ inferxoloc.F2 <-
 #' NULL, the total number of crossovers, genome-wide, is counted.
 #' @return A vector with the estimated number of crossovers for each
 #' individual.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{find.breaks}}
 #' @keywords utilities
 #' @examples
@@ -245,7 +245,7 @@ countxo <-
 #' type (\code{"censor"}), with 0 = distance between crossovers, 1=start of
 #' chromosome to first crossover, 2 = crossover to end of chromosome, and 3 =
 #' whole chromosome.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{find.breaks}}, \code{\link{fitGamma}},
 #' \code{\link{simStahl}}
 #' @keywords utilities

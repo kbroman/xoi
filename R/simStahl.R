@@ -23,7 +23,7 @@
 #' @return A vector of length \code{n.sim}, each element being empty (for
 #' products with no crossovers) or a vector of crossover locations, in cM.  An
 #' attribute, \code{L}, contains the chromosome length in cM.
-#' @author Karl W Broman, \email{kbroman@@biostat.wisc.edu}
+#' @author Karl W Broman, \email{broman@@wisc.edu}
 #' @seealso \code{\link{fitGamma}}, \code{\link[qtl]{sim.cross}}
 #' @references Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
 #' Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
