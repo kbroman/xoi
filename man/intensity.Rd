@@ -8,7 +8,7 @@ intensity(cross, chr = NULL, window = 2.5, ncalc = 500)
 }
 \arguments{
 \item{cross}{Cross object; must be a backcross.  See
-\code{\link[qtl]{read.cross}} for format details.}
+\code{\link[qtl:read.cross]{qtl::read.cross()}} for format details.}
 
 \item{chr}{Chromosome to consider (only one is allowed).  If NULL, the
 first chromosome is considered.}
@@ -34,7 +34,7 @@ plot(out, type="l", lwd=2, ylim=c(0, max(out[,2])))
 
 }
 \seealso{
-\code{\link{coincidence}}
+\code{\link[=coincidence]{coincidence()}}
 }
 \author{
 Il youp Kwak

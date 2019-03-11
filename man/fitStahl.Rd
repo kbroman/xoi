@@ -36,7 +36,7 @@ on the 4-strand bundle.}
 \item{verbose}{If TRUE, print tracing information.  If "\dots{}" includes
 \code{control}, this is ignored.}
 
-\item{\dots}{Further arguments sent to \code{\link[stats]{optim}}.}
+\item{\dots}{Further arguments sent to \code{\link[stats:optim]{stats::optim()}}.}
 }
 \value{
 A vector with the estimates of \eqn{\nu}{nu} (interference
@@ -55,8 +55,8 @@ locations.
 See Housworth and Stahl (2003) and Broman and Weber (2000) for details of
 the method.
 
-We first use \code{\link[stats]{optimize}} to find the MLE with the
-contraint \code{p=0}, followed by use of \code{\link[stats]{optim}} to do a
+We first use \code{\link[stats:optimize]{stats::optimize()}} to find the MLE with the
+contraint \code{p=0}, followed by use of \code{\link[stats:optim]{stats::optim()}} to do a
 2-dimensional optimization for the MLEs of the pair.
 }
 \examples{
@@ -74,14 +74,14 @@ L <- attr(xoloc, "L")
 }
 \references{
 Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
-in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+in humans. \emph{Am. J. Hum. Genet.} \strong{73}, 188--197.
 
 Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
-interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+interference. \emph{Am. J. Hum. Genet.} \strong{66}, 1911--1926.
 }
 \seealso{
-\code{\link{fitGamma}}, \code{\link{stahlLoglik}},
-\code{\link{simStahl}}
+\code{\link[=fitGamma]{fitGamma()}}, \code{\link[=stahlLoglik]{stahlLoglik()}},
+\code{\link[=simStahl]{simStahl()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

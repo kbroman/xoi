@@ -15,6 +15,11 @@ copyright (c) 1999-2019, Karl W Broman
     at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.68, 2019-03-11:
+
+  Use markdown in documentation
+
+
 Version 0.67, 2018-03-08:
 
   Small bug fix in simStahl.c re over-running max_nxo.

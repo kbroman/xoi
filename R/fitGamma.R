@@ -7,9 +7,9 @@
 #'
 #' See Broman and Weber (2000) for details of the method.
 #'
-#' We use R's \code{\link[stats]{integrate}} function for numerical integrals,
-#' \code{\link[stats]{optimize}} for optimizing the likelihood, and
-#' \code{\link[stats]{uniroot}} for identifying the endpoints of the likelihood
+#' We use R's [stats::integrate()] function for numerical integrals,
+#' [stats::optimize()] for optimizing the likelihood, and
+#' [stats::uniroot()] for identifying the endpoints of the likelihood
 #' support interval.
 #'
 #' @param d A vector of inter-crossover distances in cM.  This should include
@@ -17,28 +17,28 @@
 #' of chromosome, and chromosome length, if there are no crossovers.
 #'
 #' Alternatively, this may be a matrix with the first column being the
-#' distances and second column being the censoring types (\code{censor}).
-#' @param censor A vector of the same length as \code{d}, indicating the
-#' censoring type for each distance.  \code{0} = uncensored, \code{1} =
-#' right-censored, \code{2} = initial crossover on chromosome, \code{3} = whole
+#' distances and second column being the censoring types (`censor`).
+#' @param censor A vector of the same length as `d`, indicating the
+#' censoring type for each distance.  `0` = uncensored, `1` =
+#' right-censored, `2` = initial crossover on chromosome, `3` = whole
 #' chromosome.
 #' @param nu A vector of interference parameters (\eqn{\nu}{nu}) at which to
-#' calculate the log likelihood.  If NULL, \code{lo} and \code{hi} must be
+#' calculate the log likelihood.  If NULL, `lo` and `hi` must be
 #' specified.
-#' @param lo If \code{nu} is unspecified, \code{lo} indicates the lower value
-#' of the interval in which to search for the MLE.  If \code{supint=TRUE}, this
+#' @param lo If `nu` is unspecified, `lo` indicates the lower value
+#' of the interval in which to search for the MLE.  If `supint=TRUE`, this
 #' should be below the lower limit of the support interval.
-#' @param hi If \code{nu} is unspecified, \code{hi} indicates the upper value
-#' of the interval in which to search for the MLE.  If \code{supint=TRUE}, this
+#' @param hi If `nu` is unspecified, `hi` indicates the upper value
+#' of the interval in which to search for the MLE.  If `supint=TRUE`, this
 #' should be above the upper limit of the support interval.
-#' @param se If TRUE and \code{nu} was not specified, an estimated SE (based on
+#' @param se If TRUE and `nu` was not specified, an estimated SE (based on
 #' the second derivative of the log likelihood) is estimated.
-#' @param supint If TRUE and \code{nu} was not specified, a likelihood support
-#' interval is calculated, with \code{drop} being the amount to drop in log
+#' @param supint If TRUE and `nu` was not specified, a likelihood support
+#' interval is calculated, with `drop` being the amount to drop in log
 #' (base 10).
-#' @param rescale If TRUE and \code{nu} was specified, re-scale the log
+#' @param rescale If TRUE and `nu` was specified, re-scale the log
 #' likelihoods so that the maximum is at 0.
-#' @param drop If \code{supint} was specified, this indicates the amount to
+#' @param drop If `supint` was specified, this indicates the amount to
 #' drop in log (base 10) for the likelihood support interval.
 #' @param tol Tolerance for converence to calculate the likelihood, SE, and
 #' likelihood support interval.
@@ -53,28 +53,28 @@
 #' @param min.subd Minimum number of subdivisions in numerical integration.
 #' @param h Step used in estimating the second derivative of the log
 #' likelihood.
-#' @param hstep factor by which \code{h} is decreased in each iteration of the
+#' @param hstep factor by which `h` is decreased in each iteration of the
 #' estimation of the second derivative of the log likelihood.
-#' @return If \code{nu} is specified, we return a data frame with two columns:
-#' \code{nu} and the corresponding log (base e) likelihood.  If
-#' \code{rescale=TRUE}, the maximum log likelihood is subtracted off, so that
+#' @return If `nu` is specified, we return a data frame with two columns:
+#' `nu` and the corresponding log (base e) likelihood.  If
+#' `rescale=TRUE`, the maximum log likelihood is subtracted off, so that
 #' its maximum is at 0.
 #'
-#' If \code{lo} and \code{hi} is specified, the output contains a single row
+#' If `lo` and `hi` is specified, the output contains a single row
 #' with the MLE of \eqn{\nu}{nu} and the corresponding log likelihood.  If
-#' \code{se=TRUE}, we also include the estimated SE.  If \code{supint=TRUE}, we
+#' `se=TRUE`, we also include the estimated SE.  If `supint=TRUE`, we
 #' include two additional rows with the lower and upper limits of the
 #' likelihood support interval.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link[qtl]{fitstahl}}
+#' @seealso [qtl::fitstahl()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords models
 #' @examples
 #'
@@ -106,6 +106,7 @@
 #' int
 #' abline(v=mle[2:3,1], h=mle[2:3,2], col="red", lty=2)
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 fitGamma <-
     function(d, censor=NULL, nu=NULL, lo=NULL, hi=NULL,

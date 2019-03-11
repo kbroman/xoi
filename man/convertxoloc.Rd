@@ -8,7 +8,7 @@ convertxoloc(breaks)
 }
 \arguments{
 \item{breaks}{A list of crossover locations, as output by
-\code{\link{find.breaks}} or \code{\link{simStahl}}.}
+\code{\link[=find.breaks]{find.breaks()}} or \code{\link[=simStahl]{simStahl()}}.}
 }
 \value{
 A data frame with two columns: the inter-crossover and crossover-to
@@ -33,8 +33,8 @@ xoloc <- convertxoloc(find.breaks(bssbsb))
 
 }
 \seealso{
-\code{\link{find.breaks}}, \code{\link{fitGamma}},
-\code{\link{simStahl}}
+\code{\link[=find.breaks]{find.breaks()}}, \code{\link[=fitGamma]{fitGamma()}},
+\code{\link[=simStahl]{simStahl()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

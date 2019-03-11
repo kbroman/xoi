@@ -14,7 +14,7 @@
 #'
 #' @param xoloc list of crossover locations (in microns) for each of several oocytes or spermatocytes.
 #' @param sclength vector of SC lengths (in microns).
-#' @param centromeres vector of centromere locations (in microns). If NULL, taken to be \code{sclength/2}.
+#' @param centromeres vector of centromere locations (in microns). If NULL, taken to be `sclength/2`.
 #' @param group nominal vector of groups; the intensity function of
 #' the crossover process will be estimated separately for each group,
 #' but a joint coincidence function will be estimated.
@@ -23,17 +23,17 @@
 #' @param coiwindow Window size used to smooth the estimated
 #' coincidence function.
 #' @param intloc Locations at which to estimate the intensity
-#' function, in the interval [0,1]
+#' function, in the interval \[0,1\]
 #' @param coiloc Values at which the coincidence function is to be
-#' estimated, in microns, less than \code{max(sclength)}
+#' estimated, in microns, less than `max(sclength)`
 #' @return A list containing the estimated coincidence (as a matrix
 #' with two columns, micron distance and corresponding estimated
 #' coincidence) and the estimated intensity functions (as a matrix
-#' with \code{length(group)+1} columns (the locations at which the
+#' with `length(group)+1` columns (the locations at which the
 #' intensity functions were estimated followed by the group-specific estimates).
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}},
-#' \code{\link{kfunc}}, \code{\link{est.coi}}
+#' @seealso [gammacoi()], [stahlcoi()],
+#' [kfunc()], [est.coi()]
 #' @keywords models
 #' @examples
 #' # simple example using data simulated with no crossover interference
@@ -49,6 +49,7 @@
 #' plot(coi$coincidence, type="l", lwd=2, ylim=c(0, max(coi$coincidence[,2])))
 #' plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 est.coi.um <-
     function(xoloc, sclength, centromeres=NULL, group=NULL, intwindow=0.05, coiwindow=NULL,

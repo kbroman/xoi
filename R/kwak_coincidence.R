@@ -5,15 +5,15 @@
 #' Estimate coincidence function for a chromosome.
 #'
 #' @param cross Cross object; must be a backcross.  See
-#' \code{\link[qtl]{read.cross}} for format details.
+#' [qtl::read.cross()] for format details.
 #' @param chr Chromosome to consider (only one is allowed).  If NULL, the
 #' first chromosome is considered.
 #' @param window Window size
 #' @param ncalc Total number of points for calculations.
-#' @return Data frame with columns \code{distance} and \code{coincidence}.  The
-#' input argument \code{window} is kept as an attribute.
+#' @return Data frame with columns `distance` and `coincidence`.  The
+#' input argument `window` is kept as an attribute.
 #' @author Il youp Kwak
-#' @seealso \code{\link{intensity}}, \code{\link{est.coi}}
+#' @seealso [intensity()], [est.coi()]
 #' @keywords utilities
 #' @examples
 #'

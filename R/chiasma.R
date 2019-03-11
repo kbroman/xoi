@@ -9,9 +9,9 @@
 #' @details
 #' See Broman and Weber (2000) for details of the method.
 #'
-#' We use R's \code{\link[stats]{integrate}} function for numerical integrals,
-#' \code{\link[stats]{optimize}} for optimizing the likelihood, and
-#' \code{\link[stats]{uniroot}} for identifying the endpoints of the likelihood
+#' We use R's [stats::integrate()] function for numerical integrals,
+#' [stats::optimize()] for optimizing the likelihood, and
+#' [stats::uniroot()] for identifying the endpoints of the likelihood
 #' support interval.
 #'
 #' @param xo Vector of non-negative integers; the number of crossovers in a set
@@ -35,17 +35,17 @@
 #' Third, the estimated average number of crossovers under the Poisson and
 #' truncated Poisson models.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{fitGamma}}, \code{\link[qtl]{fitstahl}},
-#' \code{\link{countxo}}
+#' @seealso [fitGamma()], [qtl::fitstahl()],
+#' [countxo()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' Yu, K. and Feinbold, E. (2001) Estimating the frequency distribution of
-#' crossovers during meiosis from recombination data.  \emph{Biometrics}
-#' \bold{57}, 427--434.
+#' crossovers during meiosis from recombination data.  *Biometrics*
+#' **57**, 427--434.
 #' @keywords models
 #' @examples
 #'
@@ -58,6 +58,7 @@
 #' \dontrun{chiasma(nxo)}
 #' \dontshow{chiasma(nxo, tol=0.001)}
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 chiasma <-
     function(xo, max.chiasma=max(xo)*2+5, n.iter=10000, tol=1e-6, verbose=FALSE)

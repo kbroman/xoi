@@ -10,9 +10,9 @@
 #' @param exclude distance to exclude
 #' @param tol tolerance value
 #'
-#' @return data frame with \code{d}, \code{k}, and \code{se}
+#' @return data frame with `d`, `k`, and `se`
 #'
-#' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{coincidence}}
+#' @seealso [gammacoi()], [stahlcoi()], [coincidence()]
 #' @keywords models
 #' @examples
 #' L <- 103
@@ -31,6 +31,7 @@
 #'         border=NA, col="#add8e650")
 #' lines(k ~ d, data=kf)
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 kfunc <-
     function(x, d=seq(0,100,by=0.1), lengths=NULL, exclude=0, tol=1e-6)

@@ -7,16 +7,16 @@
 recrate2scanone(recrate, phymap = NULL)
 }
 \arguments{
-\item{recrate}{A list of results from \code{\link{est.recrate}}}
+\item{recrate}{A list of results from \code{\link[=est.recrate]{est.recrate()}}}
 
 \item{phymap}{A list of vectors of Mbp positions of markers}
 }
 \value{
-A data frame with class \code{"scanone"}, in the format output by \code{\link[qtl]{scanone}}.
+A data frame with class \code{"scanone"}, in the format output by \code{\link[qtl:scanone]{qtl::scanone()}}.
 }
 \description{
-Convert the result of \code{\link{est.recrate}} to the format
-output by R/qtl's \code{\link[qtl]{scanone}} function.
+Convert the result of \code{\link[=est.recrate]{est.recrate()}} to the format
+output by R/qtl's \code{\link[qtl:scanone]{qtl::scanone()}} function.
 }
 \examples{
 pmap <- sim.map(100, n.mar=51, anchor=TRUE, include.x=FALSE, eq.spacing=TRUE)
@@ -39,7 +39,7 @@ plot(rr_scanone)
 
 }
 \seealso{
-\code{\link{est.recrate}}
+\code{\link[=est.recrate]{est.recrate()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

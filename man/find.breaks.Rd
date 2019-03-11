@@ -8,7 +8,7 @@ find.breaks(cross, chr = NULL)
 }
 \arguments{
 \item{cross}{An object of class \code{cross}. (This must be a backcross,
-RIL, or intercross.) See \code{\link[qtl]{read.cross}} for details.}
+RIL, or intercross.) See \code{\link[qtl:read.cross]{qtl::read.cross()}} for details.}
 
 \item{chr}{Optional set of chromosomes on which to look for crossovers.  If
 NULL, all chromosomes are considered.}
@@ -23,7 +23,7 @@ For backcrosses and RIL, the componenets for the individuals are
 \code{numeric(0)} if there were no crossovers or a vector giving the
 crossover locations.  The length of the chromosome (in cM) is saved as an
 attribute.  (Note that the format is the same as the output of
-\code{\link{simStahl}}.)
+\code{\link[=simStahl]{simStahl()}}.)
 
 For an intercross, the components for the individuals are themselves lists
 with all possible allocations of the crossovers to the two meiotic products;
@@ -35,7 +35,7 @@ Estimate the locations of crossovers in a backcross.
 }
 \details{
 This works only a backcross, RIL, or intercross.  We use the function
-\code{\link[qtl]{locateXO}} in R/qtl.  Crossovers are estimated to be at the
+\code{\link[qtl:locateXO]{qtl::locateXO()}} in R/qtl.  Crossovers are estimated to be at the
 midpoint of the interval between the nearest flanking typed markers.
 }
 \examples{
@@ -50,8 +50,8 @@ xoloc <- find.breaks(bssbsb)
 
 }
 \seealso{
-\code{\link{convertxoloc}}, \code{\link{fitGamma}},
-\code{\link{simStahl}}
+\code{\link[=convertxoloc]{convertxoloc()}}, \code{\link[=fitGamma]{fitGamma()}},
+\code{\link[=simStahl]{simStahl()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

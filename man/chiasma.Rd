@@ -43,9 +43,9 @@ chiasmata.
 \details{
 See Broman and Weber (2000) for details of the method.
 
-We use R's \code{\link[stats]{integrate}} function for numerical integrals,
-\code{\link[stats]{optimize}} for optimizing the likelihood, and
-\code{\link[stats]{uniroot}} for identifying the endpoints of the likelihood
+We use R's \code{\link[stats:integrate]{stats::integrate()}} function for numerical integrals,
+\code{\link[stats:optimize]{stats::optimize()}} for optimizing the likelihood, and
+\code{\link[stats:uniroot]{stats::uniroot()}} for identifying the endpoints of the likelihood
 support interval.
 }
 \examples{
@@ -62,18 +62,18 @@ nxo <- countxo(bssbsb, chr=1)
 }
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
-crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+crossover interference. \emph{Am. J. Hum. Genet.} \strong{66}, 1911--1926.
 
 Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+interference in the mouse. \emph{Genetics} \strong{160}, 1123--1131.
 
 Yu, K. and Feinbold, E. (2001) Estimating the frequency distribution of
 crossovers during meiosis from recombination data.  \emph{Biometrics}
-\bold{57}, 427--434.
+\strong{57}, 427--434.
 }
 \seealso{
-\code{\link{fitGamma}}, \code{\link[qtl]{fitstahl}},
-\code{\link{countxo}}
+\code{\link[=fitGamma]{fitGamma()}}, \code{\link[qtl:fitstahl]{qtl::fitstahl()}},
+\code{\link[=countxo]{countxo()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

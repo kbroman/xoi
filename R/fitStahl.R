@@ -8,14 +8,14 @@
 #' See Housworth and Stahl (2003) and Broman and Weber (2000) for details of
 #' the method.
 #'
-#' If neither \code{nu} nor \code{p} has length 1, they both must have the same
+#' If neither `nu` nor `p` has length 1, they both must have the same
 #' length.  If one has length 1 and the other does not, the one with length 1
 #' is repeated so that they both have the same length.
 #'
 #' @param xoloc A list of crossover locations (in cM), each component being a
 #' vector of locations for a different meiotic product.
 #' @param chrlen Chromosome length (in cM), either of length 1 or the same
-#' length as \code{xoloc}.
+#' length as `xoloc`.
 #' @param nu A vector of interference parameters (\eqn{\nu}{nu}) at which to
 #' calculate the log likelihood.
 #' @param p A vector of parameter values for the proportion of crossovers from
@@ -31,12 +31,12 @@
 #'
 #' The corresponding values of nu and p are saved as attributes.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link[qtl]{fitstahl}}
+#' @seealso [qtl::fitstahl()]
 #' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
-#' in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+#' in humans. *Am. J. Hum. Genet.* **73**, 188--197.
 #'
 #' Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
-#' interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #' @keywords models
 #' @examples
 #'
@@ -45,6 +45,7 @@
 #'
 #' loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 stahlLoglik <-
     function(xoloc, chrlen=NULL, nu, p,
@@ -189,14 +190,14 @@ fitStahl.sub2 <-
 #' See Housworth and Stahl (2003) and Broman and Weber (2000) for details of
 #' the method.
 #'
-#' We first use \code{\link[stats]{optimize}} to find the MLE with the
-#' contraint \code{p=0}, followed by use of \code{\link[stats]{optim}} to do a
+#' We first use [stats::optimize()] to find the MLE with the
+#' contraint `p=0`, followed by use of [stats::optim()] to do a
 #' 2-dimensional optimization for the MLEs of the pair.
 #'
 #' @param xoloc A list of crossover locations (in cM), each component being a
 #' vector of locations for a different meiotic product.
 #' @param chrlen Chromosome length (in cM), either of length 1 or the same
-#' length as \code{xoloc}.
+#' length as `xoloc`.
 #' @param nu Interference parameter (\eqn{\nu}{nu}).  This should be a pair of
 #' values to be used as endpoints to first do a 1-dimensional optimization with
 #' \eqn{p=0}.
@@ -210,8 +211,8 @@ fitStahl.sub2 <-
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
 #' @param verbose If TRUE, print tracing information.  If "\dots{}" includes
-#' \code{control}, this is ignored.
-#' @param \dots Further arguments sent to \code{\link[stats]{optim}}.
+#' `control`, this is ignored.
+#' @param \dots Further arguments sent to [stats::optim()].
 #' @return A vector with the estimates of \eqn{\nu}{nu} (interference
 #' parameter) and \eqn{p} (proportion of crossovers coming from the no
 #' interference pathway), the maximized log likelihood, the estimate of nu with
@@ -220,13 +221,13 @@ fitStahl.sub2 <-
 #' versus contrained to be 0.  (Note that it's the natural log of the
 #' likelihood ratio, and not twice that.)
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{fitGamma}}, \code{\link{stahlLoglik}},
-#' \code{\link{simStahl}}
+#' @seealso [fitGamma()], [stahlLoglik()],
+#' [simStahl()]
 #' @references Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
-#' in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+#' in humans. *Am. J. Hum. Genet.* **73**, 188--197.
 #'
 #' Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
-#' interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #' @keywords models
 #' @examples
 #'

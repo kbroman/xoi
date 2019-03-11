@@ -9,7 +9,7 @@
 #'
 #' @param genmap Vector of cM positions of markers, or a list of such vectors.
 #' @param phymap Vector of Mbp positions of markers, or a list of such vectors;
-#' same length as \code{genmap}.
+#' same length as `genmap`.
 #' @param pos Vector of positions at which the recombination rate should be
 #' estimated, or a list of such vectors.  If NULL, we use the physical
 #' marker positions plus a grid with 4 positions per Mbp.
@@ -17,7 +17,7 @@
 #' @return A data.frame containing the positions and estimate recombination
 #' rates.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{est.coi}}, \code{\link{intensity}}
+#' @seealso [est.coi()], [intensity()]
 #' @keywords models
 #' @examples
 #' # create equally-spaced map
@@ -33,6 +33,7 @@
 #' rr <- est.recrate(emap[[1]], pmap[[1]], window=5)
 #' plot(rr, type="l", lwd=2)
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 est.recrate <-
     function(genmap, phymap, pos=NULL, window=5)
@@ -106,14 +107,14 @@ est.recrate <-
 
 #' Convert recrate to scanone format
 #'
-#' Convert the result of \code{\link{est.recrate}} to the format
-#' output by R/qtl's \code{\link[qtl]{scanone}} function.
+#' Convert the result of [est.recrate()] to the format
+#' output by R/qtl's [qtl::scanone()] function.
 #'
-#' @param recrate A list of results from \code{\link{est.recrate}}
+#' @param recrate A list of results from [est.recrate()]
 #' @param phymap A list of vectors of Mbp positions of markers
-#' @return A data frame with class \code{"scanone"}, in the format output by \code{\link[qtl]{scanone}}.
+#' @return A data frame with class `"scanone"`, in the format output by [qtl::scanone()].
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{est.recrate}}
+#' @seealso [est.recrate()]
 #' @keywords models
 #'
 #' @examples

@@ -56,7 +56,7 @@ first crossover is \eqn{g^*(x;\nu) = 1 - F^*(x;\nu)}{g*(x;nu) = 1 -
 F*(x;nu)} where \eqn{F^*}{F*} is the cdf of \eqn{f^*}{f*}.
 }
 \section{Warning}{
- \bold{We sometimes have difficulty with the numerical
+ \strong{We sometimes have difficulty with the numerical
 integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
 accurate results.}
 }
@@ -80,18 +80,18 @@ abline(v=c(d/2,L-d/2), h=1/(L-d), lty=2, lwd=2)
 }
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
-crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+crossover interference. \emph{Am. J. Hum. Genet.} \strong{66}, 1911--1926.
 
 Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+interference in the mouse. \emph{Genetics} \strong{160}, 1123--1131.
 
 McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+recombination.  \emph{Genetics} \strong{139}, 1031--1044.
 }
 \seealso{
-\code{\link{location.given.one}}, \code{\link{distance.given.two}},
-\code{\link{first.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
-\code{\link{xoprob}}, \code{\link{gammacoi}}
+\code{\link[=location.given.one]{location.given.one()}}, \code{\link[=distance.given.two]{distance.given.two()}},
+\code{\link[=first.given.two]{first.given.two()}}, \code{\link[=ioden]{ioden()}}, \code{\link[=firstden]{firstden()}},
+\code{\link[=xoprob]{xoprob()}}, \code{\link[=gammacoi]{gammacoi()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

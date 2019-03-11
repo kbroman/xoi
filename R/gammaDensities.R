@@ -26,7 +26,7 @@
 #' @param L The length of the chromsome in cM.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
@@ -35,21 +35,21 @@
 #' @param integr.tol Tolerance for convergence of numerical integration.
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
-#' @return A data frame with two columns: \code{x} is the location (between 0
-#' and \code{L}, in cM) at which the density was calculated and \code{f} is the
+#' @return A data frame with two columns: `x` is the location (between 0
+#' and `L`, in cM) at which the density was calculated and `f` is the
 #' density.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{first.given.two}}, \code{\link{distance.given.two}},
-#' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
-#' \code{\link{xoprob}}, \code{\link{gammacoi}}
+#' @seealso [first.given.two()], [distance.given.two()],
+#' [joint.given.two()], [ioden()], [firstden()],
+#' [xoprob()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -66,6 +66,7 @@
 #' f4 <- location.given.one(7.6, L=200, n=201)
 #' lines(f4, col="green", lwd=2)
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 location.given.one <-
     function(nu, L=103, x=NULL, n=400, max.conv=25,
@@ -128,7 +129,7 @@ location.given.one <-
 #' @param L The length of the chromsome in cM.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
@@ -137,24 +138,24 @@ location.given.one <-
 #' @param integr.tol Tolerance for convergence of numerical integration.
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
-#' @return A data frame with two columns: \code{x} is the location (between 0
-#' and \code{L}, in cM) at which the density was calculated and \code{f} is the
+#' @return A data frame with two columns: `x` is the location (between 0
+#' and `L`, in cM) at which the density was calculated and `f` is the
 #' density.
-#' @section Warning: \bold{We sometimes have difficulty with the numerical
-#' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
-#' accurate results.}
+#' @section Warning: **We sometimes have difficulty with the numerical
+#' integrals.  You may need to use large `min.subd` (e.g. 25) to get
+#' accurate results.**
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}}, \code{\link{distance.given.two}},
-#' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
-#' \code{\link{xoprob}}, \code{\link{gammacoi}}
+#' @seealso [location.given.one()], [distance.given.two()],
+#' [joint.given.two()], [ioden()], [firstden()],
+#' [xoprob()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -234,7 +235,7 @@ first.given.two <-
 #' @param L The length of the chromsome in cM.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
@@ -243,25 +244,25 @@ first.given.two <-
 #' @param integr.tol Tolerance for convergence of numerical integration.
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
-#' @return A data frame with two columns: \code{x} is the distance (between 0
-#' and \code{L}, in cM) at which the density was calculated and \code{f} is the
+#' @return A data frame with two columns: `x` is the distance (between 0
+#' and `L`, in cM) at which the density was calculated and `f` is the
 #' density.
-#' @section Warning: \bold{We sometimes have difficulty with the numerical
-#' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
-#' accurate results.}
+#' @section Warning: **We sometimes have difficulty with the numerical
+#' integrals.  You may need to use large `min.subd` (e.g. 25) to get
+#' accurate results.**
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}},
-#' \code{\link{first.given.two}},\code{\link{joint.given.two}},
-#' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}},
-#' \code{\link{gammacoi}}
+#' @seealso [location.given.one()],
+#' [first.given.two()],[joint.given.two()],
+#' [ioden()], [firstden()], [xoprob()],
+#' [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -336,8 +337,8 @@ distance.given.two <-
 #' @param x If specified, locations of the first crossover.
 #' @param y If specified, locations of the second crossover.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} and
-#' \code{y} are specified.
+#' will be evenly distributed between 0 and `L`. Ignored if `x` and
+#' `y` are specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
 #' distributions.  This should be greater than the maximum number of chiasmata
@@ -345,24 +346,24 @@ distance.given.two <-
 #' @param integr.tol Tolerance for convergence of numerical integration.
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
-#' @return A data frame with three columns: \code{x} and \code{y} are the
-#' locations (between 0 and \code{L}, in cM) at which the density was
-#' calculated and \code{f} is the density.
-#' @section Warning: \bold{We sometimes have difficulty with the numerical
-#' integrals.  You may need to use large \code{min.subd} (e.g. 25) to get
-#' accurate results.}
+#' @return A data frame with three columns: `x` and `y` are the
+#' locations (between 0 and `L`, in cM) at which the density was
+#' calculated and `f` is the density.
+#' @section Warning: **We sometimes have difficulty with the numerical
+#' integrals.  You may need to use large `min.subd` (e.g. 25) to get
+#' accurate results.**
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}}, \code{\link{distance.given.two}},
-#' \code{\link{first.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
-#' \code{\link{xoprob}}, \code{\link{gammacoi}}
+#' @seealso [location.given.one()], [distance.given.two()],
+#' [first.given.two()], [ioden()], [firstden()],
+#' [xoprob()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -478,19 +479,19 @@ joint.given.two <-
 #' @param max.subd Maximum number of subdivisions in numerical integration.
 #' @param min.subd Minimum number of subdivisions in numerical integration.
 #' @return A vector of length 4, giving the probabilities of 0, 1, 2, or >2
-#' crossovers, respectively, on a chromosome of length \code{L} cM.
+#' crossovers, respectively, on a chromosome of length `L` cM.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
-#' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
-#' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{gammacoi}}
+#' @seealso [location.given.one()], [first.given.two()],
+#' [distance.given.two()], [joint.given.two()],
+#' [ioden()], [firstden()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -533,30 +534,30 @@ xoprob <-
 #'
 #' @param nu The interference parameter in the gamma model.
 #' @param L Maximal distance (in cM) at which to calculate the density. Ignored
-#' if \code{x} is specified.
+#' if `x` is specified.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
 #' distributions.  This should be greater than the maximum number of chiasmata
 #' on the 4-strand bundle.
-#' @return A data frame with two columns: \code{x} is the distance (between 0
-#' and \code{L}, in cM) at which the density was calculated and \code{f} is the
+#' @return A data frame with two columns: `x` is the distance (between 0
+#' and `L`, in cM) at which the density was calculated and `f` is the
 #' density.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
-#' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
-#' \code{\link{firstden}}, \code{\link{xoprob}}, \code{\link{gammacoi}}
+#' @seealso [location.given.one()], [first.given.two()],
+#' [distance.given.two()], [joint.given.two()],
+#' [firstden()], [xoprob()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -622,30 +623,30 @@ ioden <-
 #'
 #' @param nu The interference parameter in the gamma model.
 #' @param L Maximal distance (in cM) at which to calculate the density. Ignored
-#' if \code{x} is specified.
+#' if `x` is specified.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolutions to get
 #' inter-crossover distance distribution from the inter-chiasma distance
 #' distributions.  This should be greater than the maximum number of chiasmata
 #' on the 4-strand bundle.
-#' @return A data frame with two columns: \code{x} is the distance (between 0
-#' and \code{L}, in cM) at which the density was calculated and \code{f} is the
+#' @return A data frame with two columns: `x` is the distance (between 0
+#' and `L`, in cM) at which the density was calculated and `f` is the
 #' density.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{location.given.one}}, \code{\link{first.given.two}},
-#' \code{\link{distance.given.two}}, \code{\link{joint.given.two}},
-#' \code{\link{ioden}}, \code{\link{xoprob}}, \code{\link{gammacoi}}
+#' @seealso [location.given.one()], [first.given.two()],
+#' [distance.given.two()], [joint.given.two()],
+#' [ioden()], [xoprob()], [gammacoi()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -703,29 +704,29 @@ firstden <-
 #'
 #' @param nu The interference parameter in the gamma model.
 #' @param L Maximal distance (in cM) at which to calculate the density. Ignored
-#' if \code{x} is specified.
+#' if `x` is specified.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolution.  This should
 #' be greater than the maximum number of chiasmata on the 4-strand bundle.
-#' @return A data frame with two columns: \code{x} is the distance (between 0
-#' and \code{L}, in cM) at which the coicidence was calculated and
-#' \code{coincidence}.
+#' @return A data frame with two columns: `x` is the distance (between 0
+#' and `L`, in cM) at which the coicidence was calculated and
+#' `coincidence`.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{stahlcoi}}, \code{\link{location.given.one}},
-#' \code{\link{first.given.two}}, \code{\link{distance.given.two}},
-#' \code{\link{joint.given.two}}, \code{\link{ioden}}, \code{\link{firstden}},
-#' \code{\link{xoprob}}
+#' @seealso [stahlcoi()], [location.given.one()],
+#' [first.given.two()], [distance.given.two()],
+#' [joint.given.two()], [ioden()], [firstden()],
+#' [xoprob()]
 #' @references Broman, K. W. and Weber, J. L. (2000) Characterization of human
-#' crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+#' crossover interference. *Am. J. Hum. Genet.* **66**, 1911--1926.
 #'
 #' Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-#' interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+#' interference in the mouse. *Genetics* **160**, 1123--1131.
 #'
 #' McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-#' recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords distribution
 #' @examples
 #'
@@ -792,26 +793,26 @@ gammacoi <-
 #' @param p The proportion of chiasmata coming from the no-interference
 #' mechanism.
 #' @param L Maximal distance (in cM) at which to calculate the density. Ignored
-#' if \code{x} is specified.
+#' if `x` is specified.
 #' @param x If specified, points at which to calculate the density.
 #' @param n Number of points at which to calculate the density.  The points
-#' will be evenly distributed between 0 and \code{L}. Ignored if \code{x} is
+#' will be evenly distributed between 0 and `L`. Ignored if `x` is
 #' specified.
 #' @param max.conv Maximum limit for summation in the convolution.  This should
 #' be greater than the maximum number of chiasmata on the 4-strand bundle.
-#' @return A data frame with two columns: \code{x} is the distance (between 0
-#' and \code{L}, in cM) at which the coicidence was calculated and
-#' \code{coincidence}.
+#' @return A data frame with two columns: `x` is the distance (between 0
+#' and `L`, in cM) at which the coicidence was calculated and
+#' `coincidence`.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{gammacoi}}, \code{\link{location.given.one}},
-#' \code{\link{first.given.two}}, \code{\link{distance.given.two}},
-#' \code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}}
+#' @seealso [gammacoi()], [location.given.one()],
+#' [first.given.two()], [distance.given.two()],
+#' [ioden()], [firstden()], [xoprob()]
 #' @references Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
-#' Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
+#' Crossover interference in Arabidopsis. *Genetics* **160**,
 #' 1631--1639.
 #'
 #' Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
-#' \emph{Am J Hum Genet} \bold{73}, 188--197.
+#' *Am J Hum Genet* **73**, 188--197.
 #' @keywords distribution
 #' @examples
 #'

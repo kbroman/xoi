@@ -64,18 +64,18 @@ lines(f4, col="green", lwd=2)
 }
 \references{
 Broman, K. W. and Weber, J. L. (2000) Characterization of human
-crossover interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+crossover interference. \emph{Am. J. Hum. Genet.} \strong{66}, 1911--1926.
 
 Broman, K. W., Rowe, L. B., Churchill, G. A. and Paigen, K. (2002) Crossover
-interference in the mouse. \emph{Genetics} \bold{160}, 1123--1131.
+interference in the mouse. \emph{Genetics} \strong{160}, 1123--1131.
 
 McPeek, M. S. and Speed, T. P. (1995) Modeling interference in genetic
-recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+recombination.  \emph{Genetics} \strong{139}, 1031--1044.
 }
 \seealso{
-\code{\link{location.given.one}}, \code{\link{first.given.two}},
-\code{\link{distance.given.two}}, \code{\link{joint.given.two}},
-\code{\link{ioden}}, \code{\link{xoprob}}, \code{\link{gammacoi}}
+\code{\link[=location.given.one]{location.given.one()}}, \code{\link[=first.given.two]{first.given.two()}},
+\code{\link[=distance.given.two]{distance.given.two()}}, \code{\link[=joint.given.two]{joint.given.two()}},
+\code{\link[=ioden]{ioden()}}, \code{\link[=xoprob]{xoprob()}}, \code{\link[=gammacoi]{gammacoi()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

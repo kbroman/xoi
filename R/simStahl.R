@@ -15,22 +15,22 @@
 #' @param p The proportion of chiasmata coming from the no-interference
 #' mechanism.
 #' @param L Chromosome length (in cM).
-#' @param obligate_chiasma Require an obligate chiasma (requires \code{nu} to
+#' @param obligate_chiasma Require an obligate chiasma (requires `nu` to
 #' be an integer; if nu is not an integer, it is rounded.
 #' @param n.bins4start We approximate the distribution of the location of the
 #' first crossover from the mechanism exhibiting interference using a even grid
-#' with this many bins. (Only if \code{nu} is not an integer.)
-#' @return A vector of length \code{n.sim}, each element being empty (for
+#' with this many bins. (Only if `nu` is not an integer.)
+#' @return A vector of length `n.sim`, each element being empty (for
 #' products with no crossovers) or a vector of crossover locations, in cM.  An
-#' attribute, \code{L}, contains the chromosome length in cM.
+#' attribute, `L`, contains the chromosome length in cM.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{fitGamma}}, \code{\link[qtl]{sim.cross}}
+#' @seealso [fitGamma()], [qtl::sim.cross()]
 #' @references Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
-#' Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
+#' Crossover interference in Arabidopsis. *Genetics* **160**,
 #' 1631--1639.
 #'
 #' Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
-#' \emph{Am J Hum Genet} \bold{73}, 188--197.
+#' *Am J Hum Genet* **73**, 188--197.
 #' @keywords datagen
 #' @examples
 #'
@@ -49,6 +49,7 @@
 #' # simulations under Stahl model with nu=11, p=0.1, and obligate chiasma
 #' xo_oblchi_stahl <- simStahl(100, nu=11, p=0.1, L=80, obligate_chiasma=TRUE)
 #' @importFrom stats qpois dpois
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 simStahl <-
     function(n.sim, nu=1, p=0, L=100,

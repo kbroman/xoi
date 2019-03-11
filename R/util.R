@@ -5,11 +5,11 @@
 #' Estimate the locations of crossovers in a backcross.
 #'
 #' This works only a backcross, RIL, or intercross.  We use the function
-#' \code{\link[qtl]{locateXO}} in R/qtl.  Crossovers are estimated to be at the
+#' [qtl::locateXO()] in R/qtl.  Crossovers are estimated to be at the
 #' midpoint of the interval between the nearest flanking typed markers.
 #'
-#' @param cross An object of class \code{cross}. (This must be a backcross,
-#' RIL, or intercross.) See \code{\link[qtl]{read.cross}} for details.
+#' @param cross An object of class `cross`. (This must be a backcross,
+#' RIL, or intercross.) See [qtl::read.cross()] for details.
 #' @param chr Optional set of chromosomes on which to look for crossovers.  If
 #' NULL, all chromosomes are considered.
 #' @return If only one chromosome is considered, this is a list with one
@@ -18,18 +18,18 @@
 #' with one element for each individual, as above.
 #'
 #' For backcrosses and RIL, the componenets for the individuals are
-#' \code{numeric(0)} if there were no crossovers or a vector giving the
+#' `numeric(0)` if there were no crossovers or a vector giving the
 #' crossover locations.  The length of the chromosome (in cM) is saved as an
 #' attribute.  (Note that the format is the same as the output of
-#' \code{\link{simStahl}}.)
+#' [simStahl()].)
 #'
 #' For an intercross, the components for the individuals are themselves lists
 #' with all possible allocations of the crossovers to the two meiotic products;
 #' each component of this list is itself a list with two components,
 #' corresponding to the two meiotic products.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{convertxoloc}}, \code{\link{fitGamma}},
-#' \code{\link{simStahl}}
+#' @seealso [convertxoloc()], [fitGamma()],
+#' [simStahl()]
 #' @keywords utilities
 #' @examples
 #'
@@ -190,16 +190,16 @@ inferxoloc.F2 <-
 #' Estimate the number of crossovers in each meiosis in a backcross.
 #'
 #' This works only a backcross.  We use the internal function (within R/qtl)
-#' \code{locate.xo}.
+#' `locate.xo`.
 #'
-#' @param cross An object of class \code{cross}. (This must be a backcross.)
-#' See \code{\link[qtl]{read.cross}} for details.
+#' @param cross An object of class `cross`. (This must be a backcross.)
+#' See [qtl::read.cross()] for details.
 #' @param chr Optional set of chromosomes across which to count crossovers.  If
 #' NULL, the total number of crossovers, genome-wide, is counted.
 #' @return A vector with the estimated number of crossovers for each
 #' individual.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{find.breaks}}
+#' @seealso [find.breaks()]
 #' @keywords utilities
 #' @examples
 #'
@@ -239,15 +239,15 @@ countxo <-
 #'
 #'
 #' @param breaks A list of crossover locations, as output by
-#' \code{\link{find.breaks}} or \code{\link{simStahl}}.
+#' [find.breaks()] or [simStahl()].
 #' @return A data frame with two columns: the inter-crossover and crossover-to
-#' chromosome end differences (\code{"distance"}) and indicators of censoring
-#' type (\code{"censor"}), with 0 = distance between crossovers, 1=start of
+#' chromosome end differences (`"distance"`) and indicators of censoring
+#' type (`"censor"`), with 0 = distance between crossovers, 1=start of
 #' chromosome to first crossover, 2 = crossover to end of chromosome, and 3 =
 #' whole chromosome.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{find.breaks}}, \code{\link{fitGamma}},
-#' \code{\link{simStahl}}
+#' @seealso [find.breaks()], [fitGamma()],
+#' [simStahl()]
 #' @keywords utilities
 #' @examples
 #'

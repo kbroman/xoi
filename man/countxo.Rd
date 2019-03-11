@@ -8,7 +8,7 @@ countxo(cross, chr = NULL)
 }
 \arguments{
 \item{cross}{An object of class \code{cross}. (This must be a backcross.)
-See \code{\link[qtl]{read.cross}} for details.}
+See \code{\link[qtl:read.cross]{qtl::read.cross()}} for details.}
 
 \item{chr}{Optional set of chromosomes across which to count crossovers.  If
 NULL, the total number of crossovers, genome-wide, is counted.}
@@ -36,7 +36,7 @@ nxo <- countxo(bssbsb)
 
 }
 \seealso{
-\code{\link{find.breaks}}
+\code{\link[=find.breaks]{find.breaks()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

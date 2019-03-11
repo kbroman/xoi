@@ -65,8 +65,8 @@ plot(coi$intensity, type="l", lwd=2, ylim=c(0, max(coi$intensity[,2])))
 
 }
 \seealso{
-\code{\link{gammacoi}}, \code{\link{stahlcoi}},
-\code{\link{kfunc}}, \code{\link{est.coi}}
+\code{\link[=gammacoi]{gammacoi()}}, \code{\link[=stahlcoi]{stahlcoi()}},
+\code{\link[=kfunc]{kfunc()}}, \code{\link[=est.coi]{est.coi()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

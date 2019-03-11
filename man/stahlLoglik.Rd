@@ -58,13 +58,13 @@ loglik <- stahlLoglik(xoloc, nu=4, p=c(0.05, 0.1, 0.15))
 }
 \references{
 Housworth, E. A. and Stahl, F. W. (2003) Crossover interference
-in humans. \emph{Am. J. Hum. Genet.} \bold{73}, 188--197.
+in humans. \emph{Am. J. Hum. Genet.} \strong{73}, 188--197.
 
 Broman, K. W. and Weber, J. L. (2000) Characterization of human crossover
-interference. \emph{Am. J. Hum. Genet.} \bold{66}, 1911--1926.
+interference. \emph{Am. J. Hum. Genet.} \strong{66}, 1911--1926.
 }
 \seealso{
-\code{\link[qtl]{fitstahl}}
+\code{\link[qtl:fitstahl]{qtl::fitstahl()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

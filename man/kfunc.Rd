@@ -43,6 +43,6 @@ lines(k ~ d, data=kf)
 
 }
 \seealso{
-\code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{coincidence}}
+\code{\link[=gammacoi]{gammacoi()}}, \code{\link[=stahlcoi]{stahlcoi()}}, \code{\link[=coincidence]{coincidence()}}
 }
 \keyword{models}

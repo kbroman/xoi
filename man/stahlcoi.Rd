@@ -75,16 +75,16 @@ lines(f4s, col="green", lwd=2, lty=2)
 }
 \references{
 Copenhaver, G. P., Housworth, E. A. and Stahl, F. W. (2002)
-Crossover interference in Arabidopsis. \emph{Genetics} \bold{160},
+Crossover interference in Arabidopsis. \emph{Genetics} \strong{160},
 1631--1639.
 
 Housworth, E. A. and Stahl, F. W. (2003) Crossover interference in humans.
-\emph{Am J Hum Genet} \bold{73}, 188--197.
+\emph{Am J Hum Genet} \strong{73}, 188--197.
 }
 \seealso{
-\code{\link{gammacoi}}, \code{\link{location.given.one}},
-\code{\link{first.given.two}}, \code{\link{distance.given.two}},
-\code{\link{ioden}}, \code{\link{firstden}}, \code{\link{xoprob}}
+\code{\link[=gammacoi]{gammacoi()}}, \code{\link[=location.given.one]{location.given.one()}},
+\code{\link[=first.given.two]{first.given.two()}}, \code{\link[=distance.given.two]{distance.given.two()}},
+\code{\link[=ioden]{ioden()}}, \code{\link[=firstden]{firstden()}}, \code{\link[=xoprob]{xoprob()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

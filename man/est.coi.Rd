@@ -10,7 +10,7 @@ est.coi(cross, chr = NULL, pos = NULL, window = 0,
 }
 \arguments{
 \item{cross}{Cross object; must be a backcross.  See
-\code{\link[qtl]{read.cross}} for format details.}
+\code{\link[qtl:read.cross]{qtl::read.cross()}} for format details.}
 
 \item{chr}{Chromosome to consider (only one is allowed).  If NULL, the
 first chromosome is considered.}
@@ -42,7 +42,7 @@ The coincidence function is the probability of a recombination event in both
 of two intervals, divided by the product of the two recombination fractions.
 We estimate this as a function of the distance between the two intervals.
 
-Note that we first call \code{\link[qtl]{fill.geno}} to impute any missing
+Note that we first call \code{\link[qtl:fill.geno]{qtl::fill.geno()}} to impute any missing
 genotype data.
 }
 \examples{
@@ -58,10 +58,10 @@ lines(gammacoi(7), lwd=2, col="red", lty=2)
 }
 \references{
 McPeek, M. S. and Speed, T. P. (1995) Modeling interference in
-genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+genetic recombination.  \emph{Genetics} \strong{139}, 1031--1044.
 }
 \seealso{
-\code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
+\code{\link[=gammacoi]{gammacoi()}}, \code{\link[=stahlcoi]{stahlcoi()}}, \code{\link[=kfunc]{kfunc()}}
 }
 \author{
 Karl W Broman, \email{broman@wisc.edu}

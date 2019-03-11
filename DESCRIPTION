@@ -20,7 +20,8 @@ Suggests:
 License: GPL-3
 URL: https://github.com/kbroman/xoi
 BugReports: https://github.com/kbroman/xoi/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 ByteCompile: true
 LazyData: true
+Roxygen: list(markdown = TRUE)

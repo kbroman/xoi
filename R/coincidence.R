@@ -8,11 +8,11 @@
 #' of two intervals, divided by the product of the two recombination fractions.
 #' We estimate this as a function of the distance between the two intervals.
 #'
-#' Note that we first call \code{\link[qtl]{fill.geno}} to impute any missing
+#' Note that we first call [qtl::fill.geno()] to impute any missing
 #' genotype data.
 #'
 #' @param cross Cross object; must be a backcross.  See
-#' \code{\link[qtl]{read.cross}} for format details.
+#' [qtl::read.cross()] for format details.
 #' @param chr Chromosome to consider (only one is allowed).  If NULL, the
 #' first chromosome is considered.
 #' @param pos If provided, these are used as the marker positions.  (This could
@@ -28,9 +28,9 @@
 #' mean of each of the numerator and denominator and then divide.  In the
 #' second estimate, we first take a ratio and then take a running mean.
 #' @author Karl W Broman, \email{broman@@wisc.edu}
-#' @seealso \code{\link{gammacoi}}, \code{\link{stahlcoi}}, \code{\link{kfunc}}
+#' @seealso [gammacoi()], [stahlcoi()], [kfunc()]
 #' @references McPeek, M. S. and Speed, T. P. (1995) Modeling interference in
-#' genetic recombination.  \emph{Genetics} \bold{139}, 1031--1044.
+#' genetic recombination.  *Genetics* **139**, 1031--1044.
 #' @keywords models
 #' @examples
 #'
@@ -42,6 +42,7 @@
 #' lines(coi2 ~ d, data=out, lwd=2, col="green")
 #' lines(gammacoi(7), lwd=2, col="red", lty=2)
 #'
+#' @useDynLib xoi, .registration=TRUE
 #' @export
 est.coi <-
     function(cross, chr=NULL, pos=NULL, window=0,

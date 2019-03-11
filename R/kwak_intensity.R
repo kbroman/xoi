@@ -6,15 +6,15 @@
 #'
 #'
 #' @param cross Cross object; must be a backcross.  See
-#' \code{\link[qtl]{read.cross}} for format details.
+#' [qtl::read.cross()] for format details.
 #' @param chr Chromosome to consider (only one is allowed).  If NULL, the
 #' first chromosome is considered.
 #' @param window Window size
 #' @param ncalc Total number of points for calculations.
-#' @return Data frame with columns \code{position} and \code{intensity}.  The
-#' input argument \code{window} is kept as an attribute.
+#' @return Data frame with columns `position` and `intensity`.  The
+#' input argument `window` is kept as an attribute.
 #' @author Il youp Kwak
-#' @seealso \code{\link{coincidence}}
+#' @seealso [coincidence()]
 #' @keywords utilities
 #' @examples
 #'
