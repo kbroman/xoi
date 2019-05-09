@@ -78,7 +78,7 @@ location.given.one <-
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
-    if(any(x < 0 || x > L)) {
+    if(any(x < 0 | x > L)) {
         x <- x[x >= 0 & x <= L]
         warning("Dropping values outside of [0,L].")
     }
@@ -185,7 +185,7 @@ first.given.two <-
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
-    if(any(x < 0 || x > L)) {
+    if(any(x < 0 | x > L)) {
         x <- x[x >= 0 & x <= L]
         warning("Dropping values outside of [0,L].")
     }
@@ -292,7 +292,7 @@ distance.given.two <-
         x <- seq(0,L,length=n+1)
         x <- x[-1]-x[2]/2
     }
-    if(any(x < 0 || x > L)) {
+    if(any(x < 0 | x > L)) {
         x <- x[x >= 0 & x <= L]
         warning("Dropping values outside of [0,L].")
     }
@@ -843,7 +843,7 @@ stahlcoi <-
     function(nu, p=0, L=103, x=NULL, n=400, max.conv=25)
 {
     if(nu <= 0) stop("nu should be positive.")
-    if(p < 0 || p > 1) stop("p should be between 0 and 1.")
+    if(length(p) > 1 || p < 0 || p > 1) stop("p should be a number between 0 and 1.")
 
     if(is.null(x)) {
         x <- seq(0,L,length=n+1)

@@ -17,6 +17,8 @@ copyright (c) 1999-2019, Karl W Broman
 
 Version 0.68, 2019-03-11:
 
+  Small bug fix re || vs | in function for gamma probabilities
+
   Use markdown in documentation
 
 
