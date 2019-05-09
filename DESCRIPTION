@@ -1,13 +1,18 @@
 Package: xoi
-Version: 0.68-1
-Date: 2018-03-11
+Version: 0.68-2
+Date: 2019-05-09
 Depends:
     R (>= 2.10.1),
     qtl
 Title: Tools for Analyzing Crossover Interference
-Author: Karl W Broman <broman@wisc.edu>, with contributions
-    from Il-Youp Kwak
+Author: Karl W Broman [aut, cre] (<https://orcid.org/0000-0002-4914-6671>),
+    Il-Youp Kwak [ctb] (<https://orcid.org/0000-0002-7117-7669>)
 Maintainer: Karl W Broman <broman@wisc.edu>
+Authors@R: c(person("Karl W", "Broman", role=c("aut", "cre"),
+                    email="broman@wisc.edu",
+                    comment=c(ORCID = "0000-0002-4914-6671")),
+             person("Il-Youp", "Kwak", role="ctb",
+                    comment=c(ORCID = "0000-0002-7117-7669")))
 Description: Analysis of crossover interference in experimental crosses,
     particularly regarding the gamma model.
 Imports:
