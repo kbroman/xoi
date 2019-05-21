@@ -15,7 +15,7 @@ copyright (c) 1999-2019, Karl W Broman
     at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
-Version 0.68, 2019-03-11:
+Version 0.68, 2019-05-21:
 
   Small bug fix re || vs | in function for gamma probabilities
 
