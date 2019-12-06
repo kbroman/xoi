@@ -46,10 +46,10 @@
 find.breaks <-
     function(cross, chr=NULL)
 {
-    if(length(class(cross)) < 2 || class(cross)[2] != "cross")
+    if(!inherits(cross, "cross"))
         stop("Input should have class \"cross\".")
 
-    type <- class(cross)[1]
+    type <- crosstype(cross)
 
     if(!is.null(chr)) cross <- subset(cross, chr=chr)
 
@@ -215,10 +215,10 @@ inferxoloc.F2 <-
 countxo <-
     function(cross, chr=NULL)
 {
-    if(length(class(cross)) < 2 || class(cross)[2] != "cross")
+    if(!inherits(cross, "cross"))
         stop("Input should have class \"cross\".")
 
-    type <- class(cross)[1]
+    type <- crosstype(cross)
     if(type != "bc" && type != "risib" && type != "riself")
         stop("This works only for a backcross or RIL.")
 
@@ -306,3 +306,15 @@ addlog <- function(..., threshold=200)
     }
     x
 }
+
+# determine cross type
+crosstype <-
+    function(cross)
+    {
+        type <- class(cross)
+        type <- type[type != "cross" & type != "list"]
+        if(length(type) > 1) {
+            warning("cross has multiple classes")
+        }
+        type[1]
+    }

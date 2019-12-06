@@ -15,6 +15,13 @@ copyright (c) 1999-2019, Karl W Broman
     at https://www.r-project.org/Licenses/GPL-3
 ----------------------------------------------------------------------
 
+Version 0.69, 2019-12-06:
+
+  Fix use of class(), using for example inherits(cross, "cross") to
+  determine if an object has class "cross". Also, added an internal
+  function crosstype() for grabbing the cross type.
+
+
 Version 0.68, 2019-05-21:
 
   Small bug fix re || vs | in function for gamma probabilities

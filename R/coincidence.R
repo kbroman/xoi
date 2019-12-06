@@ -49,7 +49,7 @@ est.coi <-
              fill.method=c("imp", "argmax"), error.prob=1e-10,
              map.function=c("haldane", "kosambi", "c-f", "morgan"))
 {
-    if(length(class(cross)) < 2 || class(cross)[1] != "bc")
+    if(!inherits(cross, "cross"))
         stop("This function is only prepared for backcrosses.")
 
     if(is.null(chr))

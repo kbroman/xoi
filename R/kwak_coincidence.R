@@ -32,7 +32,7 @@ coincidence <-
     if(nchr(cross) > 1)
         warning("Considering only chr ", names(cross$geno)[1])
 
-    if(class(cross)[1] != "bc")
+    if(crosstype(cross) != "bc")
         stop("coincidence() currently working only for a backcross.")
 
     g <- cross$geno[[1]]$data
