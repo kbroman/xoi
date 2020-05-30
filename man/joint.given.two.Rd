@@ -4,9 +4,17 @@
 \alias{joint.given.two}
 \title{Crossover locations given there are two}
 \usage{
-joint.given.two(nu, L = 103, x = NULL, y = NULL, n = 20,
-  max.conv = 25, integr.tol = 0.00000001, max.subd = 1000,
-  min.subd = 10)
+joint.given.two(
+  nu,
+  L = 103,
+  x = NULL,
+  y = NULL,
+  n = 20,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10
+)
 }
 \arguments{
 \item{nu}{The interference parameter in the gamma model.}

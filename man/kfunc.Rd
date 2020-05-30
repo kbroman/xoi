@@ -4,8 +4,13 @@
 \alias{kfunc}
 \title{estimate Ripley's K function}
 \usage{
-kfunc(x, d = seq(0, 100, by = 0.1), lengths = NULL, exclude = 0,
-  tol = 0.000001)
+kfunc(
+  x,
+  d = seq(0, 100, by = 0.1),
+  lengths = NULL,
+  exclude = 0,
+  tol = 0.000001
+)
 }
 \arguments{
 \item{x}{list with sorted locations of the data}

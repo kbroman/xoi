@@ -3,8 +3,10 @@
 \name{bssbsb}
 \alias{bssbsb}
 \title{BSS/BSB backcross data}
-\format{An object of class \code{cross}.  See \code{\link[qtl:read.cross]{qtl::read.cross()}}
-for details.}
+\format{
+An object of class \code{cross}.  See \code{\link[qtl:read.cross]{qtl::read.cross()}}
+for details.
+}
 \source{
 Lucy Rowe, Jackson Laboratory
 }

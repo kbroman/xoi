@@ -4,11 +4,25 @@
 \alias{fitGamma}
 \title{Fit Gamma model}
 \usage{
-fitGamma(d, censor = NULL, nu = NULL, lo = NULL, hi = NULL,
-  se = FALSE, supint = FALSE, rescale = FALSE, drop = 1.5,
-  tol = 0.00001, maxit = 1000, max.conv = 25,
-  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10, h = 0.1,
-  hstep = 1.5)
+fitGamma(
+  d,
+  censor = NULL,
+  nu = NULL,
+  lo = NULL,
+  hi = NULL,
+  se = FALSE,
+  supint = FALSE,
+  rescale = FALSE,
+  drop = 1.5,
+  tol = 0.00001,
+  maxit = 1000,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10,
+  h = 0.1,
+  hstep = 1.5
+)
 }
 \arguments{
 \item{d}{A vector of inter-crossover distances in cM.  This should include

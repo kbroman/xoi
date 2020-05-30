@@ -4,8 +4,16 @@
 \alias{stahlLoglik}
 \title{Calculate log likelihood for Stahl model}
 \usage{
-stahlLoglik(xoloc, chrlen = NULL, nu, p, max.conv = 25,
-  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10)
+stahlLoglik(
+  xoloc,
+  chrlen = NULL,
+  nu,
+  p,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10
+)
 }
 \arguments{
 \item{xoloc}{A list of crossover locations (in cM), each component being a

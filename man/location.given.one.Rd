@@ -4,8 +4,16 @@
 \alias{location.given.one}
 \title{Location of crossover given there is one}
 \usage{
-location.given.one(nu, L = 103, x = NULL, n = 400, max.conv = 25,
-  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10)
+location.given.one(
+  nu,
+  L = 103,
+  x = NULL,
+  n = 400,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10
+)
 }
 \arguments{
 \item{nu}{The interference parameter in the gamma model.}

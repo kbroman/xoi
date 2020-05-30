@@ -4,8 +4,16 @@
 \alias{first.given.two}
 \title{Location of first crossover given there are two}
 \usage{
-first.given.two(nu, L = 103, x = NULL, n = 400, max.conv = 25,
-  integr.tol = 0.00000001, max.subd = 1000, min.subd = 10)
+first.given.two(
+  nu,
+  L = 103,
+  x = NULL,
+  n = 400,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10
+)
 }
 \arguments{
 \item{nu}{The interference parameter in the gamma model.}

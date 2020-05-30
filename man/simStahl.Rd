@@ -4,8 +4,14 @@
 \alias{simStahl}
 \title{Simulate crossover locations under the Stahl model}
 \usage{
-simStahl(n.sim, nu = 1, p = 0, L = 100, obligate_chiasma = FALSE,
-  n.bins4start = 10000)
+simStahl(
+  n.sim,
+  nu = 1,
+  p = 0,
+  L = 100,
+  obligate_chiasma = FALSE,
+  n.bins4start = 10000
+)
 }
 \arguments{
 \item{n.sim}{Number of meiotic products to simulate.}

@@ -4,8 +4,14 @@
 \alias{xoprob}
 \title{Distribution of number of crossovers}
 \usage{
-xoprob(nu, L = 103, max.conv = 25, integr.tol = 0.00000001,
-  max.subd = 1000, min.subd = 10)
+xoprob(
+  nu,
+  L = 103,
+  max.conv = 25,
+  integr.tol = 0.00000001,
+  max.subd = 1000,
+  min.subd = 10
+)
 }
 \arguments{
 \item{nu}{The interference parameter in the gamma model.}

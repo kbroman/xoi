@@ -4,8 +4,13 @@
 \alias{chiasma}
 \title{Estimate chiasma distribution from crossover counts}
 \usage{
-chiasma(xo, max.chiasma = max(xo) * 2 + 5, n.iter = 10000,
-  tol = 0.000001, verbose = FALSE)
+chiasma(
+  xo,
+  max.chiasma = max(xo) * 2 + 5,
+  n.iter = 10000,
+  tol = 0.000001,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{xo}{Vector of non-negative integers; the number of crossovers in a set

@@ -4,9 +4,15 @@
 \alias{est.coi}
 \title{Estimate the coincidence function}
 \usage{
-est.coi(cross, chr = NULL, pos = NULL, window = 0,
-  fill.method = c("imp", "argmax"), error.prob = 0.0000000001,
-  map.function = c("haldane", "kosambi", "c-f", "morgan"))
+est.coi(
+  cross,
+  chr = NULL,
+  pos = NULL,
+  window = 0,
+  fill.method = c("imp", "argmax"),
+  error.prob = 0.0000000001,
+  map.function = c("haldane", "kosambi", "c-f", "morgan")
+)
 }
 \arguments{
 \item{cross}{Cross object; must be a backcross.  See
