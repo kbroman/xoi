@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kbroman/xoi.svg?branch=master)](https://travis-ci.org/kbroman/xoi)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
 
-[Karl W Broman](http://kbroman.org)
+[Karl W Broman](https://kbroman.org)
 
 ---
 
