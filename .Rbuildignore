@@ -1,6 +1,6 @@
 \.git
 ^README\.md$
-^LICENSE\.txt$
+^LICENSE\.md$
 \.gitignore
 Makefile
 ^\.travis\.yml$
