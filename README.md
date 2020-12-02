@@ -1,6 +1,6 @@
 ## R/xoi
 
-[![Build Status](https://travis-ci.org/kbroman/xoi.svg?branch=master)](https://travis-ci.org/kbroman/xoi)
+[![R build status](https://github.com/kbroman/xoi/workflows/R-CMD-check/badge.svg)](https://github.com/kbroman/xoi/actions)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
 
 [Karl W Broman](https://kbroman.org)

@@ -3,4 +3,4 @@
 ^LICENSE\.md$
 \.gitignore
 Makefile
-^\.travis\.yml$
+^\.github$
