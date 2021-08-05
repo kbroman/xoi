@@ -18,6 +18,10 @@ xoiversion <-
 {
     version <- unlist(utils::packageVersion("xoi"))
 
-    # make it like #.#-#
-    paste(c(version,".","-")[c(1,4,2,5,3)], collapse="")
+    if(length(version) == 3) {
+        # make it like #.#-#
+        return( paste(c(version, ".", "-")[c(1,4,2,5,3)], collapse="") )
+    }
+
+    paste(version, collapse=".")
 }
