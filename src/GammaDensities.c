@@ -254,6 +254,9 @@ void ioden(double *nu, double *x, double *y, int *n, int *max_conv)
     int i;
     struct integr_data temp;
 
+    // set up temp
+    setup_integr_par(1e-8, 1000, 10, &temp);
+
     for(i=0; i< *n; i++)
         y[i] = exp(ll(*nu, 0, x[i], *max_conv, temp));
 }
@@ -263,6 +266,9 @@ void firstden(double *nu, double *x, double *y, int *n, int *max_conv)
 {
     int i;
     struct integr_data temp;
+
+    // set up temp
+    setup_integr_par(1e-8, 1000, 10, &temp);
 
     for(i=0; i< *n; i++)
         y[i] = exp(ll(*nu, 1, x[i], *max_conv, temp));

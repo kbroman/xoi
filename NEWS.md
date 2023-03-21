@@ -1,5 +1,12 @@
 ## R/xoi revision history
 
+### Version 0.72, 2023-03-21
+
+- Changelog -> NEWS.md
+
+- Fixed "uninitialized variable" warning in C code.
+
+
 ### Version 0.70, 2022-01-21
 
 - Revise xoiversion() to handle a case like "0.70".
