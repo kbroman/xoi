@@ -1,6 +1,6 @@
 Package: xoi
-Version: 0.70
-Date: 2022-01-21
+Version: 0.72
+Date: 2023-03-21
 Depends:
     R (>= 2.10.1),
     qtl
