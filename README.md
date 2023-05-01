@@ -1,7 +1,8 @@
 ## R/xoi
 
-[![R build status](https://github.com/kbroman/xoi/workflows/R-CMD-check/badge.svg)](https://github.com/kbroman/xoi/actions)
+[![R-CMD-check](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
+[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3087093.svg)](https://doi.org/10.5281/zenodo.3087093)
 
 [Karl W Broman](https://kbroman.org)
 
