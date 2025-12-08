@@ -1,5 +1,5 @@
 Package: xoi
-Version: 0.73-1
+Version: 0.74
 Date: 2025-12-08
 Depends:
     R (>= 2.10.1),
