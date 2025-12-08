@@ -1,5 +1,10 @@
 ## R/xoi revision history
 
+### Version 0.73-1, 2025-12-08
+
+- Removed includes of `R_ext/PrtUtil.h` which began causing warnings on CRAN.
+
+
 ### Version 0.72, 2023-03-21
 
 - Changelog -> NEWS.md

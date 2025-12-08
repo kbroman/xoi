@@ -27,7 +27,6 @@
  **********************************************************************/
 
 #define USE_RINTEGRATE
-#include <R_ext/PrtUtil.h>
 
 /* global variables */
 struct integr_data {
