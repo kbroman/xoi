@@ -1,5 +1,10 @@
 ## R/xoi revision history
 
+### Version 0.75-1, 2026-06-06
+
+- Added a package logo.
+
+
 ### Version 0.74, 2025-12-08
 
 - Removed includes of `R_ext/PrtUtil.h` which began causing warnings on CRAN.

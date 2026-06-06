@@ -6,6 +6,8 @@
 \alias{xoi-package}
 \title{xoi: Tools for Analyzing Crossover Interference}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Analysis of crossover interference in experimental crosses, particularly regarding the gamma model. See, for example, Broman and Weber (2000) \doi{10.1086/302923}.
 }
 \seealso{
