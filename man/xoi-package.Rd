@@ -10,6 +10,12 @@
 
 Analysis of crossover interference in experimental crosses, particularly regarding the gamma model. See, for example, Broman and Weber (2000) \doi{10.1086/302923}.
 }
+\section{Vignette}{
+
+
+See the \href{https://kbroman.org/xoi/xoi.html}{online user guide}.
+}
+
 \seealso{
 Useful links:
 \itemize{
