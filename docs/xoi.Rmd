@@ -1,0 +1,144 @@
+---
+title: R/xoi User Guide
+output: html_document
+---
+
+```{r knitr_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=7, fig.height=4.5)
+old_digits <- options("digits")$digits
+options(digits=3)
+library(broman)
+```
+
+<link rel=stylesheet type="text/css" href="https://kbroman.org/stylesheets/kbroman_vignette.css"></script>
+
+<a href="https://github.com/kbroman/xoi"><img src="https://kbroman.org/xoi/xoi_logo.png" align="right" height="138" alt="R/xoi logo"/></a>
+
+[![R-CMD-check](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
+[![r-universe badge](https://kbroman.r-universe.dev/xoi/badges/version)](https://kbroman.r-universe.dev/xoi)
+[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3087093.svg)](https://doi.org/10.5281/zenodo.3087093)
+
+R/xoi is an R package for the analysis of crossover interference in
+experimental crosses, particularly regarding the gamma model.
+It has a rather disparate set of functions, which here I seek to
+organize and explain.
+
+
+### Estimates from crossover count data
+
+- [`countxo`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#countxo) -
+  - calculate the numbers of crossovers in backcross data
+
+- [`chiasma`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#chiasma) -
+  estimate the distribution of the number of chiasmata, given
+  crossover count data and the assumption of no chromatid
+  interference, and assuming either Poisson counts or unconstrained,
+  and with or without an obligate chiasma
+
+### Estimates from crossover location data
+
+- [`find.breaks`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#find.breaks) -
+  estimate crossover locations in a backcross
+
+- [`convertxoloc`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#convertxoloc) -
+  convert the crossover location data from the format produced by
+  `find.breaks()` to that needed for `fitGamma()`
+
+### Estimate the recombination rate along chromosomes
+
+- [`est.recrate`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.recrate) -
+  obtain a smoothed estimate of the recombination rate along a
+  chromosome, from the cM and Mbp positions of markers
+
+- [`recrate2scanone`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#recrate2scanone) -
+  convert the output of `est.recrate()` in the the format output by
+  `qtl::scanone()`, so it can be plotted with `qtl::plot.scanone()`.
+
+
+### Measures of interference
+
+- [`est.coi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.coi) -
+  estimate the coincidence function from backcross data
+
+- [`coincidence`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#coincidence) -
+  an alternative estimate of the coincidence function from backcross data
+
+- [`est.coi.um`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.coi.um) -
+  estimate the coincidence as a function of micron distance
+
+- [`kfunc`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#kfunc) -
+  estimate the one-dimensional version of Ripley's K function
+
+
+### Data and simulation
+
+- [`bssbsb`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#bssbsb) -
+  data from a pair of mouse backcrosses, B6 &times; Spret
+
+- [`simStahl`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#simStahl) -
+  simulate data from the Stahl model, an extension to the Gamma model
+  where crossovers come from the superposition of two processes, one
+  with crossover interference and one without.
+
+
+### Fit Gamma and Stahl models
+
+- [`fitGamma`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#fitGamma) -
+  fit the gamma model for crossover interference from data on
+  crossover locations.
+
+- [`fitStahl`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#fitStahl) -
+  fit the gamma model for crossover interference from data on
+  crossover locations.
+
+- [`stahlLoglik`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#stahlLoglik) -
+  calculate the log likelihood for the Stahl model, with data on
+  crossover locations.
+
+
+### Calculations related to the Gamma model
+
+A bunch of calculations related to the Gamma model
+
+- [`xoprob`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#xoprob) -
+  probability distribution of the number of crossovers for a
+  chromosome of a given length, for the gamma model
+
+- [`ioden`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#ioden) -
+  the density of the distance from a given crossover to the next
+  crossover, for the gamma model
+
+- [`location.given.one`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#location.given.one) -
+  calculate the density function for the location of the crossover
+  given that there is precisely one
+
+- [`distance.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#distance.given.two) -
+  the density function for the distance between the two crossovers
+  given that there are exactly two
+
+- [`joint.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#joint.given.two) -
+  the joint density function feor the locations of two crossovers
+  given that there are exactly two
+
+- [`firstden`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#firstden) -
+  the density function of the distance from an arbitrary point to the next
+  crossover
+
+- [`first.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#first.given.two) -
+  the density function for the location of the first crossover given
+  that there are exactly two
+
+- [`gammacoi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#gammacoi) -
+  the coincidence function for the gamma model
+
+- [`stahlcoi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#stahlcoi) -
+  the coincidence function for the Stahl model
+
+- [`intensity`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#intensity) -
+
+
+---
+
+[![CC BY](https://i.creativecommons.org/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/3.0/)
+&nbsp; &nbsp; [Karl Broman](https://kbroman.org/)

@@ -12,6 +12,35 @@
 R/xoi is an R package for the analysis of crossover interference in
 experimental crosses, particularly regarding the gamma model.
 
+### Installation
+
+
+Install the R/xoi package  from [R
+universe](https://kbroman.r-universe.dev):
+
+```r
+install.packages("xoi", repos="https://kbroman.r-universe.dev")
+```
+
+Alternatively, use [remotes](https://remotes.r-lib.org) to install it from its GitHub source:
+
+```r
+install.packages("remotes")
+library(remotes)
+install_github("kbroman/xoi")
+```
+
+
+
+---
+
+### Vignette
+
+
+A vignette describing the functions in the package is available
+[on the web](https://kbroman.org/xoi/xoi.html).
+
+
 ### License
 
 This package is free software; you can redistribute it and/or modify it
