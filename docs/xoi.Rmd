@@ -28,28 +28,28 @@ organize and explain.
 ### Estimates from crossover count data
 
 - [`countxo`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#countxo) -
-  calculate the numbers of crossovers in backcross data
+  calculate the numbers of crossovers in backcross data.
 
 - [`chiasma`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#chiasma) -
   estimate the distribution of the number of chiasmata, given
   crossover count data and the assumption of no chromatid
   interference, and assuming either Poisson counts or unconstrained,
-  and with or without an obligate chiasma
+  and with or without an obligate chiasma.
 
 ### Estimates from crossover location data
 
 - [`find.breaks`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#find.breaks) -
-  estimate crossover locations in a backcross
+  estimate crossover locations in a backcross.
 
 - [`convertxoloc`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#convertxoloc) -
   convert the crossover location data from the format produced by
-  `find.breaks()` to that needed for `fitGamma()`
+  `find.breaks()` to that needed for `fitGamma()`.
 
 ### Estimate the recombination rate along chromosomes
 
 - [`est.recrate`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.recrate) -
   obtain a smoothed estimate of the recombination rate along a
-  chromosome, from the cM and Mbp positions of markers
+  chromosome, from the cM and Mbp positions of markers.
 
 - [`recrate2scanone`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#recrate2scanone) -
   convert the output of `est.recrate()` in the the format output by
@@ -57,29 +57,29 @@ organize and explain.
 
 - [`intensity`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#intensity) -
   an estimate of the intensity function along a chromosome, from data
-  on a backcross; goes with `coincidence()`
+  on a backcross; goes with `coincidence()`.
 
 
 
 ### Measures of interference
 
 - [`est.coi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.coi) -
-  estimate the coincidence function from backcross data
+  estimate the coincidence function from backcross data.
 
 - [`coincidence`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#coincidence) -
-  an alternative estimate of the coincidence function from backcross data
+  an alternative estimate of the coincidence function from backcross data.
 
 - [`est.coi.um`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#est.coi.um) -
-  estimate the coincidence as a function of micron distance
+  estimate the coincidence as a function of micron distance.
 
 - [`kfunc`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#kfunc) -
-  estimate the one-dimensional version of Ripley's K function
+  estimate the one-dimensional version of Ripley's K function.
 
 
 ### Data and simulation
 
 - [`bssbsb`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#bssbsb) -
-  data from a pair of mouse backcrosses, B6 &times; Spret
+  data from a pair of mouse backcrosses, B6 &times; Spret.
 
 - [`simStahl`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#simStahl) -
   simulate data from the Stahl model, an extension to the Gamma model
@@ -104,41 +104,39 @@ organize and explain.
 
 ### Calculations related to the Gamma model
 
-A bunch of calculations related to the Gamma model
-
 - [`xoprob`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#xoprob) -
   probability distribution of the number of crossovers for a
-  chromosome of a given length, for the gamma model
+  chromosome of a given length, for the gamma model.
 
 - [`ioden`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#ioden) -
   the density of the distance from a given crossover to the next
-  crossover, for the gamma model
+  crossover, for the gamma model.
 
 - [`location.given.one`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#location.given.one) -
   calculate the density function for the location of the crossover
-  given that there is precisely one
+  given that there is precisely one, for the gamma model.
 
 - [`distance.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#distance.given.two) -
   the density function for the distance between the two crossovers
-  given that there are exactly two
+  given that there are exactly two, for the gamma model.
 
 - [`joint.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#joint.given.two) -
   the joint density function feor the locations of two crossovers
-  given that there are exactly two
+  given that there are exactly two, for the gamma model.
 
 - [`firstden`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#firstden) -
   the density function of the distance from an arbitrary point to the next
-  crossover
+  crossover, for the gamma model.
 
 - [`first.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#first.given.two) -
   the density function for the location of the first crossover given
-  that there are exactly two
+  that there are exactly two, for the gamma model.
 
 - [`gammacoi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#gammacoi) -
-  the coincidence function for the gamma model
+  the coincidence function for the gamma model.
 
 - [`stahlcoi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#stahlcoi) -
-  the coincidence function for the Stahl model
+  the coincidence function for the Stahl model.
 
 
 ---
