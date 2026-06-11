@@ -1,4 +1,4 @@
-## R/xoi <a href="https://github.com/kbroman/xoi"><img src="figures/xoi_logo.png" align="right" height="138" alt="R/xoi logo"/></a>
+## R/xoi <a href="https://github.com/kbroman/xoi"><img src="https://kbroman.org/xoi/xoi_logo.png" align="right" height="138" alt="R/xoi logo"/></a>
 
 [![R-CMD-check](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
