@@ -28,7 +28,7 @@ organize and explain.
 ### Estimates from crossover count data
 
 - [`countxo`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#countxo) -
-  - calculate the numbers of crossovers in backcross data
+  calculate the numbers of crossovers in backcross data
 
 - [`chiasma`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#chiasma) -
   estimate the distribution of the number of chiasmata, given
@@ -54,6 +54,11 @@ organize and explain.
 - [`recrate2scanone`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#recrate2scanone) -
   convert the output of `est.recrate()` in the the format output by
   `qtl::scanone()`, so it can be plotted with `qtl::plot.scanone()`.
+
+- [`intensity`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#intensity) -
+  an estimate of the intensity function along a chromosome, from data
+  on a backcross; goes with `coincidence()`
+
 
 
 ### Measures of interference
@@ -134,8 +139,6 @@ A bunch of calculations related to the Gamma model
 
 - [`stahlcoi`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#stahlcoi) -
   the coincidence function for the Stahl model
-
-- [`intensity`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#intensity) -
 
 
 ---
