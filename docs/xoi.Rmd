@@ -33,7 +33,7 @@ organize and explain.
 - [`chiasma`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#chiasma) -
   estimate the distribution of the number of chiasmata, given
   crossover count data and the assumption of no chromatid
-  interference, and assuming either Poisson counts or unconstrained,
+  interference, and assuming either a Poisson or unconstrained distribution,
   and with or without an obligate chiasma.
 
 ### Estimates from crossover location data
