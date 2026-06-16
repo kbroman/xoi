@@ -121,7 +121,7 @@ organize and explain.
   given that there are exactly two, for the gamma model.
 
 - [`joint.given.two`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#joint.given.two) -
-  the joint density function feor the locations of two crossovers
+  the joint density function for the locations of two crossovers
   given that there are exactly two, for the gamma model.
 
 - [`firstden`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#firstden) -
