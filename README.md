@@ -8,6 +8,8 @@
 R/xoi is an R package for the analysis of crossover interference in
 experimental crosses, particularly regarding the gamma model.
 
+---
+
 ### Installation
 
 
@@ -26,8 +28,6 @@ library(remotes)
 install_github("kbroman/xoi")
 ```
 
-
-
 ---
 
 ### Vignette
@@ -36,6 +36,7 @@ install_github("kbroman/xoi")
 A vignette describing the functions in the package is available
 [on the web](https://kbroman.org/xoi/xoi.html).
 
+---
 
 ### License
 
