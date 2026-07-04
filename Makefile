@@ -14,5 +14,6 @@ test:
 
 vignette: docs/xoi.html
 
-docs/xoi.html: docs/xoi.Rmd
+docs/xoi.html: docs/xoi.Rmd docs/badges.html docs/paste_badges.R
 	cd $(<D);R $(R_OPTS) -e "rmarkdown::render('$(<F)')"
+	cd $(@D);paste_badges.R $(@F)

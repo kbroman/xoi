@@ -14,10 +14,7 @@ library(broman)
 
 <a href="https://github.com/kbroman/xoi"><img src="https://kbroman.org/xoi/xoi_logo.png" align="right" height="138" alt="R/xoi logo"/></a>
 
-[![R-CMD-check](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kbroman/xoi/actions/workflows/R-CMD-check.yaml)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/xoi)](https://cran.r-project.org/package=xoi)
-[![r-universe badge](https://kbroman.r-universe.dev/xoi/badges/version)](https://kbroman.r-universe.dev/xoi)
-[![zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3087093.svg)](https://doi.org/10.5281/zenodo.3087093)
+<!-- paste badges here -->
 
 R/xoi is an R package for the analysis of crossover interference in
 experimental crosses, particularly regarding the gamma model.
