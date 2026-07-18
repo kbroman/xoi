@@ -1,6 +1,6 @@
 ## R/xoi revision history
 
-### Version 0.75-2, 2026-06-11
+### Version 0.76, 2026-07-18
 
 - Added a package logo.
 
