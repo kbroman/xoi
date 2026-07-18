@@ -91,7 +91,7 @@ organize and explain.
   crossover locations.
 
 - [`fitStahl`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#fitStahl) -
-  fit the gamma model for crossover interference from data on
+  fit the Stahl model for crossover interference from data on
   crossover locations.
 
 - [`stahlLoglik`](https://cran.r-project.org/web/packages/xoi/refman/xoi.html#stahlLoglik) -
